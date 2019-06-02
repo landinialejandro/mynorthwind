@@ -100,7 +100,7 @@
 ?>
 
 <?php if(!$noSignup){ ?>
-	<div class="row">
+	<div class="row" style="background-color: Transparent;">
 		<div class="hidden-xs col-sm-4 col-md-6 col-lg-8" id="signup_splash">
 			<!-- customized splash content here -->
 		</div>

@@ -5,7 +5,7 @@
 	<div class="alert alert-danger"><?php echo $Translation['login failed']; ?></div>
 <?php } ?>
 
-<div class="row">
+<div class="row" style="background-color: Transparent;">
 	<div class="col-sm-6 col-lg-8" id="login_splash">
 		<!-- customized splash content here -->
 	</div>
