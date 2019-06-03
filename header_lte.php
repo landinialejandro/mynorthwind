@@ -99,7 +99,6 @@
 									$j(".sidebar-toggle").remove();
 									$j(".logo").remove();
 									$j(".navbar-custom-menu ul").prepend('<li><a href="index.php?signIn=1"><i class="fa fa-fw fa-caret-left"></i> Back to login</a></li>');
-									$j("row").css("background-color","Transparent")
 								</script>
 								<?php
 								

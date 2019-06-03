@@ -48,7 +48,7 @@
                                                         </a>
                                                         <ul class="treeview-menu">
                                                             <?php
-                                                                    
+                                            }   
                                                                     foreach ($lte_tables as $lte_table){
                                                                         $tc = $arrTables[$lte_table];
                                                                         $count_badge ='';
@@ -91,40 +91,14 @@
                                                                             <?php
                                                                         }
                                                                     }
+                                                                    if (($lte_group !== 'None') ){
                                                             ?>
+
                                                         </ul>
                                                     </li>
                                                 <?php
+                                                                    }
                                                 $i ++;
-                                            }else{
-                                                // if the tables hasent group
-                                                foreach ($lte_tables as $lte_table){
-                                                    $tc = $arrTables[$lte_table];
-                                                    $count_badge ='';
-                                                    if($tc['homepageShowCount']){
-                                                        $sql_from = get_sql_from($lte_table);
-                                                        $count_records = ($sql_from ? sqlValue("select count(1) from " . $sql_from) : 0);
-                                                        $count_badge = '<small class="label pull-right bg-green">' . number_format($count_records) . '</small>';
-                                                    }
-                                                    /* hide current table in homepage? */
-                                                    $tChkHL = array_search($lte_table, array('ordersDetails','creditDocument','_resumeOrders', 'electronicInvoice','modalitaPagamento','codiceDestinatario','regimeFiscale','tipoCassa'));
-                                                    if($tChkHL === false || $tChkHL === null){ /* if table is not set as hidden in homepage */ ?>
-                                                        <li class ="<?php echo ($lte_table === $x->TableName ? 'active' : ''); ?>">
-                                                            <a href="<?php echo $lte_table; ?>_view.php">
-                                                                <?php echo ($tc['tableIcon'] ? '<img src="' . $tc['tableIcon'] . '">' : '');?>
-                                                                <strong class="ta|ble-caption">
-                                                                    <?php 
-                                                                        $dot = (strlen($tc['Caption']) > $len) ? "..." : "";
-                                                                        echo substr($tc['Caption'],0,$len).$dot; 
-                                                                    ?>
-                                                                </strong>
-                                                                <?php echo $count_badge; ?>
-                                                            </a>
-                                                        </li>
-                                                        <?php
-                                                    }
-                                                }
-                                            }
                                         }else{
                                             ?>
                                             <li class="active"><a href="#"><i class="fa fa-link"></i> <span><?php echo $lte_group; ?></span></a></li>
