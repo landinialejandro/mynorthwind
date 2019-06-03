@@ -84,7 +84,8 @@
 
 		/* table groups */
 		$tg = array(
-			'None'
+			'None',
+			'Locations'
 		);
 
 		$all_tables = array(
@@ -92,28 +93,28 @@
 				'orders' => array(
 					'Caption' => 'Orders',
 					'Description' => '',
-					'tableIcon' => 'table.gif',
+					'tableIcon' => 'resources/table_icons/action_log.png',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				),
 				'contacts' => array(
 					'Caption' => 'Contacts',
 					'Description' => '',
-					'tableIcon' => 'table.gif',
+					'tableIcon' => 'resources/table_icons/administrator.png',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				),
 				'addresses' => array(
 					'Caption' => 'Addresses',
 					'Description' => '',
-					'tableIcon' => 'table.gif',
-					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'tableIcon' => 'resources/table_icons/32_bit.png',
+					'group' => $tg[1],
+					'homepageShowCount' => 1
 				),
 				'companies' => array(
 					'Caption' => 'Companies',
 					'Description' => '',
-					'tableIcon' => 'table.gif',
+					'tableIcon' => 'resources/table_icons/balance.png',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				)

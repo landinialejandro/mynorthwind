@@ -76,7 +76,7 @@
 	$x->ScriptFileName = "contacts_view.php";
 	$x->RedirectAfterInsert = "contacts_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Contacts";
-	$x->TableIcon = "table.gif";
+	$x->TableIcon = "resources/table_icons/administrator.png";
 	$x->PrimaryKey = "`contacts`.`id`";
 
 	$x->ColWidth   = array(  150);

@@ -81,7 +81,7 @@
 	$x->ScriptFileName = "orders_view.php";
 	$x->RedirectAfterInsert = "orders_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Orders";
-	$x->TableIcon = "table.gif";
+	$x->TableIcon = "resources/table_icons/action_log.png";
 	$x->PrimaryKey = "`orders`.`id`";
 
 	$x->ColWidth   = array(  150, 150);

@@ -76,7 +76,7 @@
 	$x->ScriptFileName = "companies_view.php";
 	$x->RedirectAfterInsert = "companies_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Companies";
-	$x->TableIcon = "table.gif";
+	$x->TableIcon = "resources/table_icons/balance.png";
 	$x->PrimaryKey = "`companies`.`id`";
 
 	$x->ColWidth   = array(  150);

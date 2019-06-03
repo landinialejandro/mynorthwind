@@ -45,10 +45,10 @@
 		$arrAccessTables = array();
 		$arrTables = array(
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */   
-			'orders' => array('Orders', '', 'table.gif', 'None'),
-			'contacts' => array('Contacts', '', 'table.gif', 'None'),
-			'addresses' => array('Addresses', '', 'table.gif', 'None'),
-			'companies' => array('Companies', '', 'table.gif', 'None')
+			'orders' => array('Orders', '', 'resources/table_icons/action_log.png', 'None'),
+			'contacts' => array('Contacts', '', 'resources/table_icons/administrator.png', 'None'),
+			'addresses' => array('Addresses', '', 'resources/table_icons/32_bit.png', 'Locations'),
+			'companies' => array('Companies', '', 'resources/table_icons/balance.png', 'None')
 		);
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -68,7 +68,7 @@
 
 	function get_table_groups($skip_authentication = false){
 		$tables = getTableList($skip_authentication);
-		$all_groups = array('None');
+		$all_groups = array('None', 'Locations');
 
 		$groups = array();
 		foreach($all_groups as $grp){

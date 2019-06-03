@@ -76,7 +76,7 @@
 	$x->ScriptFileName = "addresses_view.php";
 	$x->RedirectAfterInsert = "addresses_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Addresses";
-	$x->TableIcon = "table.gif";
+	$x->TableIcon = "resources/table_icons/32_bit.png";
 	$x->PrimaryKey = "`addresses`.`id`";
 
 	$x->ColWidth   = array(  150);
