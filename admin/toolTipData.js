@@ -83,6 +83,24 @@ companies_delete1Tip=["",spacer+"This option allows each member of the group to 
 companies_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Companies' table."];
 companies_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Companies' table."];
 
+// logins table
+logins_addTip=["",spacer+"This option allows all members of the group to add records to the 'Logins' table. A member who adds a record to the table becomes the 'owner' of that record."];
+
+logins_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Logins' table."];
+logins_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Logins' table."];
+logins_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Logins' table."];
+logins_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Logins' table."];
+
+logins_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Logins' table."];
+logins_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Logins' table."];
+logins_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Logins' table."];
+logins_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Logins' table, regardless of their owner."];
+
+logins_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Logins' table."];
+logins_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Logins' table."];
+logins_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Logins' table."];
+logins_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Logins' table."];
+
 /*
 	Style syntax:
 	-------------

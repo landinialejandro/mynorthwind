@@ -26,6 +26,10 @@
 		'companies' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'name' => array('appgini' => 'VARCHAR(40) null ')
+		),
+		'logins' => array(   
+			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
+			'ip' => array('appgini' => 'VARCHAR(40) null ')
 		)
 	);
 

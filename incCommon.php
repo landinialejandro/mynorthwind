@@ -48,7 +48,8 @@
 			'orders' => array('Orders', '', 'resources/table_icons/action_log.png', 'None'),
 			'contacts' => array('Contacts', '', 'resources/table_icons/administrator.png', 'None'),
 			'addresses' => array('Addresses', '', 'resources/table_icons/32_bit.png', 'Locations'),
-			'companies' => array('Companies', '', 'resources/table_icons/balance.png', 'None')
+			'companies' => array('Companies', '', 'resources/table_icons/balance.png', 'None'),
+			'logins' => array('Logins', '', 'table.gif', 'hidden')
 		);
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -68,7 +69,7 @@
 
 	function get_table_groups($skip_authentication = false){
 		$tables = getTableList($skip_authentication);
-		$all_groups = array('None', 'Locations');
+		$all_groups = array('None', 'Locations', 'hidden');
 
 		$groups = array();
 		foreach($all_groups as $grp){
@@ -138,7 +139,8 @@
 			'orders' => "`orders`.`id` as 'id', `orders`.`orderNumber` as 'orderNumber', `orders`.`customer` as 'customer'",
 			'contacts' => "`contacts`.`id` as 'id', `contacts`.`fullName` as 'fullName'",
 			'addresses' => "`addresses`.`id` as 'id', `addresses`.`address` as 'address'",
-			'companies' => "`companies`.`id` as 'id', `companies`.`name` as 'name'"
+			'companies' => "`companies`.`id` as 'id', `companies`.`name` as 'name'",
+			'logins' => "`logins`.`id` as 'id', `logins`.`ip` as 'ip'"
 		);
 
 		if(isset($sql_fields[$table_name])){
@@ -155,14 +157,16 @@
 			'orders' => "`orders` ",
 			'contacts' => "`contacts` ",
 			'addresses' => "`addresses` ",
-			'companies' => "`companies` "
+			'companies' => "`companies` ",
+			'logins' => "`logins` "
 		);
 
 		$pkey = array(   
 			'orders' => 'id',
 			'contacts' => 'id',
 			'addresses' => 'id',
-			'companies' => 'id'
+			'companies' => 'id',
+			'logins' => 'id'
 		);
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -227,6 +231,10 @@
 			'companies' => array(
 				'id' => '',
 				'name' => ''
+			),
+			'logins' => array(
+				'id' => '',
+				'ip' => ''
 			)
 		);
 

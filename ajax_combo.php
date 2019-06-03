@@ -40,6 +40,8 @@
 		'addresses' => array(  
 		),
 		'companies' => array(  
+		),
+		'logins' => array(  
 		)
 	);
 

@@ -15,6 +15,7 @@
 		setupTable('contacts', "create table if not exists `contacts` (   `id` INT unsigned not null auto_increment , primary key (`id`), `fullName` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('addresses', "create table if not exists `addresses` (   `id` INT unsigned not null auto_increment , primary key (`id`), `address` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('companies', "create table if not exists `companies` (   `id` INT unsigned not null auto_increment , primary key (`id`), `name` VARCHAR(40) null ) CHARSET utf8", $silent);
+		setupTable('logins', "create table if not exists `logins` (   `id` INT unsigned not null auto_increment , primary key (`id`), `ip` VARCHAR(40) null ) CHARSET utf8", $silent, array( "ALTER TABLE `table5` RENAME `logins`","UPDATE `membership_userrecords` SET `tableName`='logins' where `tableName`='table5'","UPDATE `membership_userpermissions` SET `tableName`='logins' where `tableName`='table5'","UPDATE `membership_grouppermissions` SET `tableName`='logins' where `tableName`='table5'","ALTER TABLE logins ADD `field1` VARCHAR(40)","ALTER TABLE `logins` CHANGE `field1` `id` VARCHAR(40) null ","ALTER TABLE `logins` CHANGE `id` `id` INT unsigned not null auto_increment ","ALTER TABLE logins ADD `field2` VARCHAR(40)","ALTER TABLE `logins` CHANGE `field2` `ip` VARCHAR(40) null "));
 
 
 		// save MD5

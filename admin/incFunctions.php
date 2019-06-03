@@ -85,7 +85,8 @@
 		/* table groups */
 		$tg = array(
 			'None',
-			'Locations'
+			'Locations',
+			'hidden'
 		);
 
 		$all_tables = array(
@@ -117,6 +118,13 @@
 					'tableIcon' => 'resources/table_icons/balance.png',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
+				),
+				'logins' => array(
+					'Caption' => 'Logins',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[2],
+					'homepageShowCount' => 0
 				)
 		);
 
@@ -136,7 +144,8 @@
 				'orders' => 'Orders',
 				'contacts' => 'Contacts',
 				'addresses' => 'Addresses',
-				'companies' => 'Companies'
+				'companies' => 'Companies',
+				'logins' => 'Logins'
 			);
 
 			return $arrTables;
