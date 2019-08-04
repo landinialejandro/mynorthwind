@@ -1013,11 +1013,12 @@
 	########################################################################
 	function application_url($page = '', $s = false) {
 		if($s === false) $s = $_SERVER;
-		$ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on');
+		$ssl = (!empty($s['HTTPS']) && strtolower($s['HTTPS']) != 'off');
 		$http = ($ssl ? 'https:' : 'http:');
 		$port = $s['SERVER_PORT'];
-		$port = ((!$ssl && $port == '80') || ($ssl && $port == '443') || !$port) ? '' : ':' . $port;
-		$host = (isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : $s['SERVER_NAME']) . $port;
+		$port = ($port == '80' || $port == '443' || !$port) ? '' : ':' . $port;
+		// HTTP_HOST already includes server port if not standard, but SERVER_NAME doesn't
+		$host = (isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : $s['SERVER_NAME'] . $port);
 
 		$uri = config('appURI');
 		if(!$uri) $uri = '/';
