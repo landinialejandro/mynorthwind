@@ -20,6 +20,14 @@
                         <!-- Navbar Right Menu -->
                         <div class="navbar-custom-menu">
                             <ul class="nav navbar-nav">
+                              <!-- language menu -->
+                              <?php
+                                if (file_exists("language/lang_menu.php")){
+                                  include "language/lang_menu.php";
+
+                                }
+                              ?>
+                              <!-- language menu -->
                              <!-- User Account Menu -->
                                 <li class="dropdown user user-menu">
                                   <!-- Menu Toggle Button -->
