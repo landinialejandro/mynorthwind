@@ -3,15 +3,15 @@
 // 
 // Author: Alejandro Landini
 // toDo: 
-// revision:
+// revision: 0
 // 
 
 class JsonFile {
-    public $menssage;
-    public $path;
-    public $filename;
-    public $json;
-    public $data;
+    public $menssage; //return control message
+    public $path; //path to put file
+    public $filename; //insput the file name
+    public $json; //return string json format data
+    public $data; //return array object
     private $file;
 
     public function __construct($path='', $filename='') {
@@ -43,7 +43,7 @@ class JsonFile {
             return file_exists($this->file);
         }
 
-        private function GetFile(){
+        private function GetFile(){ //get content file and update de json object and data
             if ($this->existFile()){
                 $this->json = file_get_contents($this->file);
                 return json_decode($this->json,true);
@@ -52,13 +52,13 @@ class JsonFile {
             }
         }
         
-        public function Add($json=""){ //to file
+        public function Add($json=""){ //to file and push in array object
             if ($json){
+                $a[]=json_decode($json,true);
                 if (empty($this->data)){
-                    $a[]=json_decode($json,true);
                     $this->data=$a;
                 }else{
-                    array_push($this->data, json_decode($json,true));
+                    array_push($this->data, $a);
                 }
             }
             $this->CreateFile();
@@ -68,15 +68,15 @@ class JsonFile {
 
 
 //test
-$hooks_dir = dirname(__FILE__);
-$a = new JsonFile($hooks_dir.'/../language/',"config_prueba.json");
-$a->Add('{"user":"admin","lang":"es"}');
-echo $a->json;
-echo "<br>";
-var_dump($a->data);
-echo "<br>";
-echo $a->menssage;
-echo "<br>";
-echo $a->filename;
-echo "<br>";
-echo $a->path;
+// $hooks_dir = dirname(__FILE__);
+// $a = new JsonFile($hooks_dir.'/../language/',"config_prueba.json");
+// $a->Add('{"user":"admin","lang":"es"}');
+// echo $a->json;
+// echo "<br>";
+// var_dump($a->data);
+// echo "<br>";
+// echo $a->menssage;
+// echo "<br>";
+// echo $a->filename;
+// echo "<br>";
+// echo $a->path;
