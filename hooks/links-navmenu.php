@@ -11,3 +11,11 @@
 		);
 	*/
 
+
+	/* summary_reports links */
+	$navLinks[] = array(
+		'url' => 'hooks/summary-reports.php',
+		'title' => 'Summary Reports',
+		'groups' => array('*'),
+		'icon' => 'hooks/summary_reports-logo-md.png'
+	);
