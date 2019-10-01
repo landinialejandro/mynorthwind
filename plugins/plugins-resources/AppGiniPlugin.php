@@ -269,7 +269,7 @@
 		 * @return string '<link rel="stylesheet" ...'
 		 */
 		public function get_theme_css_links(){
-			$host_app_header = @file_get_contents(dirname(__FILE__) . '/../../header_old.php');
+			$host_app_header = @file_get_contents(dirname(__FILE__) . '/../../header_old.php'); //update this line to get old them
 			if(!$host_app_header){
 				/* try to guess the theme and assume no 3D effect */
 				return '<link rel="stylesheet" href="../../resources/initializr/css/bootstrap.css">';
