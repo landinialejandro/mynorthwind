@@ -133,59 +133,55 @@ foreach ($languajes as $key => $value){
             }
             $lang_detected = $languajes_array[$value];
         }else{
-            $lang_detected = "$value - not identified";
+            $value = 'en';
         }
 }
 
 ?>
 
-
-
-
-
-<li class="dropdown user user-menu">
+<li class="dropdown task-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <span class="fa fa-language">&nbsp&nbsp<?php echo strtoupper($value); ?> </span>
         <span class="caret"></span>
     </a>
 
     <ul class="dropdown-menu">
-        <li class="user-header">
+        <li class="heder">
+            <h2>
             <p class="">
-                <span class="">Hallo Welt</span>
-                <span class="">Hello world</span>
-                <span class="">Hello world</span>
-                <span class="">Hola mundo</span>
-                <span class="">Bonjour le monde</span>
-                <span class="">Ciao mondo</span>
-                <span class="">Helló Világ</span>
-                <span class="">Witaj, świecie</span>
-                <span class="">Olá, Mundo</span>
-                <span class="">Salut lume</span>
-                <span class="">Merhaba Dünya</span>
-                <span class="">Здравствуй, мир</span>
-                <span class="">Hello world</span>
-                <span class="">
+                <span class="es" <?php echo $value == "es" ? "" : "hidden" ; ?>>Hola mundo</span>
+                <span class="fr" <?php echo $value == "fr" ? "" : "hidden" ; ?>>Bonjour le monde</span>
+                <span class="it" <?php echo $value == "it" ? "" : "hidden" ; ?>>Ciao mondo</span>
+                <span class="br" <?php echo $value == "br" ? "" : "hidden" ; ?>>Olá, Mundo</span>
+                <span class="ru" <?php echo $value == "ru" ? "" : "hidden" ; ?>>Здравствуй, мир</span>
+                <span class="ru" <?php echo $value == "en" ? "" : "hidden" ; ?>>Hello World</span>
                 <?php
-                echo $lang_detected;
+                //echo $lang_detected;
+                //var_dump ($languajes);
                 ?>
                 </span>
             </p>
+            </h2>
         </li>
         <li class="user-body">
-            <button type="button" class="btn dropdown-content"><strong class="">Deutsch</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">English (UK)</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">English (US)</strong></button>
+            <button type="button" class="btn dropdown-content"><strong class="en">English</strong></button>
+            <?php 
+                $dir = dirname(__FILE__) . "/langs";
+                $views = array_diff(scandir($dir), array('.', '..'));
+                foreach ($views as $lng){
+                    $res[] = $lng;
+                    $data = explode("-",$lng);
+                    if ( !strpos($lng,"admin")){
+                        ?>
+                        <button type="button" class="btn dropdown-content"><strong class="<?php echo $data[0]; ?>"><?php echo $data[1]; ?></strong></button>
+                        <?php
+                    }
+                }
+                //var_dump ($res);
+            ?>
             <button type="button" class="btn dropdown-content"><strong class="text-info">Español</strong><span class="text-info glyphicon glyphicon-ok"></span></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Français</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Italiano</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Magyar</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Polski</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Português</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Română</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Türkçe</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">Русский</strong></button>
-            <button type="button" class="btn dropdown-content"><strong class="">日本語</strong></button>
         </li>
     </ul>
 </li>
+
+
