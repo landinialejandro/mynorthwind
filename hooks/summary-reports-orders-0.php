@@ -44,8 +44,8 @@
 		'filterable_fields' =>$filterable_fields
 	);
 	$report = new SummaryReport($config_array);
-	echo "<div class='row'>";
+	echo "<div class='row'>"; //new Line
 	echo $report->render();
-	echo "</div>";
+	echo "</div>"; //new Line
 
 	include_once("{$hooks_dir}/../footer.php");

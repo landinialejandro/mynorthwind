@@ -11,9 +11,13 @@
 	$user_data = getMemberInfo();
 	$user_group = strtolower($user_data["group"]);
 ?>
-<!-- move this row line to thi top -->
+
+<!-- move this row line here -->
 <div class="row"> 
-<div class="page-header"><h1>Summary Reports</h1></div>
+<!--  -->
+	
+	<div class="page-header"><h1>Summary Reports</h1></div>
+	<!-- <div class="row"> old postion -->
 	<div class="col-sm-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
