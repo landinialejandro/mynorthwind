@@ -20,14 +20,24 @@
                         <!-- Navbar Right Menu -->
                         <div class="navbar-custom-menu">
                             <ul class="nav navbar-nav">
-                              <!-- language menu -->
+                              <!-- TODO: language menu -->
                               <?php
-                                if (file_exists("language/lang_menu.php")){
-                                  include "language/lang_menu.php";
+                                if (file_exists(PREPEND_PATH."language/lang_menu.php")){
+                                  include PREPEND_PATH."language/lang_menu.php";
 
                                 }
                               ?>
-                              <!-- language menu -->
+                              <!-- /language menu -->
+
+                              <!-- TODO: notification area -->
+                              <?php
+                                if (file_exists(PREPEND_PATH."header_lte_notifications.php")){
+                                  include PREPEND_PATH."header_lte_notifications.php";
+
+                                }
+                              ?>
+                              <!-- /notification area -->
+
                              <!-- User Account Menu -->
                                 <li class="dropdown user user-menu">
                                   <!-- Menu Toggle Button -->
