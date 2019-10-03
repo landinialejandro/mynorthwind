@@ -1,6 +1,6 @@
 setup.md5
 images/mpi.json
-images1/*.*
+images/*.*
 *.jpg
 language/config_prueba.json
 language/config.json
