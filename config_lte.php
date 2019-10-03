@@ -1,13 +1,15 @@
 <?php
 //change to FALSE if you want back to appgini default
-$LTE_globals =[
-    "app-title-prefix" => "Ale | ", //window bar prfix title or browser tab
-    "logo-mini" => "glyphicon glyphicon-tags", //mini logo for sidebar mini 50x50 pixels
-    "logo-mini-text" => "LTE", // text for side bar
-    "navbar-text" => "Alejandro Landini template AdminLTE",
-    "footer-left-text" => "<strong>ALE © ". date("Y") ." <a href=\"#\">Alejandro Landini admin template from LTE Admin</a>.</strong>",
-    "footer-right-text" => "Anything you want"
-];
+$globals = '{
+    "app-title-prefix"  :"Ale | ", 
+    "logo-mini"         :"glyphicon glyphicon-tags", 
+    "logo-mini-text"    :"LTE", 
+    "navbar-text"       :"Alejandro Landini template AdminLTE",
+    "footer-left-text"  :"<strong>ALE © '. date("Y") .' <a href=\"#\">Alejandro Landini <small>admin template from LTE Admin</small></a>.</strong>",
+    "footer-right-text" :"Anything you want"
+}';
+
+$LTE_globals = json_decode($globals,true);
 
  //changue this for tablename icon
  $ico_menu = '{
