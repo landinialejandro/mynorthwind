@@ -52,7 +52,10 @@
                                     <li class="user-header">
                                         <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="img-circle user-image mpi-header-avatar" alt="User Image">
                                         <p>
-                                            <?php echo getLoggedMemberID(); ?> - <?php echo $memberInfo['group']; ?>
+                                            <?php echo "user: ". getLoggedMemberID(); ?> 
+                                            <br> 
+                                            <?php echo "Group: ". $memberInfo['group']; ?>
+                                            
                                             <small>Member since <?php echo $memberInfo['signupDate']; ?></small>
                                         </p>
                                     </li>
