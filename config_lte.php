@@ -11,13 +11,13 @@ $globals = '{
 
 $LTE_globals = json_decode($globals,true);
 
- //changue this for tablename icon
+ //changue this for groupname icon {"groupname":"ico"},
  $ico_menu = '{
     "logins":"fa fa-table",
     "Locations":"fa fa-gift",
     "Pencil":"fa fa-pencil-square-o",
     "Cog":"fa fa-cog",
-    "Plus":"fa fa-plus",
+    "hidden":"fa fa-plus",
     "slash":"fa fa-eye-slash"
 }';
 
