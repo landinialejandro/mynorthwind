@@ -1,5 +1,4 @@
 <?php
-//change to FALSE if you want back to appgini default
 $globals = '{
     "app-title-prefix"  :"Ale | ", 
     "logo-mini"         :"glyphicon glyphicon-tags", 
@@ -11,8 +10,8 @@ $globals = '{
 
 $LTE_globals = json_decode($globals,true);
 
- //changue this for groupname icon {"groupname":"ico"},
- $ico_menu = '{
+//changue this for groupname icon {"groupname":"ico"},
+$ico_menu = '{
     "logins":"fa fa-table",
     "Locations":"fa fa-gift",
     "Pencil":"fa fa-pencil-square-o",
@@ -21,6 +20,7 @@ $LTE_globals = json_decode($globals,true);
     "slash":"fa fa-eye-slash"
 }';
 
+//change to FALSE if you want back to appgini default
 function getLteStatus($LTE_enable = true){
     if(!function_exists('getMemberInfo')){
         $LTE_enable = false;
