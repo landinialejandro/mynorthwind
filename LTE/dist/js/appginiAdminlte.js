@@ -215,13 +215,14 @@ $j(function () {
 
     // Create the new tab
     var $tabPane = $j('<div />', {
-        'id': 'control-sidebar-theme-demo-options-tab',
+        'id': 'control-sidebar-theme-options-tab',
         'class': 'tab-pane active'
     });
 
     // Create the tab button
     var $tabButton = $j('<li />', {'class': 'active'})
-        .html('<a href=\'#control-sidebar-theme-demo-options-tab\' data-toggle=\'tab\'><i class="fa fa-wrench"></i></a>');
+        .html('<a href=\'#control-sidebar-theme-options-tab\' data-toggle=\'tab\'>'
+            + '<i class="fa fa-wrench"></i></a>');
 
     // Add the tab button to the right sidebar tabs
     $j('[href="#control-sidebar-home-tab"]')
@@ -367,7 +368,7 @@ $j(function () {
     $demoSettings.append($skinsList);
 
     $tabPane.append($demoSettings);
-    $j('.tab-content').append($tabPane);
+    $j('#control-sidebar-home-tab').before($tabPane);
 
     setup();
 
