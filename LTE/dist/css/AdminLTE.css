@@ -1,5 +1,5 @@
 /*!
- *   AdminLTE v2.4.5
+ *   AdminLTE v2.4.8
  *   Author: Almsaeed Studio
  *	 Website: Almsaeed Studio <https://adminlte.io>
  *   License: Open source - MIT
@@ -88,10 +88,6 @@ body {
 .content-wrapper {
   min-height: 100%;
   background-color: #ecf0f5;
-  background: url(../img/photo1.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   z-index: 800;
 }
 .main-footer {
@@ -148,10 +144,6 @@ body {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-}
-.content .row{
-    background-color: white;
-    border-radius: 10px;
 }
 /* H1 - H6 font */
 h1,
@@ -620,33 +612,35 @@ a:focus {
     margin-left: 50px;
   }
 }
-.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > span:not(.pull-right),
-.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
-  display: block !important;
-  position: absolute;
-  width: 180px;
-  left: 50px;
-}
-.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > span {
-  top: 0;
-  margin-left: -3px;
-  padding: 12px 5px 12px 20px;
-  background-color: inherit;
-}
-.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container {
-  position: relative !important;
-  float: right;
-  width: auto !important;
-  left: 180px !important;
-  top: -22px !important;
-  z-index: 900;
-}
-.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container > .label:not(:first-of-type) {
-  display: none;
-}
-.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
-  top: 44px;
-  margin-left: 0;
+@media (min-width: 768px) {
+  .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > span:not(.pull-right),
+  .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
+    display: block !important;
+    position: absolute;
+    width: 180px;
+    left: 50px;
+  }
+  .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > span {
+    top: 0;
+    margin-left: -3px;
+    padding: 12px 5px 12px 20px;
+    background-color: inherit;
+  }
+  .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container {
+    position: relative !important;
+    float: right;
+    width: auto !important;
+    left: 180px !important;
+    top: -22px !important;
+    z-index: 900;
+  }
+  .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container > .label:not(:first-of-type) {
+    display: none;
+  }
+  .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > .treeview-menu {
+    top: 44px;
+    margin-left: 0;
+  }
 }
 .sidebar-expanded-on-hover .main-footer,
 .sidebar-expanded-on-hover .content-wrapper {
