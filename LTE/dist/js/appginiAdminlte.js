@@ -221,8 +221,7 @@ $j(function () {
 
     // Create the tab button
     var $tabButton = $j('<li />', {'class': 'active'})
-        .html('<a href=\'#control-sidebar-theme-options-tab\' data-toggle=\'tab\'>'
-            + '<i class="fa fa-wrench"></i></a>');
+        .html('<a href=\'#control-sidebar-theme-options-tab\' data-toggle=\'tab\'>' + '<i class="fa fa-wrench"></i></a>');
 
     // Add the tab button to the right sidebar tabs
     $j('[href="#control-sidebar-home-tab"]')
