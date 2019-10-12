@@ -88,10 +88,6 @@ body {
 .content-wrapper {
   min-height: 100%;
   background-color: #ecf0f5;
-  background: url(../img/photo1.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; 
   z-index: 800;
 }
 .main-footer {
@@ -148,10 +144,6 @@ body {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-}
-.content .row{
-  background-color: white;
-  border-radius: 10px;
 }
 /* H1 - H6 font */
 h1,
