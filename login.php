@@ -1,11 +1,11 @@
-<?php if(!isset($Translation)){ @header('Location: index.php?signIn=1'); exit; } ?>
+<?php if(!isset($Translation)) { @header('Location: index.php?signIn=1'); exit; } ?>
 <?php include_once("$currDir/header.php"); ?>
 
-<?php if($_GET['loginFailed']){ ?>
+<?php if($_GET['loginFailed']) { ?>
 	<div class="alert alert-danger"><?php echo $Translation['login failed']; ?></div>
 <?php } ?>
 
-<div class="row" style="background-color: Transparent;">
+<div class="row">
 	<div class="col-sm-6 col-lg-8" id="login_splash">
 		<!-- customized splash content here -->
 	</div>
@@ -14,7 +14,7 @@
 
 			<div class="panel-heading">
 				<h1 class="panel-title"><strong><?php echo $Translation['sign in here']; ?></strong></h1>
-				<?php if(sqlValue("select count(1) from membership_groups where allowSignup=1")){ ?>
+				<?php if(sqlValue("select count(1) from membership_groups where allowSignup=1")) { ?>
 					<a class="btn btn-success pull-right" href="membership_signup.php"><?php echo $Translation['sign up']; ?></a>
 				<?php } ?>
 				<div class="clearfix"></div>
@@ -46,7 +46,7 @@
 				</form>
 			</div>
 
-			<?php if(is_array(getTableList()) && count(getTableList())){ /* if anon. users can see any tables ... */ ?>
+			<?php if(is_array(getTableList()) && count(getTableList())) { /* if anon. users can see any tables ... */ ?>
 				<div class="panel-footer">
 					<?php echo $Translation['browse as guest']; ?>
 				</div>
