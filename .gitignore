@@ -4,6 +4,8 @@ images
 *.jpg
 language/config_prueba.json
 language/config.json
-plugins
+plugins/summary_reports
+plugins/projects
+plugins/plugins-resources
 config.php
 

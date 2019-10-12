@@ -1,5 +1,5 @@
 <?php if(!isset($Translation)){ @header('Location: index.php'); exit; } ?>
-<?php include_once("{$currDir}/header.php"); ?>
+<?php include_once("header_lte.php"); ?>
 
 
     <!-- Main content -->
@@ -30,4 +30,4 @@
                         </div>
     
 
-<?php include_once("$currDir/footer.php"); ?>
+<?php include_once("footer_lte.php"); ?>

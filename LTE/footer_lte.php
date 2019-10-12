@@ -19,7 +19,7 @@
                 <?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/hooks/footer-extras.php')){ include(dirname(__FILE__).'/hooks/footer-extras.php'); } ?>
             </footer>
             <?php 
-        include "control_bar_lte.php";
+        include "control_sidebar_lte.php";
     } ?>
         </div>
         <!-- /.wrapper -->
