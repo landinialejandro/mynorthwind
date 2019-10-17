@@ -79,7 +79,7 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                       <div class="col-xs-6 text-center">
-                                        <a href="<?php echo PREPEND_PATH; ?>membership_profile.php" class="btn btn-app"><i class="fa fa-user"></i>&nbsp;Profile</a>
+                                        <a href="<?php echo PREPEND_PATH; ?>LTE/membership_profile.php" class="btn btn-app"><i class="fa fa-user"></i>&nbsp;Profile</a>
                                       </div>
                                       <div class="col-xs-6 text-center">
                                         <!--<a href="#" class="btn btn-app">Sign out</a>-->
