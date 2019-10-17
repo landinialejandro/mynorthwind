@@ -1,5 +1,7 @@
-<?php if(!isset($Translation)){ @header('Location: index.php'); exit; } ?>
-<?php include_once("header_lte.php"); ?>
+<?php 
+if(!isset($Translation)){ @header('Location: index.php'); exit; } 
+include_once("header.php");
+?>
 
 
     <!-- Main content -->
@@ -30,4 +32,4 @@
                         </div>
     
 
-<?php include_once("footer_lte.php"); ?>
+<?php include_once("footer.php"); ?>

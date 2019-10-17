@@ -23,7 +23,7 @@
                               <!-- TODO: language menu -->
                               <?php
                                 if (file_exists(PREPEND_PATH."language/lang_menu.php")){
-                                  include PREPEND_PATH."language/lang_menu.php";
+                                  //include PREPEND_PATH."language/lang_menu.php";
 
                                 }
                               ?>
@@ -32,7 +32,7 @@
                               <!-- TODO: notification area -->
                               <?php
                                 if (file_exists(PREPEND_PATH."header_lte_notifications.php")){
-                                  include PREPEND_PATH."header_lte_notifications.php";
+                                  //include PREPEND_PATH."header_lte_notifications.php";
 
                                 }
                               ?>
