@@ -16,7 +16,7 @@
                 <?php echo $LTE_globals['footer-left-text']; ?>
                 <!-- Add footer template above here -->
                 <div class="clearfix"></div>
-                <?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/hooks/footer-extras.php')){ include(dirname(__FILE__).'/hooks/footer-extras.php'); } ?>
+                <?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/footer-extras.php')){ include(dirname(__FILE__).'/../hooks/footer-extras.php'); } ?>
             </footer>
             <?php 
         include "control_sidebar_lte.php";

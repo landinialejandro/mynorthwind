@@ -12,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title><?php echo $LTE_globals['app-title-prefix']; ?><?php echo (isset($x->TableTitle) ? $x->TableTitle : ''); ?></title>
-		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>images/favicon.ico">
+		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LTE/logo/favicon.ico">
 
 		<!-- LTE adding -->
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -52,22 +52,22 @@
 		<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>hooks/mpi.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
-		<script>getMpi({cmd:'u'},true,false);</script>      
-
+		
 		<?php if(isset($x->TableName) && is_file(dirname(__FILE__) . "/hooks/{$x->TableName}-tv.js")){ ?>
 			<script src="<?php echo PREPEND_PATH; ?>hooks/<?php echo $x->TableName; ?>-tv.js"></script>
-		<?php } ?>
-
-	</head>
-	<body class="hold-transition skin-black-light fixed sidebar-mini">
-		<div  class="wrapper">
-			<?php if(function_exists('handle_maintenance')) echo handle_maintenance(true); ?>
-
-                        <?php
+			<?php } ?>
+			
+		</head>
+		<body class="hold-transition skin-black-light fixed sidebar-mini">
+			<div  class="wrapper">
+				<?php if(function_exists('handle_maintenance')) echo handle_maintenance(true); ?>
+				
+				<?php
                         $memberInfo = getMemberInfo();
                         ?>
 			
-			<?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/hooks/header-extras.php')){ include(dirname(__FILE__).'/hooks/header-extras.php'); } ?>
+			<?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')){ include(dirname(__FILE__).'/../hooks/header-extras.php'); } ?>
+			<script>getMpi({cmd:'u'},true,false);</script>      
 			<?php if(class_exists('Notification')) echo Notification::placeholder(); ?>
 
 			<?php if($_REQUEST['Embedded']){ ?>

@@ -43,14 +43,14 @@
                                   <!-- Menu Toggle Button -->
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="user-image mpi-header-avatar" alt="User Image">
+                                    <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="user-image mpi-header-avatar" alt="User Image" hidden>
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                     <span class="hidden-xs"><?php echo getLoggedMemberID(); ?></span>
                                   </a>
                                   <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
-                                        <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="img-circle user-image mpi-header-avatar" alt="User Image">
+                                        <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="img-circle user-image mpi-header-avatar" alt="User Image" hidden>
                                         <p>
                                             <?php echo "user: ". getLoggedMemberID(); ?> 
                                             <br> 
