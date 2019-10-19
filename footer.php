@@ -4,7 +4,8 @@
 include_once 'LTE/config_lte.php';
 
     if (getLteStatus()){
-		include_once("LTE/footer_lte.php");
+		$fn = basename(__FILE__, '.php'); 
+		include_once("LTE/".$fn."_lte.php");
 		return;
 	}
 ?>

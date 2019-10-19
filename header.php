@@ -1,9 +1,10 @@
 <?php
 //enable LTE Admin
-//TODO: verificar si exite el archi primero antes de incluirlo
+//TODO: verificar si exite el archivo primero antes de incluirlo
 include_once 'LTE/config_lte.php';
     if (getLteStatus()){
-		include_once("LTE/header_lte.php");
+		$fn = basename(__FILE__, '.php'); 
+		include_once("LTE/".$fn."_lte.php");
 		return;
 	}
 ?>
