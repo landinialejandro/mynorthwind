@@ -74,7 +74,7 @@
                         ?>
 			
 			<?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')){ include(dirname(__FILE__).'/../hooks/header-extras.php'); } ?>
-			<script>getMpi({cmd:'u'},true,false);</script>      
+			<script>//getMpi({cmd:'u'},true,false);</script>      
 			<?php if(class_exists('Notification')) echo Notification::placeholder(); ?>
 
 			<?php if($_REQUEST['Embedded']){ ?>
