@@ -1,11 +1,11 @@
 <?php
 $globals = '{
     "app-title-prefix"   :"Ale | ", 
-    "app-dir-RTL-enable" :"false",
+    "app-dir-RTL-enable" : false ,
     "logo-mini"          :"glyphicon glyphicon-tags", 
     "logo-mini-text"     :"LTE", 
     "navbar-text"        :"Alejandro Landini template AdminLTE",
-    "footer-left-text"   :"<strong>ALE © '. date("Y") .' <a href=\"#\">Alejandro Landini <small>admin template from LTE Admin</small></a>.</strong>",
+    "footer-left-text"   :"<strong>ALE © 2019 <a href=\"#\">Alejandro Landini <small>admin template from LTE Admin</small></a>.</strong>",
     "footer-right-text"  :"Anything you want"
 }';
 

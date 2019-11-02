@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/datepicker/css/datepicker.css" media="screen">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.css" media="screen">
 		<!-- TODO: add rtl css if configured-->
-		<?php if ($LTE_globals['app-dir-RTL-enable'] === 'true'){?>
+		<?php if ($LTE_globals['app-dir-RTL-enable']){?>
 			<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 		<?php } ?>
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
@@ -43,6 +43,8 @@
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/fastclick/lib/fastclick.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/jeditable.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/jquery.contextMenu.js" charset="utf-8"></script> 
 		<script>var $j = jQuery.noConflict();</script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/appginiAdminlte.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/moment/moment-with-locales.min.js"></script>
