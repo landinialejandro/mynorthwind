@@ -9,17 +9,6 @@ $j(function () {
      * Get access to plugins
      */
 
-    $j('[data-toggle="control-sidebar"]').controlSidebar();
-    $j('[data-toggle="push-menu"]').pushMenu();
-    var $pushMenu = $j('[data-toggle="push-menu"]').data('lte.pushmenu');
-    var $controlSidebar = $j('[data-toggle="control-sidebar"]').data('lte.controlsidebar');
-    var $layout = $j('body').data('lte.layout');
-    $j(window).on('load', function() {
-        // Reinitialize variables on load
-        $pushMenu = $j('[data-toggle="push-menu"]').data('lte.pushmenu');
-        $controlSidebar = $j('[data-toggle="control-sidebar"]').data('lte.controlsidebar');
-        $layout = $j('body').data('lte.layout');
-    });
 
     /**
      * List of all the available skins
@@ -78,12 +67,12 @@ $j(function () {
      */
     function changeLayout(cls) {
         $j('body').toggleClass(cls);
-        $layout.fixSidebar();
+        //$layout.fixSidebar();
         if ($j('body').hasClass('fixed') && cls == 'fixed') {
             $pushMenu.expandOnHover();
             $layout.activate();
         }
-        $controlSidebar.fix();
+        //$controlSidebar.fix();
         
     }
 
@@ -168,43 +157,43 @@ $j(function () {
         }
 
 
-        // Add the change skin listener
-        $j('[data-skin]').on('click', function (e) {
-            if ($j(this).hasClass('knob'))
-                return;
-            e.preventDefault();
-            changeSkin($j(this).data('skin'));
-        });
+        // // Add the change skin listener
+        // $j('[data-skin]').on('click', function (e) {
+        //     if ($j(this).hasClass('knob'))
+        //         return;
+        //     e.preventDefault();
+        //     changeSkin($j(this).data('skin'));
+        // });
 
-        // togle left side
-        $j('[data-layout]').on('click', function () {
-            var tmp = get('colapsedLeft');
-            var cls = $j(this).data('layout');
-            changeLayout(cls);
-            store("colapsedLeft",cls);
-            if (tmp =="sidebar-collapse"){
-                store("colapsedLeft","");
-            }
-        });
+        // // togle left side
+        // $j('[data-layout]').on('click', function () {
+        //     var tmp = get('colapsedLeft');
+        //     var cls = $j(this).data('layout');
+        //     changeLayout(cls);
+        //     store("colapsedLeft",cls);
+        //     if (tmp =="sidebar-collapse"){
+        //         store("colapsedLeft","");
+        //     }
+        // });
 
-        $j('[data-controlsidebar]').on('click', function () {
-            var tmp = get('layout');
-            toggleLayout(this);
-            if (tmp == "control-sidebar-open"){
-                store('layout','');
-            }
-        });
+        // $j('[data-controlsidebar]').on('click', function () {
+        //     var tmp = get('layout');
+        //     toggleLayout(this);
+        //     if (tmp == "control-sidebar-open"){
+        //         store('layout','');
+        //     }
+        // });
 
-        $j('[data-sidebarskin="toggle"]').on('click', function () {
-            toggleControlSideSkin();
-        });
+        // $j('[data-sidebarskin="toggle"]').on('click', function () {
+        //     toggleControlSideSkin();
+        // });
 
-        $j('[data-enable="expandOnHover"]').on('click', function () {
-            $j(this).attr('disabled', true);
-            $pushMenu.expandOnHover();
-            if (!$j('body').hasClass('sidebar-collapse'))
-                $j('[data-layout="sidebar-collapse"]').click();
-        });
+        // $j('[data-enable="expandOnHover"]').on('click', function () {
+        //     $j(this).attr('disabled', true);
+        //     $pushMenu.expandOnHover();
+        //     if (!$j('body').hasClass('sidebar-collapse'))
+        //         $j('[data-layout="sidebar-collapse"]').click();
+        // });
 
         //  Reset options
         if ($j('body').hasClass('sidebar-collapse')) {
@@ -215,16 +204,16 @@ $j(function () {
 
     // Create the new tab
     var $tabPane = $j('<div />', {
-        'id': 'control-sidebar-theme-options-tab',
+        'id': 'options',
         'class': 'tab-pane active'
     });
 
     // Create the tab button
     var $tabButton = $j('<li />', {'class': 'active'})
-        .html('<a href=\'#control-sidebar-theme-options-tab\' data-toggle=\'tab\'>' + '<i class="fa fa-wrench"></i></a>');
+        .html('<a href=\'#options\' data-toggle=\'tab\'>' + '<i class="fa fa-wrench"></i></a>');
 
     // Add the tab button to the right sidebar tabs
-    $j('[href="#control-sidebar-home-tab"]')
+    $j('[href="#home"]')
         .parent()
         .before($tabButton);
 
@@ -364,10 +353,10 @@ $j(function () {
     $skinsList.append($skinYellowLight);
 
     $demoSettings.append('<h4 class="control-sidebar-heading">Skins</h4>');
-    $demoSettings.append($skinsList);
+    //$demoSettings.append($skinsList);
 
     $tabPane.append($demoSettings);
-    $j('#control-sidebar-home-tab').before($tabPane);
+    $j('#home').before($tabPane);
 
     setup();
 

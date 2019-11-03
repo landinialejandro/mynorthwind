@@ -40,7 +40,7 @@
 
 		<!-- jQuery 3 -->
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/fastclick/lib/fastclick.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>

@@ -2,16 +2,16 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toogle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toogle="tab"><i class="fa fa-cog"></i></a></li>
+      <li><a href="#home" data-toogle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#settings" data-toogle="tab"><i class="fa fa-cog"></i></a></li>
 
     </ul>
     <!-- Tab panes -->
-    <div class="tab-content">
-        <div class="tab-pane" id="control-sidebar-home-tab">
+    <div class="tab-content" style="padding: 10px; border: 0; border-top: none; ">
+        <div class="tab-pane" id="home">
           <h4 class="control-sidebar-heading">Home tab</h4>
         </div>
-        <div class="tab-pane" id="control-sidebar-settings-tab">
+        <div class="tab-pane" id="settings">
           <h4 class="control-sidebar-heading" >Homej tab</h4>
         </div>
     </div>
