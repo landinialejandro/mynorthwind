@@ -11,6 +11,8 @@
  *
  * Based on editable by Dylan Verheul <dylan_at_dyve.net>:
  *    http://www.dyve.net/jquery/?editable
+ * 
+ * TODO: Ver nueva version https://github.com/NicolasCARPi/jquery_jeditable
  *
  */
 

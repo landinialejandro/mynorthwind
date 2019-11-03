@@ -30,6 +30,7 @@
 		<?php if ($LTE_globals['app-dir-RTL-enable']){?>
 			<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 		<?php } ?>
+		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>myCustom.css" mediad="screen">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>hooks/mpi.css">
@@ -43,8 +44,9 @@
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/fastclick/lib/fastclick.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/jeditable.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/jquery.contextMenu.js" charset="utf-8"></script> 
+		<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jeditable.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jquery.contextMenu.js"></script> 
+		<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.js"></script> 
 		<script>var $j = jQuery.noConflict();</script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/appginiAdminlte.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/moment/moment-with-locales.min.js"></script>
