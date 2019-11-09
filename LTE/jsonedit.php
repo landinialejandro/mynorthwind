@@ -27,11 +27,10 @@ $user_group = strtolower($user_data["group"]);
 </script>
 <div class="json-edit">
 	<div class="callout callout-success">
-		<h2>Editing Application varibles and icon group</h2>
-		<br>
+		<h3>Editing Application varibles and icon group</h3>
 		<p>
 			.. Delete nodes (right click to delete)<br>
-			.. Add nodes (hover the lil oval below a container)
+			.. Add nodes (options below a container)
 		</p>
 	</div>
 	<div class="box">
