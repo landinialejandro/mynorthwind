@@ -5,8 +5,16 @@ include("{$hooks_dir}/../defaultLang.php");
 include("{$hooks_dir}/../language.php");
 include("{$hooks_dir}/../lib.php");
 
-include_once("{$hooks_dir}/../header.php");
+/* grant access to the groups 'Admins' */
 $user_data = getMemberInfo();
+if(!in_array($user_data['group'], array('Admins'))){
+	redirect("LTE/403_error.php");
+	echo "Access denied";
+	exit;
+}
+
+include_once("{$hooks_dir}/../header.php");
+
 $user_group = strtolower($user_data["group"]);
 ?>
 <script>

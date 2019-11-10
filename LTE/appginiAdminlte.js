@@ -356,7 +356,7 @@ $j(function () {
     $demoSettings.append($skinsList);
 
     $tabPane.append($demoSettings);
-    $j('#control-sidebar-home-tab').before($tabPane);
+    $j('#control-sidebar-home-tab').after($tabPane);
 
     setup();
 
