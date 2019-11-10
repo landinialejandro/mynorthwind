@@ -13,8 +13,9 @@
         //         klass: "menu-item-1" // a custom css class for this menu item (usable for styling)
         //     },
         // }, menu_options);
+       
     }
-
+    
     function remove_item(element) {
         console.log("# delete");
         element.hide(500, function () {
@@ -153,8 +154,8 @@
     function apply_editlets() {
         remove_editlets();
         // add collapse boxes for the arrays and objects
-        var o_collapse_box = $j('<span class="collapse_box"><span>[-]</span><span style="display: none">[+] {...}</span></span>');
-        var a_collapse_box = $j('<span class="collapse_box"><span>[-]</span><span style="display: none" data-role="counter">[+] []</span></span>');
+        var o_collapse_box = $j('<span class="collapse_box"><span><i class ="fa fa-chevron-up"></i></span><span style="display: none"><i class ="fa fa-chevron-down"> {...}</span></span>');
+        var a_collapse_box = $j('<span class="collapse_box"><span><i class ="fa fa-chevron-up"></i></span><span style="display: none" data-role="counter"><i class ="fa fa-chevron-down"> []</span></span>');
         $j('div[data-type="object"]').before(o_collapse_box);
         $j('div[data-type="array"]').before(a_collapse_box);
 
@@ -163,7 +164,7 @@
             next.toggle();
             $j(this).find('span').toggle();
             if (next.data('type') == 'array') {
-                $j(this).find('span[data-role="counter"]').html('[+] [' + next.children('[data-role="arrayitem"]').length + ']');
+                $j(this).find('span[data-role="counter"]').html('<i class ="fa fa-chevron-down"></i> [' + next.children('[data-role="arrayitem"]').length + ']');
             }
             event.stopPropagation();
         });
@@ -232,7 +233,6 @@
             type: 'select',
             onblur: 'submit'
         });
-
         // make the right click menus
         setup_menu();
 
@@ -273,7 +273,7 @@
                         .append($j('<span data-role="key">')
                             .append(prop))
                         .append(': ')
-                        .append(make_node(node_in[prop]));
+                        .append(make_node(node_in[prop]))
                     container.append(row);
                 }
             }

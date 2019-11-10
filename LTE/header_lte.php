@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/Ionicons/css/ionicons.min.css">
+		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/AdminLTE.min.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/skins/_all-skins.css">
 		<!-- /LTE adding -->
@@ -30,7 +31,6 @@
 		<?php if ($LTE_globals['app-dir-RTL-enable']){?>
 			<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 		<?php } ?>
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>myCustom.css" mediad="screen">
 		<!--[if lt IE 9]>

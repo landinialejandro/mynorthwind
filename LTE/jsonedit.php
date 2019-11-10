@@ -26,21 +26,23 @@ $user_group = strtolower($user_data["group"]);
 	});
 </script>
 <div class="json-edit">
-	<div class="callout callout-success">
-		<h3>Editing Application varibles and icon group</h3>
-		<p>
-			.. Delete nodes (right click to delete)<br>
-			.. Add nodes (options below a container)
-		</p>
-	</div>
 	<div class="box">
 		<div class="box-header">
+			<div class="col-lg-4">
 				<a class="btn btn-app">
 					<i class="fa fa-repeat" onclick="load_from_box('jsonglobals'); " title="reset to last changues"></i> Reset
 				</a>
 				<a class="btn btn-app" onclick="save_ws('json_editor'); " title="save changues to server">
-					<i class="fa fa-save"></i> Save
+						<i class="fa fa-save"></i> Save
 				</a>
+			</div>
+			<div class="callout callout-success col-lg-8">
+				<h4>Editing Application varibles and icon group</h4>
+				<p>
+					.. Delete nodes (right click to delete)<br>
+					.. Add nodes (options below a container)
+				</p>
+			</div>
 		</div>
 		<div class="box-body">
 			<div>

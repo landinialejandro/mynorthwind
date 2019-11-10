@@ -3,6 +3,7 @@ pre {
     margin: 2px;
     font-family: courier;
     white-space: pre-wrap;
+    min-width: auto;
 }
 
 div[data-type="object"] {
@@ -42,6 +43,7 @@ div[data-role="value"] {
 div[data-role="prop"],
 div[data-role="arrayitem"] {
     /* border: 0px solid #ccf; */
+    display: block;
     margin: 1px;
     margin-top: 9px;
     padding: 10px;
@@ -49,13 +51,16 @@ div[data-role="arrayitem"] {
 }
 
 span[data-role="key"] {
+    display: inline-block;
     min-width: 200px;
+    margin: 2px;
 }
 
 .edit_box {
     display: inline-block;
     padding: 0px;
     margin: 0px;
+    min-width: 200px;
 }
 
 .collapse_box {
