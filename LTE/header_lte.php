@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/timepicker/bootstrap-timepicker.min.css" media="screen">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/datepicker/css/datepicker.css" media="screen">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.css" media="screen">
-		<!-- TODO: add rtl css if configured-->
+		<!-- add rtl css if configured-->
 		<?php if ($LTE_globals['app-dir-RTL-enable']){?>
 			<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 		<?php } ?>
@@ -39,7 +39,7 @@
 
 		<!-- jQuery 3 -->
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/fastclick/lib/fastclick.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
@@ -49,8 +49,9 @@
 		<script>var $j = jQuery.noConflict();</script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/moment/moment-with-locales.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>resources/lightbox/js/prototype.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>resources/lightbox/js/scriptaculous.js?load=effects"></script>
+		<!-- conflict con admin lte -->
+		<!-- <script src="<?php //echo PREPEND_PATH; ?>resources/lightbox/js/prototype.js"></script> -->
+		<!-- <script src="<?php //echo PREPEND_PATH; ?>resources/lightbox/js/scriptaculous.js?load=effects"></script> -->
 		<script src="<?php echo PREPEND_PATH; ?>resources/select2/select2.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/timepicker/bootstrap-timepicker.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/jscookie/js.cookie.js"></script>
