@@ -1,18 +1,18 @@
 
     // stuff for the right click menus
     function setup_menu() {
-        // $j('div[data-role="arrayitem"]').contextMenu('context-menu1', {
-        //     'remove item': {
-        //         click: remove_item,
-        //         klass: "menu-item-1" // a custom css class for this menu item (usable for styling)
-        //     },
-        // }, menu_options);
-        // $j('div[data-role="prop"]').contextMenu('context-menu2', {
-        //     'remove item': {
-        //         click: remove_item,
-        //         klass: "menu-item-1" // a custom css class for this menu item (usable for styling)
-        //     },
-        // }, menu_options);
+        $j('div[data-role="arrayitem"]').contextMenu('context-menu1', {
+            'remove item': {
+                click: remove_item,
+                klass: "menu-item-1" // a custom css class for this menu item (usable for styling)
+            },
+        }, menu_options);
+        $j('div[data-role="prop"]').contextMenu('context-menu2', {
+            'remove item': {
+                click: remove_item,
+                klass: "menu-item-1" // a custom css class for this menu item (usable for styling)
+            },
+        }, menu_options);
        
     }
     
