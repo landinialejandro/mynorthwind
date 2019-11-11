@@ -33,11 +33,11 @@
 		<?php } ?>
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>myCustom.css" mediad="screen">
+
 		<!--[if lt IE 9]>
 			<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 		<![endif]-->
 
-		<!-- jQuery 3 -->
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
