@@ -198,12 +198,11 @@
 		$tables = $xmlFile->table;
 	?>
 	</div>
-			<div>
+			<div class="col-md-8">
 				<?php 
 				$resources_dir = dirname(__FILE__);
  				$groups=explode(",",$lte_class->project_xml->groups);
-				echo $lte_class->group_view("{$resources_dir}/views/group-list.php",$groups);
-				//	var_dump ( $lte_class->get_groups());
+				echo $lte_class->group_view("{$resources_dir}/views/enviroment.php",$groups);
 				?>
 			</div>
 </div>
