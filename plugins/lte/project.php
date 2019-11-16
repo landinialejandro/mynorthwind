@@ -3,13 +3,13 @@
 
 	// validate project name
 	if (!isset($_REQUEST['axp']) || !preg_match('/^[a-f0-9]{32}$/i', $_REQUEST['axp'])){
-		echo '<br>' . $lte_enable->error_message('Project file not found.');
+		echo '<br>' . $lte_class->error_message('Project file not found.');
 		exit;
 	}
 	
 	$axp_md5 = $_REQUEST['axp'];
 	$projectFile = '';
-	$xmlFile = $lte_enable->get_xml_file($axp_md5, $projectFile);
+	$xmlFile = $lte_class->get_xml_file($axp_md5, $projectFile);
 //-----------------------------------------------------------------------------------------
 ?>
 
@@ -181,7 +181,7 @@
 	<h1><img src="application_side_list.png" style="height: 1em;"> Landini AdminLTE Enable for AppGini</h1>
 	<h1>
 		<a href="./index.php">Projects</a> &gt; <?php echo substr($projectFile, 0, -4); ?>
-		<a href="#" class="pull-right btn btn-success btn-lg col-md-3 col-xs-12">Enable! <span class="glyphicon glyphicon-chevron-right"></span></a>
+		<a href="output-folder.php?axp=<?php echo $axp_md5; ?>" class="pull-right btn btn-success btn-lg col-md-3 col-xs-12"><span class="glyphicon glyphicon-play"></span>  Enable template</a>
 		<div class="clearfix"></div>
 	</h1>
 </div>
@@ -190,7 +190,7 @@
 	<div class="col-md-4"> 
 
 	<?php 
-		echo $lte_enable->show_tables(array(
+		echo $lte_class->show_tables(array(
 			'axp' => $xmlFile,
 			'click_handler' => '',
 			'select_first_table' => true
@@ -198,7 +198,11 @@
 		$tables = $xmlFile->table;
 	?>
 	</div>
-
+			<div>
+				<?php 
+				var_dump ( $lte_class->get_groups());
+				?>
+			</div>
 </div>
 
 

@@ -1,4 +1,4 @@
-			<?php echo $lte_enable->git_branch(); ?>
+			<?php echo $lte_class->git_branch(); ?>
 		</div> <!-- /div.container -->
 	</body>
 </html>
