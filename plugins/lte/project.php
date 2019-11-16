@@ -200,7 +200,10 @@
 	</div>
 			<div>
 				<?php 
-				var_dump ( $lte_class->get_groups());
+				$resources_dir = dirname(__FILE__);
+ 				$groups=explode(",",$lte_class->project_xml->groups);
+				echo $lte_class->group_view("{$resources_dir}/views/group-list.php",$groups);
+				//	var_dump ( $lte_class->get_groups());
 				?>
 			</div>
 </div>

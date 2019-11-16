@@ -75,5 +75,28 @@
                         if(!@file_put_contents($file_path, $file_code)) return $this->error('add_to_file', 'Could not save changes');
 				
 			return true;
+                }
+                
+                /**
+		 * Loads a given view, passing the given data to it
+		 * @param $view the path of a php file to be loaded
+		 * @param $the_data_to_pass_to_the_view (optional) associative array containing the data to pass to the view
+		 * @return the output of the parsed view as a string
+		 */
+		public function group_view($view, $groups=false){
+			if(!is_file($view)) return $this->error('view', "'{$view}' is not a file");
+
+			// if(is_array($the_data_to_pass_to_the_view)){
+			// 	foreach($the_data_to_pass_to_the_view as $k => $v)
+			// 		$$k = $v;
+			// }
+			// unset($the_data_to_pass_to_the_view, $k, $v);
+
+			ob_start();
+			@include($view);
+			$out = ob_get_contents();
+			ob_end_clean();
+
+			return $out;
 		}
 	}

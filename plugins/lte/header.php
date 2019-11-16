@@ -30,7 +30,7 @@
 		
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
 		
-
+		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/lte/app-resources/font-awesome/css/font-awesome.min.css">
 
 		<!-- jquery ui -->
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/plugins-resources/jquery-ui/jquery-ui.min.css">
