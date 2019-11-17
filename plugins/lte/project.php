@@ -190,11 +190,10 @@
 	<div class="col-md-4"> 
 
 	<?php 
-		echo $lte_class->show_tables(array(
-			'axp' => $xmlFile,
-			'click_handler' => '',
-			'select_first_table' => true
-		))	;
+	$resources_dir = dirname(__FILE__);
+	$groups=explode(",",$lte_class->project_xml->groups);
+	echo $lte_class->group_view("{$resources_dir}/views/group-list.php",$groups);
+	//	var_dump ( $lte_class->get_groups());
 		$tables = $xmlFile->table;
 	?>
 	</div>

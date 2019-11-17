@@ -10,3 +10,4 @@ plugins/plugins-resources
 config.php
 
 test.html
+plugins/lte/app-resources/config.json

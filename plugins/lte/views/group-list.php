@@ -17,26 +17,13 @@
 		$click_handler -- js function for handling clicks, receives the clicked item index
 		$select_first_item -- boolean to specify if first item in the list is initially clicked
 	*/
-	$curdir=(__DIR__);
-	$cjson = file_get_contents($curdir.'/../app-resources/config.json',true);
-
-	$cjson = json_decode($cjson,true);
-	
-	$enviroment = $cjson['Globals'];
-	$group_ico = $cjson['Icon Groups'];
-	$default_ico = "fa fa-table"; //default ico
-
+	$list_id = 'groups-tables';
 ?>
-<div id="<?php echo $list_id; ?>" class="col-md-4 list-group">
-	
+	<h3>Tables groups list</h3>
+<div id="<?php echo $list_id; ?>" class="list-group">
 	<?php $i = 0; ?>
 	<?php foreach($groups as $item){ ?>
 		<a href="#" class="list-group-item" data-item-index="<?php echo $i; ?>">
-
-			<?php if(isset($group_ico[$item])){ ?>
-				<i class="<?php echo $group_ico[$item]; ?>"></i>
-			<?php } ?>
-
 			<?php echo $item; ?>
 		</a>
 		<?php $i++; ?>

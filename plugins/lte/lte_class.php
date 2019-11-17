@@ -86,12 +86,6 @@
 		public function group_view($view, $groups=false){
 			if(!is_file($view)) return $this->error('view', "'{$view}' is not a file");
 
-			// if(is_array($the_data_to_pass_to_the_view)){
-			// 	foreach($the_data_to_pass_to_the_view as $k => $v)
-			// 		$$k = $v;
-			// }
-			// unset($the_data_to_pass_to_the_view, $k, $v);
-
 			ob_start();
 			@include($view);
 			$out = ob_get_contents();

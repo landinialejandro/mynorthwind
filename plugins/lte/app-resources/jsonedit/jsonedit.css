@@ -60,7 +60,7 @@ span[data-role="key"] {
     display: inline-block;
     padding: 0px;
     margin: 0px;
-    min-width: 200px;
+    /* min-width: 150px; */
 }
 
 .collapse_box {
