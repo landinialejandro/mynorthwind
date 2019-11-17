@@ -1,3 +1,6 @@
+// TODO: Automatically recognize and add the group list to the variables from this point.
+// 
+// 
 
     // stuff for the right click menus
     function setup_menu() {
@@ -27,8 +30,8 @@
     }
 
     function refresh_item(){
-        $j('[ic]').each(function(){
-            $j('<i class="'+this.attributes.ic.textContent+'" style="font-size: x-large; margin: 10px;"></i>').insertAfter(this);
+        $j('[data-ic]').each(function(){
+            $j('<i class="'+this.attributes['data-ic'].textContent+'" style="font-size: x-large; margin: 10px;"></i>').insertAfter(this);
          }
          );
     }
@@ -296,10 +299,10 @@
             }
             return container;
         } else if (type === "[object String]") {
-            clase = '';
+            ic = '';
             if (node_in.search('fa fa-')>=0 || node_in.search('glyphicon')>=0) 
-                clase = 'ic="'+node_in+'"';
-            return $j('<pre data-role="value" data-type="string" '+clase+'>').html(node_in);
+                ic = 'data-ic="'+node_in+'"';
+            return $j('<pre data-role="value" data-type="string" '+ic+'>').html(node_in);
         } else if (type === "[object Number]") {
             return $j('<pre data-role="value" data-type="number">').html(node_in);
         } else if (type === "[object global]" || type === "[object Null]") {
