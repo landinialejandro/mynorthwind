@@ -29,9 +29,9 @@
         console.log("# create");
     }
 
-    function refresh_item(){
+    function add_icon_item(){
         $j('[data-ic]').each(function(){
-            $j('<i class="'+this.attributes['data-ic'].textContent+'" style="font-size: x-large; margin: 10px;"></i>').insertAfter(this);
+            $j('<i class="'+$j(this).data('ic')+'"></i>').insertAfter(this);
          }
          );
     }
@@ -45,7 +45,6 @@
             element.removeClass('dimmed');
         },
     };
-
 
     // functions used for the web service
     function save_ws(input, file = "jsonsave.php") {
@@ -247,7 +246,7 @@
         setup_menu();
 
         //add icon to right of field if the text is a glyphsicon of fa
-        refresh_item();
+        add_icon_item();
 
     }
     // parse the text area into the the workarea, setup the event handlers

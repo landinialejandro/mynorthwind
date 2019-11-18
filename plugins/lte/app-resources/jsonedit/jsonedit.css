@@ -36,6 +36,12 @@ div[data-role="arrayitem"]>div {
     color: #FA6B8F;
 }
 
+[data-ic]~i{
+    color: green;
+    font-size: x-large; 
+    margin: 10px;
+}
+
 div[data-role="value"] {
     margin-left: 20px;
 }

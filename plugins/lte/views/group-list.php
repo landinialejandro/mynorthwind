@@ -19,7 +19,6 @@
 	*/
 	$list_id = 'groups-tables';
 ?>
-	<h3>Tables groups list</h3>
 <div id="<?php echo $list_id; ?>" class="list-group">
 	<?php $i = 0; ?>
 	<?php foreach($groups as $item){ ?>

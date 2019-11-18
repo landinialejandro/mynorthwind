@@ -152,9 +152,6 @@
 		});			
 	}
 	
-	
-	
-	
 	$j(function(){
 		var table = $j('#group-table').val();
 		
@@ -178,7 +175,7 @@
 </script>
 
 <div class="page-header row">
-	<h1><img src="application_side_list.png" style="height: 1em;"> Landini AdminLTE Enable for AppGini</h1>
+	<h1><img src="template.mid.png" style="height: 1em;"> Landini AdminLTE Enable for AppGini</h1>
 	<h1>
 		<a href="./index.php">Projects</a> &gt; <?php echo substr($projectFile, 0, -4); ?>
 		<a href="output-folder.php?axp=<?php echo $axp_md5; ?>" class="pull-right btn btn-success btn-lg col-md-3 col-xs-12"><span class="glyphicon glyphicon-play"></span>  Enable template</a>
@@ -188,22 +185,21 @@
 
 <div class="row">
 	<div class="col-md-4"> 
-
-	<?php 
-	$resources_dir = dirname(__FILE__);
-	$groups=explode(",",$lte_class->project_xml->groups);
-	echo $lte_class->group_view("{$resources_dir}/views/group-list.php",$groups);
-	//	var_dump ( $lte_class->get_groups());
+		<h3>Tables groups list</h3>
+		<?php 
+		$resources_dir = dirname(__FILE__);
+		$groups=explode(",",$lte_class->project_xml->groups);
+		echo $lte_class->group_view("{$resources_dir}/views/group-list.php",$groups);
 		$tables = $xmlFile->table;
-	?>
+		?>
 	</div>
-			<div class="col-md-8">
-				<?php 
-				$resources_dir = dirname(__FILE__);
- 				$groups=explode(",",$lte_class->project_xml->groups);
-				echo $lte_class->group_view("{$resources_dir}/views/enviroment.php",$groups);
-				?>
-			</div>
+	<div class="col-md-8">
+		<?php 
+		$resources_dir = dirname(__FILE__);
+		$groups=explode(",",$lte_class->project_xml->groups);
+		echo $lte_class->group_view("{$resources_dir}/views/enviroment.php",$groups);
+		?>
+	</div>
 </div>
 
 

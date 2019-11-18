@@ -24,7 +24,7 @@
 
 		<title>Landini AdminLTE template for AppGini</title>
 		
-		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>resources/images/appgini-icon.png">
+		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>plugins/lte/template.min.png">
 
 		<?php echo $lte_class->get_theme_css_links(); ?>
 		

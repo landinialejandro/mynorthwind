@@ -46,7 +46,16 @@ $user_group = strtolower($user_data["group"]);
 			<div>
 				<textarea id="jsonglobals" rows="20" cols="30" class="jsoninput" hidden>
 							<?php
-							echo file_get_contents(PREPEND_PATH."plugins/lte/app-resources/config.json");
+							//$iconsGroups = '"Icon Groups":{"logins":"fa fa-table"}';
+							$globalsEnv = json_decode(file_get_contents(PREPEND_PATH."plugins/lte/app-resources/config-globals.json"));
+							foreach($groups as $gr){
+								if ($gr == 'None') continue;
+								$a[$gr] = "fa fa-table";
+							}
+							$iconsGroups['Icon Groups'] =$a;
+							$res[] = $globalsEnv ;
+							$res[] = $iconsGroups;
+							echo json_encode($res,true);
 							?>
 				</textarea>
 			</div>
