@@ -17,10 +17,7 @@
 
 <?php
 	echo $lte_class->show_select_output_folder(array(
-		'next_page' => 'generate.php?axp=' . urlencode($_REQUEST['axp']),
-		'extra_options' => array(
-			'dont_write_to_hooks' => 'Only show me the hooks code without actually writing it to existing hook files.'
-		)
+		'next_page' => 'generate.php?axp=' . urlencode($_REQUEST['axp'])
 	));
 ?>
 
