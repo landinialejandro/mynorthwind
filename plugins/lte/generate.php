@@ -71,15 +71,15 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 
 	//coping resources folders
 	
-	// $lte_class->progress_log->ok();
-	// $lte_class->progress_log->line();
+	$lte_class->progress_log->ok();
+	$lte_class->progress_log->line();
 
 	//coping files
-    // $lte_class->progress_log->add("<b>Copying new files for '" . substr( $projectFile , 0 , strrpos( $projectFile , ".")) . "' project:</b>");
+    $lte_class->progress_log->add("<b>Copying new files for '" . substr( $projectFile , 0 , strrpos( $projectFile , ".")) . "' project:</b>");
         
-	// $source_class = dirname(__FILE__) . '/app-resources/mpi.css';
-	// $dest_class = $path.'/hooks/mpi.css';
-	// $lte_class->copy_file($source_class, $dest_class, true);	
+	$source_class = dirname(__FILE__) . '/app-resources/config.json';
+	$dest_class = $path.'/LTE/config.json';
+	$lte_class->copy_file($source_class, $dest_class, true);	
 	
 	// $source_class = dirname(__FILE__) . '/app-resources/mpi.js';
 	// $dest_class = $path.'/hooks/mpi.js';

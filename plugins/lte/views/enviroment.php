@@ -3,7 +3,6 @@
 $user_group = strtolower($user_data["group"]);
 ?>
 <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/lte/app-resources/jsonedit/jsonedit.css">
-<!-- <script src="<?php //echo PREPEND_PATH; ?>plugins/lte/app-resources/jsonedit/jeditable.js"></script> -->
 <script src="<?php echo PREPEND_PATH; ?>plugins/lte/app-resources/jsonedit/jquery.jeditable.js"></script>
 <script src="<?php echo PREPEND_PATH; ?>plugins/lte/app-resources/jsonedit/jquery.contextMenu.js"></script>
 <script src="<?php echo PREPEND_PATH; ?>plugins/lte/app-resources/jsonedit/jsonedit.js"></script>
@@ -21,6 +20,9 @@ $user_group = strtolower($user_data["group"]);
 			$j(this).focus();
 			$j(this).select();
 		});
+		setTimeout(function(){
+			save_ws('json_editor','<?php echo PREPEND_PATH; ?>'+'plugins/lte/app-resources/'+'jsonsave.php'); 
+		}, 2000);
 	});
 </script>
 <div class="json-edit">
@@ -56,6 +58,7 @@ $user_group = strtolower($user_data["group"]);
 							$res[] = $globalsEnv ;
 							$res[] = $iconsGroups;
 							echo json_encode($res,true);
+
 							?>
 				</textarea>
 			</div>
