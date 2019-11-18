@@ -36,6 +36,12 @@ div[data-role="arrayitem"]>div {
     color: #FA6B8F;
 }
 
+[data-ic]~i{
+    color: green;
+    font-size: x-large; 
+    margin: 10px;
+}
+
 div[data-role="value"] {
     margin-left: 20px;
 }
@@ -60,7 +66,7 @@ span[data-role="key"] {
     display: inline-block;
     padding: 0px;
     margin: 0px;
-    min-width: 200px;
+    /* min-width: 150px; */
 }
 
 .collapse_box {

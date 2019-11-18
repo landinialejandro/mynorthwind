@@ -5,8 +5,8 @@ $cjson = file_get_contents('config.json',true);
 
 $cjson = json_decode($cjson,true);
 
-$LTE_globals = $cjson['Globals'];
-$LTE_group_ico = $cjson['Icon Groups'];
+$LTE_globals = $cjson[0]['Globals'];
+$LTE_group_ico = $cjson[1]['Icon Groups'];
 $ico = "fa fa-table"; //default ico
 
 //change to FALSE if you want back to appgini default

@@ -1,3 +1,6 @@
+// TODO: Automatically recognize and add the group list to the variables from this point.
+// 
+// 
 
     // stuff for the right click menus
     function setup_menu() {
@@ -13,11 +16,6 @@
                 klass: "menu-item-1" // a custom css class for this menu item (usable for styling)
             },
         }, menu_options);
-       
-        $j('[ic]').each(function(){
-           $j('<i class="'+this.attributes.ic.textContent+'"></i>').insertAfter(this);
-        }
-        );
     }
     
     function remove_item(element) {
@@ -30,6 +28,14 @@
     function create_item(element) {
         console.log("# create");
     }
+
+    function add_icon_item(){
+        $j('[data-ic]').each(function(){
+            $j('<i class="'+$j(this).data('ic')+'"></i>').insertAfter(this);
+         }
+         );
+    }
+
     var menu_options = {
         disable_native_context_menu: true,
         showMenu: function (element) {
@@ -40,11 +46,10 @@
         },
     };
 
-
     // functions used for the web service
     function save_ws(input, file = "jsonsave.php") {
         $json = glean_json(input, 0);
-        console.log($json);
+        //console.log($json);
         $j.post(file, {
                 json: $json
             },
@@ -58,8 +63,8 @@
         $j(this).text(value);
     };
     var save_value = function (value, settings) {
-        console.log(this);
-        console.log(value); // console.log(settings);
+        //console.log(this);
+        //console.log(value); // //console.log(settings);
 
         if ($j(this).data('role') == 'value') {
             if (value == "null") {
@@ -80,7 +85,7 @@
                 });
             } else {
                 var num = parseFloat(value);
-                console.log(num);
+                //console.log(num);
                 if (isNaN(num)) {
                     $j(this).attr("data-type", "string");
                     $j(this).data('type', 'string');
@@ -211,21 +216,13 @@
             return false;
         });
 
-        $j(".inline_add_box").hover(
-            // function () {
-            //     $j(this).children().show(100);
-            // },
-            // function () {
-            //     $j(this).children().hide(200);
-            // }
-        );
-
         // make the fields editable in place
         $j('span[data-role="key"]').editable(easy_save_value, {
             cssclass: 'edit_box'
         });
         $j('[data-type="string"]').editable(save_value, {
-            cssclass: 'edit_box'
+            cssclass: 'edit_box',
+            width : 'auto'
         });
         $j('[data-type="number"]').editable(save_value, {
             cssclass: 'edit_box'
@@ -234,13 +231,22 @@
             cssclass: 'edit_box'
         });
         $j('[data-type="boolean"]').editable(save_value, {
-            cssclass: 'edit_box',
-            data: "{'true':'true','false':'false'}",
-            type: 'select',
-            onblur: 'submit'
+            type   : "select",
+            data   : '{"true":"true","false":"false"}',
+            cssclass: 'edit_box'
         });
+
+        $j('[data-type="string"]').focusout(function(){
+            o=this;
+            $j(o).next().removeClass()
+                        .addClass(o.children['0'].children['0'].value);
+        })
+
         // make the right click menus
         setup_menu();
+
+        //add icon to right of field if the text is a glyphsicon of fa
+        add_icon_item();
 
     }
     // parse the text area into the the workarea, setup the event handlers
@@ -265,9 +271,9 @@
     }
     // recursively make html nodes out of the json
     function make_node(node_in) {
-        console.log(" ====> " + JSON.stringify(node_in));
+        //console.log(" ====> " + JSON.stringify(node_in));
         var type = Object.prototype.toString.apply(node_in);
-        console.log("  - " + type);
+        //console.log("  - " + type);
         var container = "";
         var row = "";
         if (type === "[object Object]") {
@@ -292,10 +298,10 @@
             }
             return container;
         } else if (type === "[object String]") {
-            clase = '';
+            ic = '';
             if (node_in.search('fa fa-')>=0 || node_in.search('glyphicon')>=0) 
-                clase = 'ic="'+node_in+'"';
-            return $j('<pre data-role="value" data-type="string" '+clase+'>').html(node_in);
+                ic = 'data-ic="'+node_in+'"';
+            return $j('<pre data-role="value" data-type="string" '+ic+'>').html(node_in);
         } else if (type === "[object Number]") {
             return $j('<pre data-role="value" data-type="number">').html(node_in);
         } else if (type === "[object global]" || type === "[object Null]") {
