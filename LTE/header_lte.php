@@ -15,12 +15,9 @@
 		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LTE/logo/favicon.ico">
 
 		<!-- LTE adding -->
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/Ionicons/css/ionicons.min.css">
+		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/fontawesome-free/css/all.min.css">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/AdminLTE.min.css">
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/skins/_all-skins.css">
+		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/adminlte.min.css">
 		<!-- /LTE adding -->
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/lightbox/css/lightbox.css" media="screen">
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/select2/select2.css" media="screen">
@@ -38,10 +35,9 @@
 			<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 		<![endif]-->
 
-		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/fastclick/lib/fastclick.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery/jquery.min.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/fastclick/fastclick.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jeditable.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jquery.contextMenu.js"></script> 
@@ -49,15 +45,12 @@
 		<script>var $j = jQuery.noConflict();</script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/moment/moment-with-locales.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
-		<!-- conflict con admin lte -->
-		<!-- <script src="<?php //echo PREPEND_PATH; ?>resources/lightbox/js/prototype.js"></script> -->
-		<!-- <script src="<?php //echo PREPEND_PATH; ?>resources/lightbox/js/scriptaculous.js?load=effects"></script> -->
 		<script src="<?php echo PREPEND_PATH; ?>resources/select2/select2.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/timepicker/bootstrap-timepicker.min.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/jscookie/js.cookie.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/datepicker/js/datepicker.packed.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-		<script src="<?php echo PREPEND_PATH; ?>LTE/appginiAdminlte.js"></script>
+		<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/demo.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>hooks/mpi.js"></script>
 		<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 		
@@ -66,7 +59,7 @@
 			<?php } ?>
 			
 		</head>
-		<body class="hold-transition skin-black-light fixed sidebar-mini">
+		<body class="hold-transition sidebar-mini">
 			<div  class="wrapper">
 				<?php if(function_exists('handle_maintenance')) echo handle_maintenance(true); ?>
 				

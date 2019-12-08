@@ -24,9 +24,9 @@ include("{$currDir}/../lib.php");
     <link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LTE/logo/favicon.ico">
 
     <!-- LTE adding -->
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/skins/_all-skins.css">
     <!-- add rtl css if configured-->
@@ -38,10 +38,10 @@ include("{$currDir}/../lib.php");
 		<![endif]-->
 
     <!-- jQuery 3 -->
-    <script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/fastclick/lib/fastclick.js"></script>
     <script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
     <script>
         var $j = jQuery.noConflict();

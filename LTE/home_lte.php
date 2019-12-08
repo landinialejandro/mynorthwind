@@ -54,7 +54,7 @@ include_once("header.php");
 
         </div>
 <!-- ChartJS -->
-<script src="LTE/bower_components/chart.js/Chart.js"></script>
+<script src="LTE/plugins/chart.js/Chart.js"></script>
         <script>
   $j(function () {
     // here you need to make an ajax to get the array values form a php.
