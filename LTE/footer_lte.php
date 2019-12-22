@@ -1,6 +1,6 @@
 
-            
-        </section>
+                </div>
+            </section>
             <!-- /.content FLUID-->
 
         </div>
