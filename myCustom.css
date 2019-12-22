@@ -8,7 +8,7 @@
     z-index: 800;
   }
   
-  .content .row{
+  .container-fluid .row{
     background-color: white;
     border-radius: 10px;
   }
@@ -20,3 +20,19 @@ label[for='id']{
 label[for='id'] + div {
     display: none;
 }
+.page-header {
+  margin: 10px 0 20px 0;
+  font-size: 22px;
+}
+
+/* */
+.hidden{ visibility: hidden !important; }
+/* tv tools button widths */
+.tv-tools .btn { width: 5em; }
+
+.rtl{ direction: rtl !important; }
+.ltr{ direction: ltr !important; }
+
+table a, .table a { text-decoration: none !important; }
+
+#children-tabs li a{ display: block !important; }
