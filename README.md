@@ -1,7 +1,7 @@
 
-# adminLTE for AppGini
+# adminLTE for AppGini with bootstrap 4 and LTE Admin 3
 
-## Release R1.0.0
+## Release R0.0.0
 
 Staring the new versión
 
