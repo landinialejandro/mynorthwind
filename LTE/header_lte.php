@@ -19,8 +19,8 @@
 
 	<!-- LTE adding -->
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/adminlte.min.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/glyphicons.css" mediad="screen">
 	<!-- /LTE adding -->
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/lightbox/css/lightbox.css" media="screen">

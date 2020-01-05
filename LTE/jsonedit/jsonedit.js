@@ -54,7 +54,7 @@
                 json: $json
             },
             function (data) {
-                modal_window({  message: '<div class="callout callout-warning"><h4><i class = "fa fa-warning"></i>'+" The data config has been saved"+'</h4> '+ data +'</div>', 
+                modal_window({  message: '<div class="callout callout-warning"><h4><i class = "fas fa-warning"></i>'+" The data config has been saved"+'</h4> '+ data +'</div>', 
                                   title: 'Save Config'  });
                 
             });

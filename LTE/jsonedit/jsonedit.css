@@ -58,7 +58,7 @@ div[data-role="arrayitem"] {
 
 span[data-role="key"] {
     display: inline-block;
-    min-width: 200px;
+    min-width: 150px;
     margin: 2px;
 }
 
