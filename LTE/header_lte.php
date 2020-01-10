@@ -40,15 +40,16 @@
 		<![endif]-->
 
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery/jquery.min.js"></script>
+	<script>
+		var $j = jQuery.noConflict();
+	</script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/fastclick/fastclick.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/prototype/prototype.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jeditable.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jquery.contextMenu.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.js"></script>
-	<script>
-		var $j = jQuery.noConflict();
-	</script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/moment/moment-with-locales.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/select2/select2.min.js"></script>
