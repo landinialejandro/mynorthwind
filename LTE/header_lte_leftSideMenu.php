@@ -9,8 +9,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
-                <img src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" class="img-circle elevation-2" alt="User Image">
+                <img src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" class="img-circle elevation-2 user-image" alt="User Image">
             </div>
             <div class="info">
                 <a href="<?php echo PREPEND_PATH; ?>LTE/membership_profile.php" class="d-block"><?php echo getLoggedMemberID(); ?></a>
