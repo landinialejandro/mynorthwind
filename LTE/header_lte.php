@@ -36,8 +36,8 @@
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/myCustom.css" mediad="screen">
 
 	<!--[if lt IE 9]>
-			<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-		<![endif]-->
+		<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<![endif]-->
 
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery/jquery.min.js"></script>
 	<script>
