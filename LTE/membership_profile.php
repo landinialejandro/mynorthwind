@@ -523,7 +523,6 @@
 				e.preventDefault();    
 				var formData = new FormData(this);
 				getMpi(formData);
-				getMpi({cmd:'u'},false);
 			});
 			$j('#mpi').on('change',function(){
                 //get the file name

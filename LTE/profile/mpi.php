@@ -40,9 +40,9 @@ class Mpi {
         if (!empty($newImage)){
             $this->image = $newImage;
             $this->jsonAdduser();
-            $this->menssage = 'image saved';
+            $this->menssage = 'saved';
         } else {
-            $this->menssage = 'image not saved';
+            $this->menssage = 'ERROR: not saved';
         }
         
     }
