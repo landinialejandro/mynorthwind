@@ -59,7 +59,7 @@
 	<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/demo.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/bootstrap.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>hooks/mpi.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LTE/profile/mpi.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 
 	<?php if (isset($x->TableName) && is_file(dirname(__FILE__) . "/hooks/{$x->TableName}-tv.js")) { ?>

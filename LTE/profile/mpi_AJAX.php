@@ -8,14 +8,14 @@
 // 
 //
 
-	$hooks_dir = dirname(__FILE__);
+	$root_dir = dirname(__FILE__). "/../..";
         if(!function_exists('PrepareUploadedFile')){
-            include("{$hooks_dir}/../lib.php");
+            include("{$root_dir}/lib.php");
         } 
-        include ("{$hooks_dir}/mpi.php");
+        include ("mpi.php");
         
 	$user_data = getMemberInfo();
-        $mpiFolder = $hooks_dir."/../images/";
+        $mpiFolder = $root_dir . "/images/";
         
         $filename = $mpiFolder.'mpi.json';
         

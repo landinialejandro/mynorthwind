@@ -1,9 +1,9 @@
 <?php
-$hooks_dir = dirname(__FILE__) . "/../hooks";
-include_once("{$hooks_dir}/mpi.php");
-$mpiFolder = dirname(__FILE__) . "/../images/";
+$lte_dir = dirname(__FILE__);
+$imageFolder = $lte_dir . "/../images/";
+include_once("{$lte_dir}/profile/mpi.php");
 
-$mpi = new Mpi($memberInfo['username'], $mpiFolder);
+$mpi = new Mpi($memberInfo['username'], $imageFolder);
 $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
 ?>
 
