@@ -351,7 +351,7 @@ include_once("$currDir/header.php"); ?>
   <!-- /.col -->
 </div>
 
-<script src="LTE/plugin/moment/moment.min.js"></script>
+
 <script>
   $j(function() {
     <?php
