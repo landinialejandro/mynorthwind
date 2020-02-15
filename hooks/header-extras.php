@@ -1,7 +1,10 @@
 <?php if(!defined('PREPEND_PATH') || PREPEND_PATH === "../" ) define('PREPEND_PATH', ''); 
 ?>
-<script>
 
+<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery-jeditable/jquery.jeditable.js"></script>
+<script src="<?php echo PREPEND_PATH; ?>LTE/tvedit/tv.edit.js"></script>
+
+<script>
 function getMpi(data, nav = true, mpi = true){
                 $j.ajax({
                     url: '<?php echo PREPEND_PATH; ?>LTE/profile/mpi_AJAX.php',
