@@ -44,7 +44,7 @@
  * @param {String} [options.placeholder='Click to edit'] - Placeholder text or html to insert when element is empty
  * @param {Number} [options.rows] - number of rows if using textarea
  * @param {Boolean} [options.select] - When true text is selected
- * @param {Function} [options.showfn]- Function that can animate the element when switching to edit mode
+ * @param {Function} [options.showfn] - Function that can animate the element when switching to edit mode
  * @param {String} [options.size] - The size of the text field
  * @param {String} [options.sortselectoptions] - Sort the options of a select form
  * @param {Number} [options.step] - Step size for number type

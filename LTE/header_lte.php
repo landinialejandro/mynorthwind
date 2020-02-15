@@ -49,9 +49,10 @@
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/fastclick/fastclick.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/prototype/prototype.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jeditable.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jquery.jeditable.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jquery.contextMenu.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/tv.edit.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/moment/moment-with-locales.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/select2/select2.min.js"></script>
@@ -64,7 +65,8 @@
 	<script src="<?php echo PREPEND_PATH; ?>LTE/profile/mpi.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 
-	<?php if (isset($x->TableName) && is_file(dirname(__FILE__) . "/hooks/{$x->TableName}-tv.js")) { ?>
+	<?php 
+	if (isset($x->TableName) && is_file(dirname(__FILE__) . "/../hooks/{$x->TableName}-tv.js")) { ?>
 		<script src="<?php echo PREPEND_PATH; ?>hooks/<?php echo $x->TableName; ?>-tv.js"></script>
 	<?php } ?>
 
