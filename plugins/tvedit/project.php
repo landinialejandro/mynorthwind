@@ -278,10 +278,10 @@
 			if (! currentTable['plugins'] ){
 				currentTable['plugins']=[];
 			}
-			if (! currentTable['plugins']['spm'] ){
-				currentTable['plugins']['spm'] =[];
+			if (! currentTable['plugins']['tve'] ){
+				currentTable['plugins']['tve'] =[];
 			}
-			currentTable['plugins']['spm']['spm_fields'] =  ids;
+			currentTable['plugins']['tve']['tve_fields'] =  ids;
 
 			//update project file
 			$j.ajax({
@@ -315,8 +315,8 @@
 			table = xmlFile.table;
 		}
 		var chosenElements;
-		if ( table.plugins && table.plugins.spm && table.plugins.spm.spm_fields ){
-			chosenElements = new Array(table.plugins.spm.spm_fields.split(":").length);
+		if ( table.plugins && table.plugins.tve && table.plugins.tve.tve_fields ){
+			chosenElements = new Array(table.plugins.tve.tve_fields.split(":").length);
 		}
 
 		//get data types ( only for the first time the table is clicked )
@@ -337,14 +337,14 @@
 		//display data
 		
 		//convert ids string into array
-		var spmDataArray = [];
+		var tveDataArray = [];
 
-		if( table.plugins && table.plugins.spm && table.plugins.spm.spm_fields ){
-			var spmDataArray = table.plugins.spm.spm_fields.split(":");	
+		if( table.plugins && table.plugins.tve && table.plugins.tve.tve_fields ){
+			var tveDataArray = table.plugins.tve.tve_fields.split(":");	
 		}
 
 		$j.each(tableData[tableNum], function( key, value ) {
-			position = $j.inArray( key , spmDataArray );
+			position = $j.inArray( key , tveDataArray );
 			if ( position!== -1){
 			  	chosenElements[position] = '<div class="list-group-item ui-state-default  item" data-sort='+key+'><span class="'+value.icon+'" ></span>     ' +value.caption +" ( "+value.name+" ) </div>";
 			}else{
@@ -354,14 +354,14 @@
 
 		//fixed sections part
 		i=9001;   //ORDER BY
-		position = $j.inArray( String(i) , spmDataArray );
+		position = $j.inArray( String(i) , tveDataArray );
 		if ( position !== -1){
 			chosenElements[position] = '<div class="list-group-item ui-state-default  item" data-sort='+i+'><span class="glyphicon glyphicon-collapse-down" ></span>     Order by  ( section ) </div>';
 		}else{
 			$j("#fields").append('<div class="list-group-item ui-state-default  item" data-sort='+i+'><span class="glyphicon glyphicon-collapse-down" ></span>     Order by  ( section ) </div>');	
 		}	
 		i++;  //USER/GROUP/ALL
-		position = $j.inArray( String(i) , spmDataArray );
+		position = $j.inArray( String(i) , tveDataArray );
 		if ( position !== -1){
 			chosenElements[position] = '<div class="list-group-item ui-state-default  item" data-sort='+i+'><span class="glyphicon glyphicon-user" ></span>     User/group/all  ( section ) </div>';
 		}else{
