@@ -1,9 +1,9 @@
 
-    var submitdata = {};
+    var submitdata = {tn:'',id:'',fn:''};
     function tv_editlets(tn) {
         add_buttons(tn);  
         var td = $j('tr > td[id^="'+tn+'"] > a');
-        submitdata['tn'] = tn;
+        submitdata.tn = tn;
         td.prop("onclick", null).off("click")
             .removeAttr("href").css("cursor","pointer")
             .editable("LTE/tvedit/tv.edit.php", {
@@ -14,8 +14,8 @@
                 submitcssclass : 'btn btn-success btn-xs',
                 tooltip : "Click to edit...",
                 onsubmit : function() { 
-                    submitdata['id'] = $j(this).closest('tr').attr('data-id'); 
-                    submitdata['fn'] = $j(this).closest('td').attr('id'); 
+                    submitdata.id = $j(this).closest('tr').attr('data-id'); 
+                    submitdata.fn = $j(this).closest('td').attr('id'); 
                 },
                 submitdata : submitdata
             }
