@@ -11,21 +11,9 @@
 	 *         where calculated fields:
 	 *             field => query, ...
 	 */
-	$calc = array(
-		'orders' => array(
-		),
-		'contacts' => array(
-			'type' => '',
-		),
-		'addresses' => array(
-		),
-		'companies' => array(
-		),
-		'logins' => array(
-		),
-	);
-
+	$calc = calculated_fields();
 	cleanup_calc_fields($calc);
+
 	list($table, $id) = get_params();
 	if(!$table || !strlen($id))
 		return_json(array(), 'Access denied or invalid parameters');
@@ -61,40 +49,6 @@
 	return_json($caluclations_made);
 
 	#############################################################
-
-	function update_calc_fields($table, $id, $formulas) {
-		$mi = getMemberInfo();
-		$pk = getPKFieldName($table);
-		$safe_id = makeSafe($id);
-		$eo = array('silentErrors' => true);
-		$caluclations_made = array();
-		$replace = array(
-			'%ID%' => $safe_id,
-			'%USERNAME%' => makeSafe($mi['username']),
-			'%GROUPID%' => makeSafe($mi['groupID']),
-			'%GROUP%' => makeSafe($mi['group'])
-		);
-
-		foreach($formulas as $field => $query) {
-			$query = str_replace(array_keys($replace), array_values($replace), $query);
-			$calc_value = sqlValue($query);
-			if($calc_value  === false) continue;
-
-			// update calculated field
-			$safe_calc_value = makeSafe($calc_value);
-			$update_query = "UPDATE `{$table}` SET `{$field}`='{$safe_calc_value}' " .
-				"WHERE `{$pk}`='{$safe_id}'";
-			$res = sql($update_query, $eo);
-			if($res) $caluclations_made[] = array(
-				'table' => $table,
-				'id' => $id,
-				'field' => $field,
-				'value' => $calc_value
-			);
-		}
-
-		return $caluclations_made;
-	}
 
 	/* get and validate params */
 	function get_params() {

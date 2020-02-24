@@ -146,6 +146,7 @@
 			'dbPassword' => undo_magic_quotes($db_password),
 			'dbDatabase' => undo_magic_quotes($db_name),
 			'appURI' => trim(dirname($_SERVER['SCRIPT_NAME']), '/'),
+			'host' => (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == '80' || $_SERVER['SERVER_PORT'] == '443' ? '' : ":{$_SERVER['SERVER_PORT']}")),
 
 			'adminConfig' => array(
 				'adminUsername' => $username,

@@ -20,75 +20,6 @@
 	include("{$currDir}/language.php");
 ?>
 var AppGini = AppGini || {};
-AppGini.ajaxCache = function() {
-	var _tests = [];
-
-	/*
-		An array of functions that receive a parameterless url and a parameters object,
-		makes a test,
-		and if test passes, executes something and/or
-		returns a non-false value if test passes,
-		or false if test failed (useful to tell if tests should continue or not)
-	*/
-	var addCheck = function(check) { /* */
-		if(typeof(check) == 'function') {
-			_tests.push(check);
-		}
-	};
-
-	var _jqAjaxData = function(opt) { /* */
-		var opt = opt || {};   
-		var url = opt.url || '';
-		var data = opt.data || {};
-
-		var params = url.match(/\?(.*)$/);
-		var param = (params !== null ? params[1] : '');
-
-		var sPageURL = decodeURIComponent(param),
-			sURLVariables = sPageURL.split('&'),
-			sParameter,
-			i;
-
-		for(i = 0; i < sURLVariables.length; i++) {
-			sParameter = sURLVariables[i].split('=');
-			if(sParameter[0] == '') continue;
-			data[sParameter[0]] = sParameter[1] || '';
-		}
-
-		return data;
-	};
-
-	var start = function() { /* */
-		if(!_tests.length) return; // no need to monitor ajax requests since no checks were defined
-		var reqTests = _tests;
-		$j.ajaxPrefilter(function(options, originalOptions, jqXHR) {
-			var success = originalOptions.success || $j.noop,
-				data = _jqAjaxData(originalOptions),
-				oUrl = originalOptions.url || '',
-				url = oUrl.match(/\?/) ? oUrl.match(/(.*)\?/)[1] : oUrl;
-
-			options.beforeSend = function() { /* */
-				var req, cached = false, resp;
-
-				for(var i = 0; i < reqTests.length; i++) {
-					resp = reqTests[i](url, data);
-					if(resp === false) continue;
-
-					success(resp);
-					return false;
-				}
-
-				return true;
-			}
-		});
-	};
-
-	return {
-		addCheck: addCheck,
-		start: start
-	};
-};
-
 /* initials and fixes */
 jQuery(function() {
 	AppGini.count_ajaxes_blocking_saving = 0;
@@ -278,6 +209,20 @@ jQuery(function() {
 
 	// adjust DV page title link to go back if appropriate
 	AppGini.alterDVTitleLinkToBack();
+
+	// in table view, hide unnecessary page elements if no records are displayed
+	if($j('.table_view').length) {
+		setInterval(function() {
+			if($j('tfoot .alert-warning').length) {
+				$j('#Print, #CSV, #tv-tools, thead, tr.success').addClass('hidden');
+				$j('.tv-toggle').parent().addClass('hidden');
+				return;
+			}
+
+			$j('#Print, #CSV, #tv-tools, thead, tr.success').removeClass('hidden');
+			$j('.tv-toggle').parent().removeClass('hidden');       
+		});
+	}
 });
 
 /* show/hide TV action buttons based on whether records are selected or not */
@@ -306,6 +251,75 @@ function fix_table_responsive_width() {
 	}
 }
 
+AppGini.ajaxCache = function() {
+	var _tests = [];
+
+	/*
+		An array of functions that receive a parameterless url and a parameters object,
+		makes a test,
+		and if test passes, executes something and/or
+		returns a non-false value if test passes,
+		or false if test failed (useful to tell if tests should continue or not)
+	*/
+	var addCheck = function(check) { /* */
+		if(typeof(check) == 'function') {
+			_tests.push(check);
+		}
+	};
+
+	var _jqAjaxData = function(opt) { /* */
+		var opt = opt || {};   
+		var url = opt.url || '';
+		var data = opt.data || {};
+
+		var params = url.match(/\?(.*)$/);
+		var param = (params !== null ? params[1] : '');
+
+		var sPageURL = decodeURIComponent(param),
+			sURLVariables = sPageURL.split('&'),
+			sParameter,
+			i;
+
+		for(i = 0; i < sURLVariables.length; i++) {
+			sParameter = sURLVariables[i].split('=');
+			if(sParameter[0] == '') continue;
+			data[sParameter[0]] = sParameter[1] || '';
+		}
+
+		return data;
+	};
+
+	var start = function() { /* */
+		if(!_tests.length) return; // no need to monitor ajax requests since no checks were defined
+		var reqTests = _tests;
+		$j.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+			var success = originalOptions.success || $j.noop,
+				data = _jqAjaxData(originalOptions),
+				oUrl = originalOptions.url || '',
+				url = oUrl.match(/\?/) ? oUrl.match(/(.*)\?/)[1] : oUrl;
+
+			options.beforeSend = function() { /* */
+				var req, cached = false, resp;
+
+				for(var i = 0; i < reqTests.length; i++) {
+					resp = reqTests[i](url, data);
+					if(resp === false) continue;
+
+					success(resp);
+					return false;
+				}
+
+				return true;
+			}
+		});
+	};
+
+	return {
+		addCheck: addCheck,
+		start: start
+	};
+};
+
 function orders_validateData() {
 	$j('.has-error').removeClass('has-error');
 	return true;
@@ -326,6 +340,10 @@ function logins_validateData() {
 	$j('.has-error').removeClass('has-error');
 	return true;
 }
+function compnayTypes_validateData() {
+	$j('.has-error').removeClass('has-error');
+	return true;
+}
 
 function post(url, params, update, disable, loading, success_callback) {
 	$j.ajax({
@@ -338,7 +356,11 @@ function post(url, params, update, disable, loading, success_callback) {
 		},
 		success: function(resp) {
 			if($j('#' + update).length) $j('#' + update).html(resp);
-			if(success_callback != undefined) success_callback();
+			if(success_callback != undefined)
+				success_callback();
+			else
+				// re-calculate fields by default if no other callback explicitly passed
+				AppGini.calculatedFields.init();
 		},
 		complete: function() {
 			if($j('#' + disable).length) $j('#' + disable).prop('disabled', false);
@@ -1472,12 +1494,20 @@ AppGini.calculatedFields = {
 		var cell = $j('[id="' + data.table + '-' + data.field + '-' + safeId + '"]');
 		var cellLink = cell.find('a');
 		if(cellLink.length)
-			cellLink.text(data.value);
+			cellLink.html(data.value);
 		else
-			cell.text(data.value);
+			cell.html(data.value);
 
 		// update calc field in DV/DVP
-		$j('.detail_view [id="' + data.field + '"]').val(data.value);
+		var detailViewForm = $j('.table-' + data.table + '.detail_view').parents('form');
+		// make sure that data.id matches the hidden SelectedID var in the form
+		if(data.id != detailViewForm.find('input[name="SelectedID"]').val()) return;
+
+		var inpElem = detailViewForm.find('[id="' + data.field + '"]');
+		if(inpElem.attr('value') !== undefined)
+			inpElem.val(data.value);
+		else
+			inpElem.html(data.value);
 	}
 };
 
@@ -1615,5 +1645,24 @@ AppGini.alterDVTitleLinkToBack = function() {
 		$j('#deselect').trigger('click');
 		return false;
 	})
+}
+
+/* function to focus on first element of a form, with support for select2 */
+AppGini.focusFirstFormElement = function() {
+	if(AppGini.mobileDevice()) return;
+
+	var fieTop = 1000000; // some very large initial value for element tops
+
+	var firstInputElem = $j('select, input[type=text], textarea, .nicEdit-main').not(':disabled').not('.select2-offscreen').filter(':visible').eq(0);
+	if(firstInputElem.length) fieTop = firstInputElem.offset().top;
+
+	var firstSelect2 = $j('.select2-container').eq(0);
+	if(firstSelect2.length && firstSelect2.offset().top < fieTop) {
+		// we have a select2 on the top of the form, so focus it
+		$j('#' + firstSelect2.attr('id').replace(/^s2id_/, '')).select2('focus');
+		return;
+	}
+
+	firstInputElem.focus();
 }
 

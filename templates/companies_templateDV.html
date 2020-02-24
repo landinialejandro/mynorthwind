@@ -34,9 +34,9 @@
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="type" class="control-label col-lg-3">Company Type</label>
+					<label for="type" class="control-label col-lg-3" data-parent_link="view_parent_modal">Company Type</label>
 					<div class="col-lg-9">
-						<input maxlength="40" type="text" class="form-control" name="type" id="type" value="<%%VALUE(type)%%>">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(type)%%><%%PLINK(type)%%><%%ADDNEW(compnayTypes)%%></div>
 					</div>
 				</div>
 
@@ -80,9 +80,7 @@
 			/* enable DV action buttons to float on scrolling down the form */
 			enable_dvab_floating();
 
-			if(!(embedded_mode && AppGini.mobileDevice())) {
-				$j('select, input[type=text], textarea').not(':disabled').eq(0).focus();
-			}
+			setTimeout(AppGini.focusFirstFormElement, 100);
 
 			$j('form').eq(0).change(function() {
 				if($j(this).data('already_changed')) return;

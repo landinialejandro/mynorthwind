@@ -9,30 +9,34 @@
 	*/
 
 	/* application schema as created in AppGini */
-	$schema = array(   
-		'orders' => array(   
+	$schema = array(
+		'orders' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'orderNumber' => array('appgini' => 'VARCHAR(40) null '),
-			'customer' => array('appgini' => 'VARCHAR(40) null ')
+			'customer' => array('appgini' => 'VARCHAR(40) null '),
 		),
-		'contacts' => array(   
+		'contacts' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'fullName' => array('appgini' => 'VARCHAR(40) null '),
-			'type' => array('appgini' => 'VARCHAR(40) null ')
+			'type' => array('appgini' => 'VARCHAR(40) null '),
 		),
-		'addresses' => array(   
+		'addresses' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
-			'address' => array('appgini' => 'VARCHAR(40) null ')
+			'address' => array('appgini' => 'VARCHAR(40) null '),
 		),
-		'companies' => array(   
+		'companies' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'name' => array('appgini' => 'VARCHAR(40) null '),
-			'type' => array('appgini' => 'VARCHAR(40) null ')
+			'type' => array('appgini' => 'INT unsigned null '),
 		),
-		'logins' => array(   
+		'logins' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
-			'ip' => array('appgini' => 'VARCHAR(40) null ')
-		)
+			'ip' => array('appgini' => 'VARCHAR(40) null '),
+		),
+		'compnayTypes' => array(
+			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
+			'type' => array('appgini' => 'VARCHAR(40) null '),
+		),
 	);
 
 	$table_captions = getTableList();

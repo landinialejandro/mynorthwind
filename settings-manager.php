@@ -36,6 +36,10 @@
 		);
 
 		if(isset($appURI)) $config_array['appURI'] = $appURI;
+		if(isset($host))
+			$config_array['host'] = $host;
+		else
+			$config_array['host'] = (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == '80' || $_SERVER['SERVER_PORT'] == '443' ? '' : ":{$_SERVER['SERVER_PORT']}"));
 
 		if(save_config($config_array)) {
 			@rename($curr_dir . '/admin/incConfig.php', $curr_dir . '/admin/incConfig.bak.php');
@@ -63,6 +67,7 @@
 			"\t\$dbDatabase = '" . addslashes($config_array['dbDatabase']) . "';\n" .
 
 			(isset($config_array['appURI']) ? "\t\$appURI = '" . addslashes($config_array['appURI']) . "';\n" : '') .
+			(isset($config_array['host']) ? "\t\$host = '" . addslashes($config_array['host']) . "';\n" : '') .
 
 			"\n\t\$adminConfig = array(\n" . 
 				$new_admin_config .
@@ -93,6 +98,7 @@
 			'dbPassword' => '',
 			'dbDatabase' => '',
 			'appURI' => '',
+			'host' => (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == '80' || $_SERVER['SERVER_PORT'] == '443' ? '' : ":{$_SERVER['SERVER_PORT']}")),
 
 			'adminConfig' => array(
 				'adminUsername' => '',
@@ -134,6 +140,7 @@
 			$config['dbPassword'] = $dbPassword;
 			$config['dbUsername'] = $dbUsername;
 			$config['appURI'] = $appURI;
+			$config['host'] = $host;
 			$config['adminConfig'] = $adminConfig;
 		}
 
@@ -204,8 +211,8 @@
 		@include(dirname(__FILE__) . '/config.php');
 		if(!isset($dbServer)) return;
 
-		// check if appURI defined
-		if(isset($appURI)) return;
+		// check if appURI and host defined
+		if(isset($appURI) && isset($host)) return;
 
 		// now set appURI, knowing that we're on homepage
 		save_config(array(
@@ -214,6 +221,7 @@
 			'dbPassword' => $dbPassword,
 			'dbDatabase' => $dbDatabase,
 			'appURI' => trim(dirname($_SERVER['SCRIPT_NAME']), '/'),
+			'host' => (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] == '80' || $_SERVER['SERVER_PORT'] == '443' ? '' : ":{$_SERVER['SERVER_PORT']}")),
 			'adminConfig' => $adminConfig
 		));
 	}

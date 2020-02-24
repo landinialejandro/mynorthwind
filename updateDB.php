@@ -12,10 +12,12 @@
 
 		// set up tables
 		setupTable('orders', "create table if not exists `orders` (   `id` INT unsigned not null auto_increment , primary key (`id`), `orderNumber` VARCHAR(40) null , `customer` VARCHAR(40) null ) CHARSET utf8", $silent);
-		setupTable('contacts', "create table if not exists `contacts` (   `id` INT unsigned not null auto_increment , primary key (`id`), `fullName` VARCHAR(40) null , `type` VARCHAR(40) null ) CHARSET utf8", $silent, array( "ALTER TABLE contacts ADD `field3` VARCHAR(40)","ALTER TABLE `contacts` CHANGE `field3` `type` VARCHAR(40) null "));
+		setupTable('contacts', "create table if not exists `contacts` (   `id` INT unsigned not null auto_increment , primary key (`id`), `fullName` VARCHAR(40) null , `type` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('addresses', "create table if not exists `addresses` (   `id` INT unsigned not null auto_increment , primary key (`id`), `address` VARCHAR(40) null ) CHARSET utf8", $silent);
-		setupTable('companies', "create table if not exists `companies` (   `id` INT unsigned not null auto_increment , primary key (`id`), `name` VARCHAR(40) null , `type` VARCHAR(40) null ) CHARSET utf8", $silent, array( "ALTER TABLE companies ADD `field3` VARCHAR(40)","ALTER TABLE `companies` CHANGE `field3` `type` VARCHAR(40) null "));
+		setupTable('companies', "create table if not exists `companies` (   `id` INT unsigned not null auto_increment , primary key (`id`), `name` VARCHAR(40) null , `type` INT unsigned null ) CHARSET utf8", $silent);
+		setupIndexes('companies', array('type'));
 		setupTable('logins', "create table if not exists `logins` (   `id` INT unsigned not null auto_increment , primary key (`id`), `ip` VARCHAR(40) null ) CHARSET utf8", $silent);
+		setupTable('compnayTypes', "create table if not exists `compnayTypes` (   `id` INT unsigned not null auto_increment , primary key (`id`), `type` VARCHAR(40) null ) CHARSET utf8", $silent, array( "ALTER TABLE `table6` RENAME `compnayTypes`","UPDATE `membership_userrecords` SET `tableName`='compnayTypes' where `tableName`='table6'","UPDATE `membership_userpermissions` SET `tableName`='compnayTypes' where `tableName`='table6'","UPDATE `membership_grouppermissions` SET `tableName`='compnayTypes' where `tableName`='table6'","ALTER TABLE compnayTypes ADD `field1` VARCHAR(40)","ALTER TABLE `compnayTypes` CHANGE `field1` `id` VARCHAR(40) null ","ALTER TABLE `compnayTypes` CHANGE `id` `id` INT unsigned not null auto_increment ","ALTER TABLE compnayTypes ADD `field2` VARCHAR(40)","ALTER TABLE `compnayTypes` CHANGE `field2` `type` VARCHAR(40) null "));
 
 
 		// save MD5

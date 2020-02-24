@@ -49,7 +49,8 @@
 			'contacts' => array('Contacts', '', 'resources/table_icons/administrator.png', 'None'),
 			'addresses' => array('Addresses', '', 'resources/table_icons/32_bit.png', 'Locations'),
 			'companies' => array('Companies', '', 'resources/table_icons/balance.png', 'None'),
-			'logins' => array('Logins', '', 'table.gif', 'hidden')
+			'logins' => array('Logins', '', 'table.gif', 'hidden'),
+			'compnayTypes' => array('CompnayTypes', '', 'table.gif', 'hidden')
 		);
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -135,12 +136,13 @@
 	#########################################################
 
 	function get_sql_fields($table_name) {
-		$sql_fields = array(   
+		$sql_fields = array(
 			'orders' => "`orders`.`id` as 'id', `orders`.`orderNumber` as 'orderNumber', `orders`.`customer` as 'customer'",
 			'contacts' => "`contacts`.`id` as 'id', `contacts`.`fullName` as 'fullName', `contacts`.`type` as 'type'",
 			'addresses' => "`addresses`.`id` as 'id', `addresses`.`address` as 'address'",
-			'companies' => "`companies`.`id` as 'id', `companies`.`name` as 'name', `companies`.`type` as 'type'",
-			'logins' => "`logins`.`id` as 'id', `logins`.`ip` as 'ip'"
+			'companies' => "`companies`.`id` as 'id', `companies`.`name` as 'name', IF(    CHAR_LENGTH(`compnayTypes1`.`type`), CONCAT_WS('',   `compnayTypes1`.`type`), '') as 'type'",
+			'logins' => "`logins`.`id` as 'id', `logins`.`ip` as 'ip'",
+			'compnayTypes' => "`compnayTypes`.`id` as 'id', `compnayTypes`.`type` as 'type'",
 		);
 
 		if(isset($sql_fields[$table_name])) {
@@ -153,20 +155,22 @@
 	#########################################################
 
 	function get_sql_from($table_name, $skip_permissions = false, $skip_joins = false) {
-		$sql_from = array(   
+		$sql_from = array(
 			'orders' => "`orders` ",
 			'contacts' => "`contacts` ",
 			'addresses' => "`addresses` ",
-			'companies' => "`companies` ",
-			'logins' => "`logins` "
+			'companies' => "`companies` LEFT JOIN `compnayTypes` as compnayTypes1 ON `compnayTypes1`.`id`=`companies`.`type` ",
+			'logins' => "`logins` ",
+			'compnayTypes' => "`compnayTypes` ",
 		);
 
-		$pkey = array(   
+		$pkey = array(
 			'orders' => 'id',
 			'contacts' => 'id',
 			'addresses' => 'id',
 			'companies' => 'id',
-			'logins' => 'id'
+			'logins' => 'id',
+			'compnayTypes' => 'id',
 		);
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -237,6 +241,10 @@
 			'logins' => array(
 				'id' => '',
 				'ip' => ''
+			),
+			'compnayTypes' => array(
+				'id' => '',
+				'type' => ''
 			)
 		);
 

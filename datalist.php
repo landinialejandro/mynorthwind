@@ -791,7 +791,7 @@ class DataList{
 					$this->HTML .= '<p></p>';
 				$this->HTML .= '</div>';
 
-				$this->HTML .= '<div class="row"><div class="table_view col-xs-12 ' . $this->TVClasses . '">';
+				$this->HTML .= '<div class="row"><div class="table-' . $this->TableName . ' table_view col-xs-12 ' . $this->TVClasses . '">';
 			}
 
 			if($Print_x != ''){
@@ -1184,7 +1184,7 @@ class DataList{
 			if(($this->SeparateDV && $this->HideTableView) || !$this->SeparateDV){
 				$dvCode = call_user_func_array($this->TableName . '_form', array($SelectedID, $this->AllowUpdate, (($this->HideTableView && $SelectedID) ? 0 : $this->AllowInsert), $this->AllowDelete, $this->SeparateDV, $this->TemplateDV, $this->TemplateDVP));
 
-				$this->HTML .= "\n\t<div class=\"col-xs-12 detail_view {$this->DVClasses}\">{$tv_dv_separator}<div class=\"panel panel-default\">{$dvCode}</div></div>";
+				$this->HTML .= "\n\t<div class=\"col-xs-12 table-{$this->TableName} detail_view {$this->DVClasses}\">{$tv_dv_separator}<div class=\"panel panel-default\">{$dvCode}</div></div>";
 				$this->HTML .= ($this->SeparateDV ? '<input name="SearchString" value="' . html_attr($SearchString) . '" type="hidden">' : '');
 				if($dvCode){
 					$this->ContentType = 'detailview';

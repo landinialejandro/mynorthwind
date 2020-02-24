@@ -125,7 +125,14 @@
 					'tableIcon' => 'table.gif',
 					'group' => $tg[2],
 					'homepageShowCount' => 0
-				)
+				),
+				'compnayTypes' => array(
+					'Caption' => 'CompnayTypes',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[2],
+					'homepageShowCount' => 0
+				),
 		);
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -140,12 +147,13 @@
 	#########################################################
 	if(!function_exists('getTableList')) {
 		function getTableList($skip_authentication = false) {
-			$arrTables = array(   
+			$arrTables = array(
 				'orders' => 'Orders',
 				'contacts' => 'Contacts',
 				'addresses' => 'Addresses',
 				'companies' => 'Companies',
-				'logins' => 'Logins'
+				'logins' => 'Logins',
+				'compnayTypes' => 'CompnayTypes',
 			);
 
 			return $arrTables;
@@ -488,12 +496,16 @@
 			$auth_header = trim($_SERVER['Authorization']);
 		} elseif(isset($_SERVER['HTTP_AUTHORIZATION'])) { //Nginx or fast CGI
 			$auth_header = trim($_SERVER['HTTP_AUTHORIZATION']);
+		} elseif(isset($_SERVER['HTTP_X_AUTHORIZATION'])) { //hack if all else fails
+			$auth_header = trim($_SERVER['HTTP_X_AUTHORIZATION']);
 		} elseif(function_exists('apache_request_headers')) {
 			$rh = apache_request_headers();
 			// Server-side fix for bug in old Android versions (a nice side-effect of this fix means we don't care about capitalization for Authorization)
 			$rh = array_combine(array_map('ucwords', array_keys($rh)), array_values($rh));
 			if(isset($rh['Authorization'])) {
 				$auth_header = trim($rh['Authorization']);
+			} elseif(isset($rh['X-Authorization'])) {
+				$auth_header = trim($rh['X-Authorization']);
 			}
 		}
 
@@ -537,14 +549,17 @@
 		$payload = $data;
 		$payload['insert_x'] = 1;
 
+		$url = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . config('host') . '/' . application_uri("{$table}_view.php");
+		$token = jwt_token();
 		$options = array(
-			CURLOPT_URL => application_url("{$table}_view.php"),
+			CURLOPT_URL => $url,
 			CURLOPT_POST => true,
 			CURLOPT_POSTFIELDS => http_build_query($payload),
 			CURLOPT_HTTPHEADER => array(
 				"User-Agent: {$_SERVER['HTTP_USER_AGENT']}",
 				"Accept: {$_SERVER['HTTP_ACCEPT']}",
-				"Authorization: Bearer " . jwt_token()
+				"Authorization: Bearer " . $token,
+				"X-Authorization: Bearer " . $token,
 			),
 			CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_RETURNTRANSFER => true,
@@ -555,12 +570,15 @@
 			// the following option allows sending request and then 
 			// closing the connection without waiting for response
 			// see https://stackoverflow.com/a/10895361/1945185
-			CURLOPT_TIMEOUT => 1,
+			CURLOPT_TIMEOUT => 8,
 		);
 
 		if(defined('CURLOPT_TCP_FASTOPEN')) $options[CURLOPT_TCP_FASTOPEN] = true;
 		if(defined('CURLOPT_SAFE_UPLOAD'))
 			$options[CURLOPT_SAFE_UPLOAD] = function_exists('curl_file_create');
+
+		// this is safe to use as we're sending a local request
+		if(defined('CURLOPT_UNRESTRICTED_AUTH')) $options[CURLOPT_UNRESTRICTED_AUTH] = 1;
 
 		curl_setopt_array($ch, $options);
 
@@ -585,7 +603,7 @@
 		$active = false;
 		do {
 			@curl_multi_exec($mh, $active);
-			usleep(100);
+			usleep(2000);
 		} while($active > 0);
 	}
 	########################################################################
@@ -1631,7 +1649,7 @@
 	 */
 	function insert($tn, $set_array, &$error = '') {
 		$set = prepare_sql_set($set_array);
-		if(!count($set)) return false;
+		if(!$set) return false;
 
 		$eo = array('silentErrors' => true);
 		$res = sql("INSERT INTO `{$tn}` SET {$set}", $eo);
@@ -1651,7 +1669,7 @@
 	 */
 	function update($tn, $set_array, $where_array) {
 		$set = prepare_sql_set($set_array);
-		if(!count($set)) return false;
+		if(!$set) return false;
 
 		$where = prepare_sql_set($where_array, ' AND ');
 		if(!$where) $where = '1=1';
@@ -1690,13 +1708,13 @@
 
 		/* update owner */
 		if($ownership_exists) {
-			$res = update('membership_userrecords', $fields, $where_array);
+			$res = update('membership_userrecords', backtick_keys_once($fields), $where_array);
 			return ($res ? true : false);
 		}
 
 		/* add new ownership record */
 		$fields = array_merge($fields, $where_array, array('dateAdded' => time()));
-		$res = insert('membership_userrecords', $fields);
+		$res = insert('membership_userrecords', backtick_keys_once($fields));
 		return ($res ? true : false);
 	}
 	#########################################################
@@ -1905,7 +1923,80 @@
 		 *             'parent table' => [main lookup fields in child]
 		 */
 		$parents = array(
+			'companies' => array(
+				'compnayTypes' => array('type'),
+			),
 		);
 
 		return isset($parents[$table]) ? $parents[$table] : array();
 	}
+	#########################################################
+	function backtick_keys_once($arr_data) {
+		return array_combine(
+			/* add backticks to keys */
+			array_map(
+				function($e) { return '`' . trim($e, '`') . '`'; }, 
+				array_keys($arr_data)
+			), 
+			/* and combine with values */
+			array_values($arr_data)
+		);
+	}
+	#########################################################
+	function calculated_fields() {
+		/*
+		 * calculated fields configuration array, $calc:
+		 *         table => [calculated fields], ..
+		 *         where calculated fields:
+		 *             field => query, ...
+		 */
+		return array(
+			'orders' => array(
+			),
+			'contacts' => array(
+			),
+			'addresses' => array(
+			),
+			'companies' => array(
+			),
+			'logins' => array(
+			),
+			'compnayTypes' => array(
+			),
+		);
+	}
+	#########################################################
+	function update_calc_fields($table, $id, $formulas, $mi = false) {
+		if($mi === false) $mi = getMemberInfo();
+		$pk = getPKFieldName($table);
+		$safe_id = makeSafe($id);
+		$eo = array('silentErrors' => true);
+		$caluclations_made = array();
+		$replace = array(
+			'%ID%' => $safe_id,
+			'%USERNAME%' => makeSafe($mi['username']),
+			'%GROUPID%' => makeSafe($mi['groupID']),
+			'%GROUP%' => makeSafe($mi['group'])
+		);
+
+		foreach($formulas as $field => $query) {
+			$query = str_replace(array_keys($replace), array_values($replace), $query);
+			$calc_value = sqlValue($query);
+			if($calc_value  === false) continue;
+
+			// update calculated field
+			$safe_calc_value = makeSafe($calc_value);
+			$update_query = "UPDATE `{$table}` SET `{$field}`='{$safe_calc_value}' " .
+				"WHERE `{$pk}`='{$safe_id}'";
+			$res = sql($update_query, $eo);
+			if($res) $caluclations_made[] = array(
+				'table' => $table,
+				'id' => $id,
+				'field' => $field,
+				'value' => $calc_value
+			);
+		}
+
+		return $caluclations_made;
+	}
+	#########################################################
