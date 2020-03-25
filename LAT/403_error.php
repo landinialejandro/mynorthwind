@@ -21,14 +21,14 @@ include("{$currDir}/../lib.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ERROR 403</title>
-    <link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LTE/logo/favicon.ico">
+    <link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LAT/logo/favicon.ico">
 
     <!-- LTE adding -->
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/skins/_all-skins.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/skins/_all-skins.css">
     <!-- add rtl css if configured-->
     <?php if ($LTE_globals['app-dir-RTL-enable']) { ?>
         <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
@@ -38,11 +38,11 @@ include("{$currDir}/../lib.php");
 		<![endif]-->
 
     <!-- jQuery 3 -->
-    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery/dist/jquery.min.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/plugins/fastclick/lib/fastclick.js"></script>
-    <script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LAT/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LAT/plugins/fastclick/lib/fastclick.js"></script>
+    <script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/adminlte.js"></script>
     <script>
         var $j = jQuery.noConflict();
     </script>

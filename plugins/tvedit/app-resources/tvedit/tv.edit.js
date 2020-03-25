@@ -6,7 +6,7 @@
         submitdata['tn'] = tn;
         td.prop("onclick", null).off("click")
             .removeAttr("href").css("cursor","pointer")
-            .editable("LTE/tvedit/tv.edit.php", {
+            .editable("LAT/tvedit/tv.edit.php", {
                 cssclass: 'edit_box',
                 cancel : ' <i class="fa fa-times"></i> ',
                 cancelcssclass : 'btn btn-danger btn-xs',

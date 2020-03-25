@@ -154,4 +154,4 @@ The mebership_profile_image is added by default, so the membership_profile.php f
 
 ## Resources
   
-- <https://adminlte.io/themes/AdminLTE/documentation/index.html#introduction>
+- <https://adminlte.io/themes/AdminLAT/documentation/index.html#introduction>

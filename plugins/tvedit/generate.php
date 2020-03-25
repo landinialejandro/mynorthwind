@@ -78,7 +78,7 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
     $tve_class->progress_log->add("<b>Copying new files for '" . substr( $projectFile , 0 , strrpos( $projectFile , ".")) . "' project:</b>");
         
 	$source_class = dirname(__FILE__) . '/app-resources/config.json';
-	$dest_class = $path.'/LTE/config.json';
+	$dest_class = $path.'/LAT/config.json';
 	$tve_class->copy_file($source_class, $dest_class, true);	
 	
 	// $source_class = dirname(__FILE__) . '/app-resources/mpi.js';
@@ -108,10 +108,10 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 	<?php
 	//enable LTE Admin
 	//TODO: verificar si exite el archivo primero antes de incluirlo
-	include_once "LTE/config_lte.php";
+	include_once "LAT/config_lte.php";
 	if (getLteStatus()){
 		$fn = basename(__FILE__, ".php"); 
-		include_once("LTE/".$fn."_lte.php");
+		include_once("LAT/".$fn."_lte.php");
 		return;
 	}
 	?>
@@ -140,7 +140,7 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 
 <center>
 	<a style="margin:20px;" href="index.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-home" ></span>   Start page</a>
-	<a style="margin:20px;" href="../../LTE/jsonedit.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-cog" ></span>   Edit Enviroment</a>
+	<a style="margin:20px;" href="../../LAT/jsonedit.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-cog" ></span>   Edit Enviroment</a>
 </center>
 
 <script>	

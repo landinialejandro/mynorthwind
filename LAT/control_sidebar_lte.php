@@ -24,7 +24,7 @@
       <div class="tab-pane" id="control-sidebar-home-tab">
         <h4 class="control-sidebar-heading">General Settings</h4>
         <div class="col-xs-6 text-center">
-          <a href="<?php echo PREPEND_PATH; ?>LTE/config_edit.php" class="btn btn-app" title="Open app anviroment options"><i class="fa fa-cogs"></i>&nbsp;App anviroment</a>
+          <a href="<?php echo PREPEND_PATH; ?>LAT/config_edit.php" class="btn btn-app" title="Open app anviroment options"><i class="fa fa-cogs"></i>&nbsp;App anviroment</a>
         </div>
       </div>
       <!-- /Home .tab-pane -->

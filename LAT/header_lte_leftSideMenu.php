@@ -12,7 +12,7 @@
                 <img src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" class="img-circle elevation-2 user-image" alt="User Image">
             </div>
             <div class="info">
-                <a href="<?php echo PREPEND_PATH; ?>LTE/membership_profile.php" class="d-block"><?php echo getLoggedMemberID(); ?></a>
+                <a href="<?php echo PREPEND_PATH; ?>LAT/membership_profile.php" class="d-block"><?php echo getLoggedMemberID(); ?></a>
             </div>
         </div>
         <!-- Sidebar Menu -->

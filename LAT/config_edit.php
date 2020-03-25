@@ -8,7 +8,7 @@ include("{$hooks_dir}/../lib.php");
 /* grant access to the groups 'Admins' */
 $user_data = getMemberInfo();
 if(!in_array($user_data['group'], array('Admins'))){
-	redirect("LTE/403_error.php");
+	redirect("LAT/403_error.php");
 	echo "Access denied";
 	exit;
 }

@@ -24,13 +24,13 @@
 
 		<title>Landini Table View edit for AppGini</title>
 		
-		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>plugins/lte/tvedit.min.png">
+		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>plugins/LAT/tvedit.min.png">
 
 		<?php echo $tve_class->get_theme_css_links(); ?>
 		
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
 		
-		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/lte/app-resources/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/LAT/app-resources/font-awesome/css/font-awesome.min.css">
 
 		<!-- jquery ui -->
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/plugins-resources/jquery-ui/jquery-ui.min.css">

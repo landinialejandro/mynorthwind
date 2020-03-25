@@ -4,10 +4,10 @@
 	<?php
 	//enable LTE Admin
 	//TODO: verificar si exite el archivo primero antes de incluirlo
-	include_once "LTE/config_lte.php";
+	include_once "LAT/config_lte.php";
 	if (getLteStatus()){
 		$fn = basename(__FILE__, ".php"); 
-		include_once("LTE/".$fn."_lte.php");
+		include_once("LAT/".$fn."_lte.php");
 		return;
 	}
 	?>

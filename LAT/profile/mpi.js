@@ -1,7 +1,7 @@
 
 function getMpi(data, nav = true, mpi = true){
     $j.ajax({
-        url: 'LTE/profile/mpi_AJAX.php',
+        url: 'LAT/profile/mpi_AJAX.php',
         type: 'POST',
         data: data,
         success: function (file) {

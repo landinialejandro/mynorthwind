@@ -15,13 +15,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title><?php echo $LTE_globals['app-title-prefix']; ?><?php echo (isset($x->TableTitle) ? $x->TableTitle : ''); ?></title>
-	<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LTE/logo/favicon.ico">
+	<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LAT/logo/favicon.ico">
 
 	<!-- LTE adding -->
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/plugins/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/AdminLTE.min.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/dist/css/glyphicons.css" mediad="screen">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/glyphicons.css" mediad="screen">
 	<!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 	<!-- /LTE adding -->
@@ -35,23 +35,23 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 	<?php } ?>
 	
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LTE/myCustom.css" mediad="screen">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/myCustom.css" mediad="screen">
 
 	<!--[if lt IE 9]>
 		<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	<![endif]-->
 
-	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/jquery/jquery.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jquery/jquery.min.js"></script>
 	<script>
 		var $j = jQuery.noConflict();
 	</script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/fastclick/fastclick.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/prototype/prototype.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/adminlte.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jquery.contextMenu.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/jsonedit/jsonedit.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/plugins/moment/moment-with-locales.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/fastclick/fastclick.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/prototype/prototype.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/adminlte.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jquery.contextMenu.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/moment/moment-with-locales.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/select2/select2.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/timepicker/bootstrap-timepicker.min.js"></script>
@@ -59,8 +59,8 @@
 	<script src="<?php echo PREPEND_PATH; ?>resources/datepicker/js/datepicker.packed.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 	
-	<script src="<?php echo PREPEND_PATH; ?>LTE/dist/js/bootstrap.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LTE/profile/mpi.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/bootstrap.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/profile/mpi.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 
 	<?php 

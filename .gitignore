@@ -10,9 +10,9 @@ plugins/plugins-resources
 config.php
 
 test.html
-plugins/lte/app-resources/config.json
-LTE/config.json
+plugins/LAT/app-resources/config.json
+LAT/config.json
 .vscode/launch.json
-LTE/prueba.html
+LAT/prueba.html
 prueba.html
 *.zip

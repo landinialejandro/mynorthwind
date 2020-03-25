@@ -68,12 +68,12 @@ include_once("header.php");
   </div>
 </div>
 <!-- ChartJS -->
-<script src="LTE/plugins/chart.js/Chart.js"></script>
+<script src="LAT/plugins/chart.js/Chart.js"></script>
 <script>
   $j(function() {
     // here you need to make an ajax to get the array values form a php.
 
-    $j.get("LTE/data-ajax.php", {
+    $j.get("LAT/data-ajax.php", {
         productid: 1
       },
       function(data, textStatus, jqXHR) {
