@@ -15,6 +15,11 @@ function contacts_insert() {
 	$data = array();
 	$data['fullName'] = $_REQUEST['fullName'];
 		if($data['fullName'] == empty_lookup_value) { $data['fullName'] = ''; }
+	$data['type'] = '';
+	if(is_array($_REQUEST['type'])) {
+		$MultipleSeparator = ', ';
+		$data['type'] = implode($MultipleSeparator, $_REQUEST['type']);
+	}
 
 	// hook: contacts_before_insert
 	if(function_exists('contacts_before_insert')) {
@@ -111,6 +116,14 @@ function contacts_update($selected_id) {
 
 	$data['fullName'] = makeSafe($_REQUEST['fullName']);
 		if($data['fullName'] == empty_lookup_value) { $data['fullName'] = ''; }
+	if(is_array($_REQUEST['type'])) {
+		$MultipleSeparator = ', ';
+		foreach($_REQUEST['type'] as $k => $v)
+			$data['type'] .= makeSafe($v) . $MultipleSeparator;
+		$data['type']=substr($data['type'], 0, -1 * strlen($MultipleSeparator));
+	}else{
+		$data['type']='';
+	}
 	$data['selectedID'] = makeSafe($selected_id);
 
 	// hook: contacts_before_update
@@ -120,7 +133,7 @@ function contacts_update($selected_id) {
 	}
 
 	$o = array('silentErrors' => true);
-	sql('update `contacts` set       `fullName`=' . (($data['fullName'] !== '' && $data['fullName'] !== NULL) ? "'{$data['fullName']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `contacts` set       `fullName`=' . (($data['fullName'] !== '' && $data['fullName'] !== NULL) ? "'{$data['fullName']}'" : 'NULL') . ', `type`=' . (($data['type'] !== '' && $data['type'] !== NULL) ? "'{$data['type']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!='') {
 		echo $o['error'];
 		echo '<a href="contacts_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
@@ -169,7 +182,7 @@ function contacts_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $A
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
 	// combobox: type
 	$combo_type = new Combo;
-	$combo_type->ListType = 0;
+	$combo_type->ListType = 3;
 	$combo_type->MultipleSeparator = ', ';
 	$combo_type->ListBoxHeight = 10;
 	$combo_type->RadiosPerLine = 1;
@@ -214,7 +227,6 @@ function contacts_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $A
 		$hc = new CI_Input();
 		$row = $hc->xss_clean($row); /* sanitize data */
 	} else {
-		$combo_type->SelectedText = ( $_REQUEST['FilterField'][1]=='3' && $_REQUEST['FilterOperator'][1]=='<=>' ? (get_magic_quotes_gpc() ? stripslashes($_REQUEST['FilterValue'][1]) : $_REQUEST['FilterValue'][1]) : "");
 	}
 	$combo_type->Render();
 
@@ -270,6 +282,8 @@ function contacts_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $A
 	// set records to read only if user can't insert new records and can't edit current record
 	if(($selected_id && !$AllowUpdate && !$AllowInsert) || (!$selected_id && !$AllowInsert)) {
 		$jsReadOnly .= "\tjQuery('#fullName').replaceWith('<div class=\"form-control-static\" id=\"fullName\">' + (jQuery('#fullName').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#type').replaceWith('<div class=\"form-control-static\" id=\"type\">' + (jQuery('#type').val() || '') + '</div>'); jQuery('#type-multi-selection-help').hide();\n";
+		$jsReadOnly .= "\tjQuery('#s2id_type').remove();\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -311,7 +325,8 @@ function contacts_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $A
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(fullName)%%>', safe_html($urow['fullName']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(fullName)%%>', html_attr($row['fullName']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(fullName)%%>', urlencode($urow['fullName']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(type)%%>', safe_html($urow['type']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(type)%%>', safe_html($urow['type']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(type)%%>', html_attr($row['type']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(type)%%>', urlencode($urow['type']), $templateCode);
 	}else{
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);

@@ -18,7 +18,7 @@
 		'contacts' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'fullName' => array('appgini' => 'VARCHAR(40) null '),
-			'type' => array('appgini' => 'VARCHAR(40) null '),
+			'type' => array('appgini' => 'TINYBLOB null '),
 		),
 		'addresses' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
