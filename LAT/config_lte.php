@@ -5,7 +5,7 @@ $cjson = file_get_contents('config.json',true);
 
 $cjson = json_decode($cjson,true);
 
-$LTE_globals = $cjson[0]['Globals'];
+$LAT_globals = $cjson[0]['Globals'];
 $LTE_group_ico = $cjson[1]['Icon Groups'];
 $ico = "fa fa-table"; //default ico
 

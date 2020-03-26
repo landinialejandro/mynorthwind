@@ -14,7 +14,7 @@ $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
       <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
     </li>
     <!-- Sidebar toggle button-->
-    <span class="navbar-text hidden-xs"><?php echo $LTE_globals['navbar-text']; ?></span>
+    <span class="navbar-text hidden-xs"><?php echo $LAT_globals['navbar-text']; ?></span>
   </ul>
   <!-- /Navbar left Menu -->
 

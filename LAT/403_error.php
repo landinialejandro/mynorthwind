@@ -30,7 +30,7 @@ include("{$currDir}/../lib.php");
     <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/skins/_all-skins.css">
     <!-- add rtl css if configured-->
-    <?php if ($LTE_globals['app-dir-RTL-enable']) { ?>
+    <?php if ($LAT_globals['app-dir-RTL-enable']) { ?>
         <link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
     <?php } ?>
     <!--[if lt IE 9]>

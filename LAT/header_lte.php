@@ -14,7 +14,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title><?php echo $LTE_globals['app-title-prefix']; ?><?php echo (isset($x->TableTitle) ? $x->TableTitle : ''); ?></title>
+	<title><?php echo $LAT_globals['app-title-prefix']; ?><?php echo (isset($x->TableTitle) ? $x->TableTitle : ''); ?></title>
 	<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LAT/logo/favicon.ico">
 
 	<!-- LTE adding -->
@@ -31,7 +31,7 @@
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/datepicker/css/datepicker.css" media="screen">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.css" media="screen">
 	<!-- add rtl css if configured-->
-	<?php if ($LTE_globals['app-dir-RTL-enable']) { ?>
+	<?php if ($LAT_globals['app-dir-RTL-enable']) { ?>
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 	<?php } ?>
 	
@@ -103,6 +103,12 @@
 				$j(".sidebar-toggle").remove();
 				$j(".logo").remove();
 			</script>
+			<style>
+				.container-fluid .row{
+					background-color: transparent;
+					border-radius: 10px;
+				}
+			</style>
 		<?php
 		} else {
 			?>
