@@ -1,12 +1,12 @@
 
                 </div>
+                <!-- /.container fluid-->
             </section>
-            <!-- /.content FLUID-->
-
-        </div>
-        <!-- /.content-wrapper -->
+            <!-- /.content-->
+        <?php if(!$_REQUEST['Embedded']){ ?>
+            </div>  
+            <!-- /.content-wrapper -->
             <!-- Main Footer -->
-    <?php if(!$_REQUEST['Embedded']){ ?>
             <footer class="main-footer">
                 <!-- To the right -->
                 <div class="pull-right hidden-xs">
@@ -19,11 +19,10 @@
                 <?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/footer-extras.php')){ include(dirname(__FILE__).'/../hooks/footer-extras.php'); } ?>
             </footer>
             <?php 
-        include "control_sidebar_lte.php";
-    } ?>
+            include "control_sidebar_lte.php";
+        } ?>
         </div>
         <!-- /.wrapper -->
-        <!-- /boody -->
         <script src="<?php echo PREPEND_PATH; ?>resources/lightbox/js/lightbox.min.js"></script>
         <script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/demo.js"></script>
         <script> 
@@ -51,4 +50,5 @@
         }
         </script>
     </body>
+    <!-- /boody -->
 </html>

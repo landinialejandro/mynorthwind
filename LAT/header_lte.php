@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title><?php echo $LAT_globals['app-title-prefix']; ?><?php echo (isset($x->TableTitle) ? $x->TableTitle : ''); ?></title>
-	<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LAT/logo/favicon.ico">
+	<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LAT/logo/logo.png">
 
 	<!-- LTE adding -->
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/fontawesome-free/css/all.min.css">
@@ -94,15 +94,14 @@ if (class_exists('Notification')) echo Notification::placeholder();
 
 <body class="<?php echo $bodyClass; ?>">
 	<div class="wrapper">
-		<!-- Navbar -->
 		<?php if (!$_REQUEST['Embedded']) {
-			include('header_lte_main.php'); 
-			?>
-			<div class="content-wrapper">
-			<?php
+			include('navBar_lat.php'); 
 		} ?>
-		<!-- /.Navbar -->
-		<?php if (!$inLogin && !$_REQUEST['Embedded']) include('header_lte_leftSideMenu.php'); ?>
+		<?php 
+		if (!$inLogin) include('sideBarMenu_lat.php');
+		if (!$_REQUEST['Embedded']){ ?>
+		<div class="content-wrapper">
+		<?php } ?>
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<?php if (function_exists('showNotifications')) echo showNotifications(); ?>
