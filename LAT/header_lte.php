@@ -69,63 +69,44 @@
 	<?php } ?>
 
 </head>
-
-<body class="hold-transition sidebar-mini layout-navbar-fixed">
-	<div class="wrapper">
-		<?php
-			if (function_exists('handle_maintenance')) echo handle_maintenance(true);
-			$memberInfo = getMemberInfo();
-			if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
-				include(dirname(__FILE__) . '/../hooks/header-extras.php');
-			}
-			if (class_exists('Notification')) echo Notification::placeholder();
-			if ($_REQUEST['Embedded']) {
-			?>
-				<!-- process notifications -->
-				<div style="height: 65px; margin: 5px 0px -25px;">
-					<?php if (function_exists('showNotifications')) echo showNotifications(); ?>
-				</div>
-				<!-- /.process notifications -->
-			<?php return; ?>
-		<?php } ?>
-
-		<!-- Navbar -->
-		<?php include('header_lte_main.php'); ?>
-		<!-- /.Navbar -->
-
-		<?php
-		$call = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
-		if (isset($_GET['loginFailed']) || isset($_GET['signIn']) || $call == "membership_passwordReset.php" || $call == "membership_signup.php") {
-			?>
-			<script>
-				$j("body").removeClass();
-				$j("body").addClass("skin-blue fixed layout-top-nav");
-				$j(".sidebar-toggle").remove();
-				$j(".logo").remove();
-			</script>
-			<style>
-				.container-fluid .row{
-					background-color: transparent;
-					border-radius: 10px;
-				}
-			</style>
-		<?php
-		} else {
-			?>
-			<!-- Main Sidebar Container -->
-			<?php include('header_lte_leftSideMenu.php') ?>
-			<!-- /.Main Sidebar Container -->
-		<?php
+<?php
+$call = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+$inLogin = false;
+if (isset($_GET['loginFailed']) || isset($_GET['signIn']) || $call == "membership_passwordReset.php" || $call == "membership_signup.php") {
+	$inLogin=true;
+	?>
+	<style>
+		.container-fluid .row{
+			background-color: transparent;
+			border-radius: 10px;
 		}
-		?>
-		<div class="content-wrapper">
+	</style>
+	<?php
+}
+$bodyClass = $inLogin? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-navbar-fixed";
+if (function_exists('handle_maintenance')) echo handle_maintenance(true);
+$memberInfo = getMemberInfo();
+if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
+	include(dirname(__FILE__) . '/../hooks/header-extras.php');
+}
+if (class_exists('Notification')) echo Notification::placeholder();
+?>
+
+<body class="<?php echo $bodyClass; ?>">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<?php if (!$_REQUEST['Embedded']) {
+			include('header_lte_main.php'); 
+			?>
+			<div class="content-wrapper">
+			<?php
+		} ?>
+		<!-- /.Navbar -->
+		<?php if (!$inLogin && !$_REQUEST['Embedded']) include('header_lte_leftSideMenu.php'); ?>
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
+				<?php if (function_exists('showNotifications')) echo showNotifications(); ?>
 			</section>
 			<!-- /.content HEADER -->
 			<section class="content">
 				<div class="container-fluid">
-					<!-- process notifications -->
-					<div style="height: 65px; margin: -25px 0 -25px;">
-						<?php if (function_exists('showNotifications')) echo showNotifications(); ?>
-					</div>
