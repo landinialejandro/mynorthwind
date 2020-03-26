@@ -1,5 +1,5 @@
 
-# adminLTE for AppGini with bootstrap 4 and LTE Admin 3
+# Landini Andmin Template for AppGini with AdminLTE 3 and bootstrap 4
 
 ## Release R0.0.0
 
