@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/glyphicons.css" mediad="screen">
 	<!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 	<!-- /LTE adding -->
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/lightbox/css/lightbox.css" media="screen">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/select2/select2.css" media="screen">
@@ -34,7 +34,7 @@
 	<?php if ($LAT_globals['app-dir-RTL-enable']) { ?>
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 	<?php } ?>
-	
+
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/myCustom.css" mediad="screen">
 
 	<!--[if lt IE 9]>
@@ -58,54 +58,53 @@
 	<script src="<?php echo PREPEND_PATH; ?>resources/jscookie/js.cookie.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/datepicker/js/datepicker.packed.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-	
+
 	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/bootstrap.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/profile/mpi.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 
-	<?php 
+	<?php
 	if (isset($x->TableName) && is_file(dirname(__FILE__) . "/../hooks/{$x->TableName}-tv.js")) { ?>
 		<script src="<?php echo PREPEND_PATH; ?>hooks/<?php echo $x->TableName; ?>-tv.js"></script>
 	<?php } ?>
 
 </head>
 <?php
-$call = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
-$inLogin = false;
-if (isset($_GET['loginFailed']) || isset($_GET['signIn']) || $call == "membership_passwordReset.php" || $call == "membership_signup.php") {
-	$inLogin=true;
+	$call = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+	$inLogin = false;
+	if (isset($_GET['loginFailed']) || isset($_GET['signIn']) || $call == "membership_passwordReset.php" || $call == "membership_signup.php") {
+		$inLogin = true;
 	?>
-	<style>
-		.container-fluid .row{
-			background-color: transparent;
-			border-radius: 10px;
-		}
-	</style>
+		<style>
+			.container-fluid .row {
+				background-color: transparent;
+				border-radius: 10px;
+			}
+		</style>
 	<?php
-}
-$bodyClass = $inLogin? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-navbar-fixed";
-if (function_exists('handle_maintenance')) echo handle_maintenance(true);
-$memberInfo = getMemberInfo();
-if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
-	include(dirname(__FILE__) . '/../hooks/header-extras.php');
-}
-if (class_exists('Notification')) echo Notification::placeholder();
+	}
+	$bodyClass = $inLogin ? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-navbar-fixed";
+	if (function_exists('handle_maintenance')) echo handle_maintenance(true);
+	$memberInfo = getMemberInfo();
+	if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
+		include(dirname(__FILE__) . '/../hooks/header-extras.php');
+	}
 ?>
 
 <body class="<?php echo $bodyClass; ?>">
 	<div class="wrapper">
-		<?php if (!$_REQUEST['Embedded']) {
-			include('navBar_lat.php'); 
-		} ?>
-		<?php 
-		if (!$inLogin) include('sideBarMenu_lat.php');
-		if (!$_REQUEST['Embedded']){ ?>
-		<div class="content-wrapper">
+		<?php
+			if (!$_REQUEST['Embedded']) include('navBar_lat.php');
+			if (!$inLogin) include('sideBarMenu_lat.php');
+			if (!$_REQUEST['Embedded']) { ?>
+				<div class="content-wrapper">
 		<?php } ?>
-			<!-- Content Header (Page header) -->
-			<section class="content-header">
-				<?php if (function_exists('showNotifications')) echo showNotifications(); ?>
-			</section>
-			<!-- /.content HEADER -->
-			<section class="content">
-				<div class="container-fluid">
+					<!-- Content Header (Page header) -->
+					<section class="content-header">
+						<?php if (class_exists('Notification')) echo Notification::placeholder();
+						if (function_exists('showNotifications')) echo showNotifications(); ?>
+					</section>
+					<!-- /.content HEADER -->
+					<section class="content">
+						<div class="container-fluid">
+							<div class="appGini">
