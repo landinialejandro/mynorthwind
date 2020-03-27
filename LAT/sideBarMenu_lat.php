@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="<?php echo PREPEND_PATH; ?>index.php" class="brand-link">
         <i class="fa fa-globe brand-image img-circle elevation-3"></i>
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light"><?php echo $LAT_globals['app-brand-text']; ?></span>
     </a>
 
     <div class="sidebar">
@@ -55,7 +55,7 @@
                         if (($lte_group !== 'hiddens' || $memberInfo['admin'])) { // new fucntionality if table group named hiddens dont show in other users
                             if (count($lte_tables)) {
                                 if (($lte_group !== 'None')) {
-                ?>
+                                    ?>
                                     <li class="nav-item has-treeview <?php echo ($lte_group === $current_group ? 'menu-open' : ''); ?>">
                                         <a href="#" class="nav-link">
                                             <i class="nav-icon <?php echo $LTE_group_ico[$lte_group] ? $LTE_group_ico[$lte_group] : $ico; ?>"></i>
@@ -65,7 +65,7 @@
                                             </p>
                                         </a>
                                         <ul class="nav nav-treeview">
-                                            <?php
+                                    <?php
                                         }
                                         foreach ($lte_tables as $lte_table) {
                                             $tc = $arrTables[$lte_table];

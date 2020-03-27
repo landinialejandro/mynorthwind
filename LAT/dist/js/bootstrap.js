@@ -27,15 +27,13 @@ function updateBS(){
     $j('.btn').removeClass('btn-lg');
     //admin tools
     setTimeout(function(){
-        $j('#admin-tools-appendix').remove('.clearfix');
-        $j('#admin-tools-menu-button').addClass('card-tools').appendTo('.panel-heading');
-        $adminToolsMenu = $j('#admin-tools-menu');
-        $adminToolsMenu.removeAttr('style');
-        $adminToolsMenu.each(function(){
-            $j(this).children().addClass('dropdown-item');
-        });
-        console.log("object borrado");
-    },500);
+         $j('#admin-tools-menu-button').removeClass('pull-right');
+         $adminToolsMenu = $j('#admin-tools-menu');
+         $adminToolsMenu.removeAttr('id');
+         $adminToolsMenu.each(function(){
+             $j(this).children().addClass('dropdown-item');
+         });
+     },500);
     //modal windows
     $j('.modal-dialog').addClass('modal-xl');
     $j('.modal-title').prependTo('.modal-header');
