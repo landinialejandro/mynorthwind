@@ -119,7 +119,7 @@ include_once("$currDir/header.php"); ?>
 <?php echo csrf_token(); ?>
 
 
-<div class="row">
+<div class="row" style="background: transparent">
   <div class="col-md-3">
 
     <!-- Profile Image -->
@@ -153,55 +153,14 @@ include_once("$currDir/header.php"); ?>
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
-
-    <!-- About Me Box -->
-    <div class="card card-primary">
-      <div class="card-header">
-        <h3 class="card-title">About Me</h3>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-        <p class="text-muted">
-          B.S. in Computer Science from the University of Tennessee at Knoxville
-        </p>
-
-        <hr>
-
-        <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-        <p class="text-muted">Malibu, California</p>
-
-        <hr>
-
-        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-        <p class="text-muted">
-          <span class="tag tag-danger">UI Design</span>
-          <span class="tag tag-success">Coding</span>
-          <span class="tag tag-info">Javascript</span>
-          <span class="tag tag-warning">PHP</span>
-          <span class="tag tag-primary">Node.js</span>
-        </p>
-
-        <hr>
-
-        <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-      </div>
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
   </div>
   <!-- /.col -->
   <div class="col-md-9">
     <div class="card">
       <div class="card-header p-2">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Timeline</a></li>
-          <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
+          <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
           <li class="nav-item">
             <a class="nav-link" href="#permissions" data-toggle="tab">
               <i class="glyphicon glyphicon-lock"></i>
@@ -209,9 +168,10 @@ include_once("$currDir/header.php"); ?>
             </a></li>
         </ul>
       </div><!-- /.card-header -->
+
       <div class="card-body">
         <div class="tab-content">
-          <div class="tab-pane active" id="timeline">
+          <div class="tab-pane" id="timeline">
             <!-- The timeline -->
             <div class="timeline timeline-inverse">
               <!-- timeline time label -->
@@ -222,11 +182,12 @@ include_once("$currDir/header.php"); ?>
               </div>
               <!-- /.timeline-label -->
               <!-- timeline item -->
+              
               <?php
               $res = sql("
-                (SELECT `recID`,`tableName`,`pkValue`,`memberID`,`dateAdded` AS `date`, `groupID`, 'A' as `ABM` FROM `membership_userrecords` WHERE `memberID`='admin' ORDER BY `dateAdded` DESC limit 5)
+                (SELECT `recID`,`tableName`,`pkValue`,`memberID`,`dateAdded` AS `date`, `groupID`, 'A' as `ABM` FROM `membership_userrecords` WHERE `memberID`='{$mi['username']}' ORDER BY `dateAdded` DESC limit 5)
                 UNION all
-                (SELECT `recID`,`tableName`,`pkValue`,`memberID`,`dateUpdated` AS `date`, `groupID`, 'U' as `ABM` FROM `membership_userrecords` WHERE `memberID`='admin' ORDER BY `dateUpdated` DESC limit 5)
+                (SELECT `recID`,`tableName`,`pkValue`,`memberID`,`dateUpdated` AS `date`, `groupID`, 'U' as `ABM` FROM `membership_userrecords` WHERE `memberID`='{$mi['username']}' ORDER BY `dateUpdated` DESC limit 5)
                 ORDER BY `date` DESC", $eo);
 
 
@@ -235,34 +196,33 @@ include_once("$currDir/header.php"); ?>
                 $color = $item['ABM'] === 'A' ? 'primary' : 'success';
                 $icon = $item['ABM'] === 'A' ? 'plus' : 'check';
                 $tableName = $userTables[$item['tableName']][0];
-              ?>
-                <div>
-                  <i class="fas fa-<?php echo $icon; ?> bg-<?php echo $color; ?>"></i>
+                ?>
+                  <div>
+                    <i class="fas fa-<?php echo $icon; ?> bg-<?php echo $color; ?>"></i>
 
-                  <div class="timeline-item">
-                    <span class="time" data-audate="<?php echo @date($adminConfig['PHPDateTimeFormat'], $item['date']); ?>"><i class="far fa-clock"></i> </span>
+                    <div class="timeline-item">
+                      <span class="time" data-audate="<?php echo @date($adminConfig['PHPDateTimeFormat'], $item['date']); ?>"><i class="far fa-clock"></i> </span>
 
-                    <h3 class="timeline-header"><a href="<?php echo PREPEND_PATH ?><?php echo $item['tableName'] ?>_view.php?SelectedID=<?php echo $item['pkValue'] ?>">Record <?php echo $abm . " to " . $tableName; ?></a> table</h3>
+                      <h3 class="timeline-header"><a href="<?php echo PREPEND_PATH ?><?php echo $item['tableName'] ?>_view.php?SelectedID=<?php echo $item['pkValue'] ?>">Record <?php echo $abm . " to " . $tableName; ?></a> table</h3>
 
-                    <div class="timeline-body">
-                      <?php echo getCSVData($item['tableName'], $item['pkValue']); ?>
-                    </div>
-                    <div class="timeline-footer">
-                      <a href="<?php echo PREPEND_PATH ?><?php echo $item['tableName'] ?>_view.php?SelectedID=<?php echo $item['pkValue'] ?>" class="btn btn-primary btn-sm">Open</a>
+                      <div class="timeline-body">
+                        <?php echo getCSVData($item['tableName'], $item['pkValue']); ?>
+                      </div>
+                      <div class="timeline-footer">
+                        <a href="<?php echo PREPEND_PATH ?><?php echo $item['tableName'] ?>_view.php?SelectedID=<?php echo $item['pkValue'] ?>" class="btn btn-primary btn-sm">Open</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <?php }
-              ?>
+                <?php 
+              } ?>
               <!-- END timeline item -->
               <div>
                 <i class="far fa-clock bg-gray"></i>
               </div>
             </div>
           </div>
-          <!-- /.tab-pane -->
 
-          <div class="tab-pane" id="settings">
+          <div class="tab-pane active" id="settings">
             <fieldset id="profile">
               <div class="form-group">
                 <label for="email"><?php echo $Translation['email']; ?></label>
@@ -341,10 +301,10 @@ include_once("$currDir/header.php"); ?>
               </table>
             </div>
           </div>
-          <!-- /.tab-pane -->
         </div>
         <!-- /.tab-content -->
       </div><!-- /.card-body -->
+
     </div>
     <!-- /.nav-tabs-custom -->
   </div>
@@ -362,7 +322,9 @@ include_once("$currDir/header.php"); ?>
     <?php if ($notify) { ?> notify('<?php echo $notify; ?>');
     <?php } ?>
 
-    getMpi({cmd: 'u'}, false);
+    getMpi({
+      cmd: 'u'
+    }, false);
 
     $j("form").submit(function(e) {
       e.preventDefault();
@@ -393,7 +355,7 @@ include_once("$currDir/header.php"); ?>
     });
 
     <?php if ($mi['username'] != $adminConfig['adminUsername']) { ?>
-      $('update-password').observe('click', function() {
+      $j('update-password').on('click', function() {
         /* make sure passwords match */
         if ($j('#new-password').val() != $j('#confirm-password').val()) {
           $j('#notify').addClass('alert-danger');

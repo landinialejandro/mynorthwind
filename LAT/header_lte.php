@@ -95,7 +95,7 @@
 	<div class="wrapper">
 		<?php
 			if (!$_REQUEST['Embedded']) include('navBar_lat.php');
-			if (!$inLogin) include('sideBarMenu_lat.php');
+			if (!$inLogin && !$_REQUEST['Embedded']) include('sideBarMenu_lat.php');
 			if (!$_REQUEST['Embedded']) { ?>
 				<div class="content-wrapper">
 		<?php } ?>

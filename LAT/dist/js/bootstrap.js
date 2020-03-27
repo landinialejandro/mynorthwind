@@ -1,23 +1,42 @@
 $j(function(){
    updateBS();
    //setTimeout(updateBS(),5200);
-})
+    $j('.add_new_parent, .view_parent').on('click', function(){
+        setTimeout(function(){
+            updateBS();
+        },500);
+    });
+});
 
 function updateBS(){
-    $j('.visible-xs.visible-sm').toggleClass('d-block d-sm-block d-md-none');
-    $j('.visible-md.visible-lg').toggleClass('d-md-block d-sm-none d-none');
-    $j('.btn-default').toggleClass('btn-secondary');
-    $j('.input-group-btn').toggleClass('input-group-append');
+    $j('.visible-xs.visible-sm').addClass('d-block d-sm-block d-md-none');
+    $j('.visible-md.visible-lg').addClass('d-md-block d-sm-none d-none');
+    $j('.btn-default').addClass('btn-secondary');
+    $j('.input-group-btn').addClass('input-group-append');
     $j('.btn-group-lg').removeClass('btn-group-lg');
-    $j('.row > .col-xs-12').toggleClass('col-12');
-    $j('.pull-right').toggleClass('float-md-right');
-    $j('.pull-left').toggleClass('float-md-left');
-    $j('.hidden-md').toggleClass('d-md-none');
-    $j('.hidden-lg').toggleClass('d-lg-none');
-    $j('.panel').toggleClass('card');
-    $j('.panel-heading').toggleClass('card-header');
-    $j('.panel-body').toggleClass('card-body');
-    $j('.panel-title').toggleClass('card-title');
-    $j('.hidden-print').toggleClass('d-print-none');
+    $j('.row > .col-xs-12').addClass('col-12');
+    $j('.pull-right').addClass('float-md-right');
+    $j('.pull-left').addClass('float-md-left');
+    $j('.hidden-md').addClass('d-md-none');
+    $j('.hidden-lg').addClass('d-lg-none');
+    $j('.panel').addClass('card');
+    $j('.panel-heading').addClass('card-header');
+    $j('.panel-body').addClass('card-body');
+    $j('.panel-title').addClass('card-title');
+    $j('.hidden-print').addClass('d-print-none');
     $j('.btn').removeClass('btn-lg');
+    //admin tools
+    setTimeout(function(){
+        $j('#admin-tools-appendix').remove('.clearfix');
+        $j('#admin-tools-menu-button').addClass('card-tools').appendTo('.panel-heading');
+        $adminToolsMenu = $j('#admin-tools-menu');
+        $adminToolsMenu.removeAttr('style');
+        $adminToolsMenu.each(function(){
+            $j(this).children().addClass('dropdown-item');
+        });
+        console.log("object borrado");
+    },500);
+    //modal windows
+    $j('.modal-dialog').addClass('modal-xl');
+    $j('.modal-title').prependTo('.modal-header');
 }
