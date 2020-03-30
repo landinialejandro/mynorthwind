@@ -5,7 +5,7 @@
 <script src="<?php echo PREPEND_PATH; ?>LAT/tvedit/tv.edit.js"></script>
 
 <script>
-function getMpi(data, nav = true, mpi = true){
+function getMpi(data){
                 $j.ajax({
                     url: '<?php echo PREPEND_PATH; ?>LAT/profile/mpi_AJAX.php',
                     type: 'POST',

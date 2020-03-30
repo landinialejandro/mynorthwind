@@ -8,29 +8,27 @@
 // 
 //
 
-	$root_dir = dirname(__FILE__). "/../..";
-        if(!function_exists('PrepareUploadedFile')){
-            include("{$root_dir}/lib.php");
-        } 
-        include ("mpi.php");
-        
-	$user_data = getMemberInfo();
-        $mpiFolder = $root_dir . "/images/";
-        
-        $filename = $mpiFolder.'mpi.json';
-        
-        $name = PrepareUploadedFile('mpi', 4198400,'jpg|jpeg|gif|png', false, $mpiFolder);
-        
-        if ($name){
-            $specs['width']=80;
-            $specs['height']=80;
-            $specs['identifier']='_mpi';
-            $thumb = createThumbnail($mpiFolder.'/'.$name, $specs);
-            preg_match('/\.[a-zA-Z]{3,4}$/U', $name, $matches);
-            $ext=strtolower($matches[0]);
-            $t=substr($name, 0, -5).str_replace($ext,  $specs['identifier'].$ext, substr($name, -5));
-        }
-        $mpi = new Mpi($user_data['username'],$mpiFolder,$name,$t);
-        echo '{"image":"'.$mpi->image. '", "thumb":"'.$mpi->thumb.'"}';
-        
-        
+$root_dir = dirname(__FILE__) . "/../..";
+if (!function_exists('PrepareUploadedFile')) {
+    include("{$root_dir}/lib.php");
+}
+include("mpi.php");
+
+$user_data = getMemberInfo();
+$mpiFolder = $root_dir . "/images/";
+
+$filename = $mpiFolder . 'mpi.json';
+
+$name = PrepareUploadedFile('mpi', 4198400, 'jpg|jpeg|gif|png', false, $mpiFolder);
+
+if ($name) {
+    $specs['width'] = 80;
+    $specs['height'] = 80;
+    $specs['identifier'] = '_mpi';
+    $thumb = createThumbnail($mpiFolder . '/' . $name, $specs);
+    preg_match('/\.[a-zA-Z]{3,4}$/U', $name, $matches);
+    $ext = strtolower($matches[0]);
+    $t = substr($name, 0, -5) . str_replace($ext,  $specs['identifier'] . $ext, substr($name, -5));
+}
+$mpi = new Mpi($user_data['username'], $mpiFolder, $name, $t);
+echo '{"image":"' . $mpi->image . '", "thumb":"' . $mpi->thumb . '"}';

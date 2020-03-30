@@ -322,9 +322,6 @@ include_once("$currDir/header.php"); ?>
     <?php if ($notify) { ?> notify('<?php echo $notify; ?>');
     <?php } ?>
 
-    getMpi({
-      cmd: 'u'
-    }, false);
 
     $j("form").submit(function(e) {
       e.preventDefault();
