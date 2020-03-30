@@ -2,8 +2,8 @@
 	include(dirname(__FILE__).'/lte_class.php');
 	
 	$lte_class = new lte_class(array(
-		'title' => 'Landini AdminLTE Enable',
-		'name' => 'lte',
+		'title' => 'Landini Admin Template Enable',
+		'name' => 'lat',
 		'logo' => 'template.mid.png'
 	));
 
@@ -22,7 +22,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>Landini AdminLTE template for AppGini</title>
+		<title>Landini Admin Template for AppGini</title>
 		
 		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>plugins/LAT/template.min.png">
 
