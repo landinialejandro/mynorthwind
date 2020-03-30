@@ -15,7 +15,6 @@ function getMpi(data){
                          if (file.image !== null && file.image !== ''){
                             $j(".user-image").attr("src","<?php echo PREPEND_PATH; ?>images/"+ file.thumb +"");
                         }
-                        $j('.user-image').show();
                     },
                     cache: false,
                     contentType: false,
