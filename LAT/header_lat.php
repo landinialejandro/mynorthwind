@@ -62,7 +62,6 @@
 	<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/bootstrap.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/profile/mpi.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 
 	<?php

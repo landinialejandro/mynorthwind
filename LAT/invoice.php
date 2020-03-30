@@ -14,7 +14,7 @@ if (!$mi['username'] || $mi['group'] == $adminConfig['anonymousGroup']) {
   exit;
 }
 
-include_once "config_lte.php";
+include_once "config_lat.php";
 include ('header_lte.php');
 ?>
         <div class="row mb-2">

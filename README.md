@@ -48,7 +48,7 @@ The variables can be updated, by the admin user, from the right control panel. L
 
 Enjoy the template and stay tuned for your comments.
 
-You can conmute to default appgini only changue true to false in config_lte.php the varible ```$LTE_enable```
+You can conmute to default appgini only changue true to false in config_lat.php the varible ```$LTE_enable```
 
 ```php
 
