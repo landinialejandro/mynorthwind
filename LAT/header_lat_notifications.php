@@ -12,7 +12,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="user-image mpi-header-avatar" alt="User Image">
+                        <img src="<?php echo PREPEND_PATH; ?>images/no_image.png" class="user-image " alt="User Image">
                       </div>
                       <h4>
                         Support Team

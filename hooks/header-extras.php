@@ -15,7 +15,7 @@ function getMpi(data, nav = true, mpi = true){
                          if (file.image !== null && file.image !== ''){
                             $j(".user-image").attr("src","<?php echo PREPEND_PATH; ?>images/"+ file.thumb +"");
                         }
-                        $j('.user-image.mpi-header-avatar').show();
+                        $j('.user-image').show();
                     },
                     cache: false,
                     contentType: false,
