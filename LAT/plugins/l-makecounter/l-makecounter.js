@@ -46,7 +46,12 @@
         previousVisibility: null,
         startcountvalue: 0, //start count value in counter
         endcountvalue: 3000, //end count value in counter
-        elapsetime: 4 //in seconds
+        elapsetime: 4, //in seconds
+        formatterLocals: 'DE',
+        formatterStyle: 'decimal', //can be. decimal, currency, percent
+        formatterCurrency: 'USD', //can be a valid ISO code: like USD, EUR...etc check here https://www.currency-iso.org/en/home/tables/table-a1.html
+        formatterCurrencyDisplay: 'symbol', //can be name, symbol or code
+        formatteruseGrouping: true
     };
 
     var methods = {
@@ -83,6 +88,13 @@
             return isOnScreen;
         },
         count: function (element, options) {
+            // Create USD currency formatter.
+            var formatter = new Intl.NumberFormat(options.formatterLocals, {
+                style: options.formatterStyle,
+                currency: options.formatterCurrency,
+                currencyDisplay: options.formatterCurrencyDisplay,
+                useGrouping: options.formatteruseGrouping
+            });
             var counter = {
                 var: options.startcountvalue
             };
@@ -90,7 +102,7 @@
                 var: options.endcountvalue,
                 onUpdate: function () {
                     var number = Math.ceil(counter.var);
-                    element.text(number);
+                    element.text(formatter.format(number));
                     if (number === counter.var) {
                         return;
                     }
