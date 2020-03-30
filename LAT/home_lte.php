@@ -16,9 +16,11 @@ include_once("header.php");
     <div class="small-box bg-info">
       <div class="inner">
         <h3>
+          <span class="counter" data-endcountvalue="1000">
           <?php
-          echo '1.000';
+          echo '0';
           ?>
+          </span>
         </h3>
 
         <p>New Orders</p>
@@ -175,8 +177,11 @@ include_once("header.php");
       data: pieData,
       options: pieOptions
     });
-
-
+    $j('.counter').visibilityChanged({
+                callback: function(element, visible, initialLoad) {
+                    // do something
+                }
+            });
   };
 </script>
 

@@ -52,6 +52,8 @@
 	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jquery.contextMenu.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/moment/moment-with-locales.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/TweenMax/TweenMax.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/l-makecounter/l-makecounter.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/select2/select2.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/timepicker/bootstrap-timepicker.min.js"></script>
