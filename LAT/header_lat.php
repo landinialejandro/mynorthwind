@@ -90,6 +90,9 @@
 	if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
 		include(dirname(__FILE__) . '/../hooks/header-extras.php');
 	}
+	if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../LAT/header_extras_lat.php')) {
+		include(dirname(__FILE__) . '/../LAT/header_extras_lat.php');
+	}
 ?>
 
 <body class="<?php echo $bodyClass; ?>">
