@@ -106,7 +106,7 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 	$extra_function = false;
 	$code='
 	<?php
-	//enable LTE Admin
+	//enable Landini Admin Template
 	//TODO: verificar si exite el archivo primero antes de incluirlo
 	include_once "LAT/config_lat.php";
 	if (getLteStatus()){

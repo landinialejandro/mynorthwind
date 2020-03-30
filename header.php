@@ -2,7 +2,7 @@
 		<?php /* Inserted by Landini AdminLTE Template on 2020-03-25 02:58:57 */ ?>
 		
 	<?php
-	//enable LTE Admin
+	//enable Landini Admin Template
 	//TODO: verificar si exite el archivo primero antes de incluirlo
 	include_once "LAT/config_lat.php";
 	if (getLteStatus()){
