@@ -16,10 +16,8 @@ include_once("header.php");
     <div class="small-box bg-info">
       <div class="inner">
         <h3>
-          <span class="counter" data-endcountvalue="1000">
-          <?php
-          echo '0';
-          ?>
+          <span class="counter" data-endcountvalue="<?php echo '1000'; ?>">
+          0
           </span>
         </h3>
 
