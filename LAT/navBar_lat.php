@@ -1,7 +1,7 @@
 <?php
-$lte_dir = dirname(__FILE__);
-$imageFolder = $lte_dir . "/../images/";
-include_once("{$lte_dir}/profile/mpi.php");
+$latDir = dirname(__FILE__);
+$imageFolder = $latDir . "/../images/";
+include_once("{$latDir}/profile/mpi.php");
 
 $mpi = new Mpi($memberInfo['username'], $imageFolder);
 $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
@@ -23,7 +23,7 @@ $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
     <?php
     if (getLoggedAdmin()) { ?>
       <li class="status">
-        <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="nav-link" title="<?php echo html_attr($Translation['admin area']); ?>"><i class="fas fa-cogs"></i>&nbsp;<?php echo $Translation['admin area']; ?></a>
+        <a href="<?php echo PREPEND_PATH; ?>LAT/admin/pageHome.php" class="nav-link" title="<?php echo html_attr($Translation['admin area']); ?>"><i class="fas fa-cogs"></i>&nbsp;<?php echo $Translation['admin area']; ?></a>
     </li>
     <?php } 
     if (!$inLogin){
