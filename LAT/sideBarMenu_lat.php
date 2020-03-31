@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?php echo PREPEND_PATH; ?>index.php" class="brand-link">
-        <i class="fa fa-globe brand-image img-circle elevation-3"></i>
+        <img src="LAT/logo/L2.png" alt="lat" class="brand-image img-rounded elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo $LAT_globals['app-brand-text']; ?></span>
     </a>
 
@@ -9,7 +9,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" class="img-circle elevation-2 user-image" alt="User Image">
+                <img src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" class="img-rounded elevation-2 user-image" alt="User Image">
             </div>
             <div class="info">
                 <a href="<?php echo PREPEND_PATH; ?>LAT/membership_profile.php" class="d-block"><?php echo getLoggedMemberID(); ?></a>

@@ -6,6 +6,7 @@ include_once("{$latDir}/profile/mpi.php");
 $mpi = new Mpi($memberInfo['username'], $imageFolder);
 $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
 ?>
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Navbar left Menu -->

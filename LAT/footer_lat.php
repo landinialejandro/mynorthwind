@@ -1,4 +1,12 @@
 
+<?php 
+    if ($ADMINAREA){
+        ?>
+            </div>
+        <?php
+    }
+?>
+
                 </div>
                 <!-- /.container fluid-->
             </section>

@@ -1,5 +1,29 @@
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>
 
+<?php 
+if ($ADMINAREA){
+?>
+<style>
+  .row.theme-compact{ font-size: 0.757em; }
+  .appGini {
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+  }
+</style>
+<script>
+    $j(function () {
+        $j('.form-group').addClass('row');
+        $j('.form-group > label').removeClass().addClass('col-sm-3 col-form-label');
+        $j('.form-group > div').removeClass().addClass('col-sm-9');
+    });
+</script>
+
+<?php
+}
+?>
+
+
 <script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jquery-jeditable/jquery.jeditable.js"></script>
 <script src="<?php echo PREPEND_PATH; ?>LAT/tvedit/tv.edit.js"></script>
 
