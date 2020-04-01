@@ -8,7 +8,7 @@ $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
 ?>
 
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-danger navbar-light">
   <!-- Navbar left Menu -->
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -24,7 +24,7 @@ $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
     <?php
     if (getLoggedAdmin()) { ?>
       <li class="status">
-        <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="nav-link" title="<?php echo html_attr($Translation['admin area']); ?>"><i class="fas fa-cogs"></i>&nbsp;Older&nbsp;<?php echo $Translation['admin area']; ?></a>
+        <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="nav-link" title="<?php echo html_attr($Translation['admin area']); ?>"><i class="fas fa-cogs"></i>&nbsp;<?php echo $Translation['admin area']; ?></a>
     </li>
     <?php } 
     if (!$inLogin){

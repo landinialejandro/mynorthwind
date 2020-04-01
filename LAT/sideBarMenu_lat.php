@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?php echo PREPEND_PATH; ?>index.php" class="brand-link">
-        <img src="LAT/logo/L2.png" alt="lat" class="brand-image img-rounded elevation-3" style="opacity: .8">
+        <img src="<?php echo PREPEND_PATH; ?>LAT/logo/L2.png" alt="lat" class="brand-image img-rounded elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo $LAT_globals['app-brand-text']; ?></span>
     </a>
 

@@ -40,17 +40,17 @@ if (!isset($values['it'])) $values['it']="";
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'vg' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageViewGroups.php?gr=groups&it=vg">
-                                <p><i class="glyphicon nav-icon  glyphicon-eye-open"></i><?php echo trimMenu($Translation['view groups']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-eye-open"></i><p><?php echo trimMenu($Translation['view groups']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'ag' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageEditGroup.php?gr=groups&it=ag">
-                                <p><i class="glyphicon nav-icon  glyphicon-plus"></i><?php echo   trimMenu($Translation['add group']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-plus"></i><p><?php echo   trimMenu($Translation['add group']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'epa' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageEditGroup.php?gr=groups&it=epa&groupID=<?php echo sqlValue("select groupID from membership_groups where name='" . makeSafe($adminConfig['anonymousGroup']) . "'"); ?>">
-                                <p><i class="glyphicon nav-icon  glyphicon-user"></i><?php echo  trimMenu($Translation['edit anonymous permissions']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-user"></i><p><?php echo  trimMenu($Translation['edit anonymous permissions']); ?></p>
                             </a>
                         </li>
                     </ul>
@@ -59,22 +59,22 @@ if (!isset($values['it'])) $values['it']="";
                 <li class="nav-item has-treeview <?php echo $values['gr'] == 'members' ? "menu-open" : ""; ?>">
                 <a href="#" class="nav-link  <?php echo $values['gr'] == 'members' ? "active" : ""; ?>">
                         <i class="glyphicon glyphicon-user"></i>
-                        <p><?php echo trimMenu($Translation['members']); ?><i class="right fas fa-angle-left"></i></p>
+                        <?php echo trimMenu($Translation['members']); ?><p><i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'vm' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageViewMembers.php?gr=members&it=vm">
-                                <p><i class="glyphicon nav-icon  glyphicon-eye-open"></i><?php echo trimMenu($Translation['view members']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-eye-open"></i><p><?php echo trimMenu($Translation['view members']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'am' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageEditMember.php?gr=members&it=am">
-                                <p><i class="glyphicon nav-icon  glyphicon-plus"></i><?php echo trimMenu($Translation['add member']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-plus"></i><p><?php echo trimMenu($Translation['add member']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'vmr' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageViewRecords.php?gr=members&it=vmr">
-                                <p><i class="glyphicon nav-icon  glyphicon-th"></i><?php echo trimMenu($Translation["view members' records"]); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-th"></i><p><?php echo trimMenu($Translation["view members' records"]); ?></p>
                             </a>
                         </li>
                     </ul>
@@ -88,42 +88,42 @@ if (!isset($values['it'])) $values['it']="";
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'as' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageSettings.php?gr=ut&it=as">
-                                <p><i class="glyphicon nav-icon  glyphicon-cog"></i><?php echo trimMenu($Translation['admin settings']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-cog"></i><p><?php echo trimMenu($Translation['admin settings']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'rt' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageRebuildThumbnails.php?gr=ut&it=rt">
-                                <p><i class="glyphicon nav-icon  glyphicon-picture"></i><?php echo  trimMenu($Translation['rebuild thumbnails']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-picture"></i><p><?php echo  trimMenu($Translation['rebuild thumbnails']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'rf' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageRebuildFields.php?gr=ut&it=rf">
-                                <p><i class="glyphicon nav-icon  glyphicon-refresh"></i><?php echo  trimMenu($Translation['rebuild fields']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-refresh"></i><p>?php echo  trimMenu($Translation['rebuild fields']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'ucsv' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageUploadCSV.php?gr=ut&it=ucsv">
-                                <p><i class="glyphicon nav-icon  glyphicon-upload"></i><?php echo trimMenu($Translation['import CSV']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-upload"></i><p><?php echo trimMenu($Translation['import CSV']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'to' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageTransferOwnership.php?gr=ut&it=to">
-                                <p><i class="glyphicon nav-icon  glyphicon-random"></i><?php echo trimMenu($Translation['batch transfer']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-random"></i><p><?php echo trimMenu($Translation['batch transfer']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'pm' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageMail.php?sendToAll=1&gr=ut&it=pm">
-                                <p><i class="glyphicon nav-icon  glyphicon-envelope"></i><?php echo trimMenu($Translation['mail all users']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-envelope"></i><p><?php echo trimMenu($Translation['mail all users']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'br' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageBackupRestore.php?gr=ut&it=br">
-                                <p><i class="glyphicon nav-icon  glyphicon-tasks"></i><?php echo trimMenu($Translation['database backups']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-tasks"></i><p><?php echo trimMenu($Translation['database backups']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://forums.appgini.com" target="_blank">
-                                <p><i class="glyphicon nav-icon  glyphicon-new-window"></i><?php echo trimMenu($Translation['AppGini forum']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-new-window"></i><p><?php echo trimMenu($Translation['AppGini forum']); ?></p>
                             </a>
                         </li>
                     </ul>

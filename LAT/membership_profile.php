@@ -126,7 +126,7 @@ include_once("$currDir/header.php"); ?>
     <div class="card card-primary card-outline">
       <div class="card-body box-profile">
         <div class="text-center">
-          <img class="profile-user-img img-fluid img-circle user-image" src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" alt="User profile picture">
+          <img class="profile-user-img img-fluid img-rounded user-image" src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" alt="User profile picture">
         </div>
 
         <h3 class="profile-username text-center"><?php echo $mi['custom'][0]; ?></h3>
