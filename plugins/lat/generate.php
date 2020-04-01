@@ -81,38 +81,21 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 	$dest_class = $path.'/LAT/config.json';
 	$lat_class->copy_file($source_class, $dest_class, true);	
 	
-	// $source_class = dirname(__FILE__) . '/app-resources/mpi.js';
-	// $dest_class = $path.'/hooks/mpi.js';
-	// $lat_class->copy_file($source_class, $dest_class, true);	
-	
-	// $source_class = dirname(__FILE__) . '/app-resources/mpi.php';
-	// $dest_class = $path.'/hooks/mpi.php';
-	// $lat_class->copy_file($source_class, $dest_class, true);	
-	
-	// $source_class = dirname(__FILE__) . '/app-resources/mpi_AJAX.php';
-	// $dest_class = $path.'/hooks/mpi_AJAX.php';
-	// $lat_class->copy_file($source_class, $dest_class, true);	
-	
-	// $source_class = dirname(__FILE__) . '/app-resources/mpi_template.html';
-	// $dest_class = $path.'/hooks/mpi_template.html';
-	// $lat_class->copy_file($source_class, $dest_class, true);
-        
-	// $source_class = dirname(__FILE__) . '/app-resources/no_image.png';
-	// $dest_class = $path.'/images/no_image.png';
-	// $lat_class->copy_file($source_class, $dest_class, true);
-		
 	$files = ['header', 'footer', 'home'];
 
 	$extra_function = false;
 	$code='
 	<?php
 	//enable Landini Admin Template
-	//TODO: verificar si exite el archivo primero antes de incluirlo
-	include_once "LAT/config_lat.php";
-	if (getLteStatus()){
-		$fn = basename(__FILE__, ".php"); 
-		include_once("LAT/".$fn."_lat.php");
-		return;
+	if (is_file(dirname("LAT/config_lat.php"){
+		include_once "LAT/config_lat.php";
+		if (getLteStatus()){
+			$fn = basename(__FILE__, ".php"); 
+			include_once("LAT/".$fn."_lat.php");
+			return;
+		}
+	}else{
+		echo "the config file not exist";
 	}
 	?>
 	';
@@ -134,7 +117,46 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
         }
 		
 	};
+	// code for admin Area
+	$files = ['incHeader' =>'header', 'incFooter'=>'footer'];
+	$extra_function = false;
+	foreach($files as $fn=>$call){
+		$inc = 
+		$code='
+		<?php
+		//enable Landini Admin Template
+		if (is_file(dirname("../LAT/config_lat.php"){
+			include_once "../LAT/config_lat.php";
+			if (getLteStatus()){
+				define("PREPEND_PATH", "../");
+				$ADMINAREA = true;
+				include_once("../LAT/admin/'.$call.'_lat.php");
+				return;
+			}
+		}else{
+			echo "the config file not exist";
+		}
+		?>
+		';
+		$file_path= $path . "/$fn.php" ;
+        $res = $lat_class->add_to_file($file_path, $extra_function , $code);
+	
+        if($res){
+                $lat_class->progress_log->add("Installed code into '{$file_path}'.", 'text-success spacer');
+        }else{
+            $error = $lat_class->last_error();
+
+            if($error == 'Code already exists'){
+                    $lat_class->progress_log->add("Skipped installing to '{$file_path}', code is already installed.", 'text-warning spacer');
+            }else{
+                    $lat_class->progress_log->add("Failed to install code '{$file_path}': {$error}", 'text-danger spacer');
+                    $lat_class->progress_log->add($install_instructions, 'spacer');
+            }
+        }
 		
+	};
+
+
 	echo $lat_class->progress_log->show();
 ?>
 
