@@ -87,7 +87,8 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 	$code='
 	<?php
 	//enable Landini Admin Template
-	if (is_file(dirname("LAT/config_lat.php"))){
+	$currDir = dirname(__FILE__);
+	if (is_file($currDir."/LAT/config_lat.php")){
 		include_once "LAT/config_lat.php";
 		if (getLteStatus()){
 			$fn = basename(__FILE__, ".php"); 
@@ -125,7 +126,8 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 		$code='
 		<?php
 		//enable Landini Admin Template
-		if (is_file(dirname("../LAT/config_lat.php"))){
+		$currDir = dirname(__FILE__);
+		if (is_file($currDir."/LAT/config_lat.php")){
 			include_once "../LAT/config_lat.php";
 			if (getLteStatus()){
 				define("PREPEND_PATH", "../");
