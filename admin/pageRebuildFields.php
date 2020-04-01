@@ -37,6 +37,13 @@
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'type' => array('appgini' => 'VARCHAR(40) null '),
 		),
+		'details' => array(
+			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
+			'order' => array('appgini' => 'INT unsigned null '),
+			'quantity' => array('appgini' => 'VARCHAR(40) null '),
+			'item' => array('appgini' => 'VARCHAR(40) null '),
+			'vaule' => array('appgini' => 'VARCHAR(40) null '),
+		),
 	);
 
 	$table_captions = getTableList();

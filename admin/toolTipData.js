@@ -119,6 +119,24 @@ compnayTypes_delete1Tip=["",spacer+"This option allows each member of the group 
 compnayTypes_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'CompnayTypes' table."];
 compnayTypes_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'CompnayTypes' table."];
 
+// details table
+details_addTip=["",spacer+"This option allows all members of the group to add records to the 'Details' table. A member who adds a record to the table becomes the 'owner' of that record."];
+
+details_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Details' table."];
+details_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Details' table."];
+details_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Details' table."];
+details_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Details' table."];
+
+details_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Details' table."];
+details_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Details' table."];
+details_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Details' table."];
+details_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Details' table, regardless of their owner."];
+
+details_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Details' table."];
+details_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Details' table."];
+details_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Details' table."];
+details_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Details' table."];
+
 /*
 	Style syntax:
 	-------------

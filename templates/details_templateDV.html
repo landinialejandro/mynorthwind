@@ -3,7 +3,7 @@
 <a name="detail-view"></a>
 <div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
 
-<div class="panel-body" id="companies_dv_container">
+<div class="panel-body" id="details_dv_container">
 	<!-- child links -->
 	<div class="row vspacer-md">
 		<div class="col-xs-12">
@@ -14,7 +14,7 @@
 
 	<div class="row">
 		<!-- form inputs -->
-		<div class="col-md-8 col-lg-10" id="companies_dv_form">
+		<div class="col-md-8 col-lg-10" id="details_dv_form">
 			<fieldset class="form-horizontal">
 
 				<div class="form-group">
@@ -27,17 +27,33 @@
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="name" class="control-label col-lg-3">Name</label>
+					<label for="order" class="control-label col-lg-3" data-parent_link="view_parent_modal">Order</label>
 					<div class="col-lg-9">
-						<input maxlength="40" type="text" class="form-control" name="name" id="name" value="<%%VALUE(name)%%>">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(order)%%><%%PLINK(order)%%><%%ADDNEW(orders)%%></div>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="type" class="control-label col-lg-3" data-parent_link="view_parent_modal">Company Type</label>
+					<label for="quantity" class="control-label col-lg-3">Quantity</label>
 					<div class="col-lg-9">
-						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(type)%%><%%PLINK(type)%%><%%ADDNEW(compnayTypes)%%></div>
+						<input maxlength="40" type="text" class="form-control" name="quantity" id="quantity" value="<%%VALUE(quantity)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<hr class="hidden-md hidden-lg">
+					<label for="item" class="control-label col-lg-3">Item</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="item" id="item" value="<%%VALUE(item)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<hr class="hidden-md hidden-lg">
+					<label for="vaule" class="control-label col-lg-3">Vaule</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="vaule" id="vaule" value="<%%VALUE(vaule)%%>">
 					</div>
 				</div>
 
@@ -46,7 +62,7 @@
 
 		<!-- DV action buttons -->
 		<hr class="hidden-md hidden-lg">
-		<div class="col-md-4 col-lg-2" id="companies_dv_action_buttons">
+		<div class="col-md-4 col-lg-2" id="details_dv_action_buttons">
 			<div class="btn-toolbar">
 				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
 					<%%UPDATE_BUTTON%%>
@@ -111,7 +127,7 @@
 							localStorage.clear(pt + '_last_added_id');
 							AppGini.lookupText({
 								id: new_id,
-								table: 'companies',
+								table: 'details',
 								field: field_id,
 								callback: function(data) {
 									$j('#' + field_id + '-container').select2('data', data, true);
@@ -171,10 +187,10 @@
 			if(!add_new_mode) {
 				$j('body').append('<div id="admin-tools-appendix"></div>');
 				$j('#admin-tools-appendix').load(
-					'ajax_admin_tools.php?table=companies&id=<%%URLVALUE(id)%%>',
+					'ajax_admin_tools.php?table=details&id=<%%URLVALUE(id)%%>',
 					function(resp) {
 						if(!resp.length) return;
-						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=companies&id=<%%URLVALUE(id)%%>');
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=details&id=<%%URLVALUE(id)%%>');
 					}
 				);
 			}

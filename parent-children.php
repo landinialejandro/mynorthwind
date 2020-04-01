@@ -18,6 +18,32 @@
 			),
 			'compnayTypes' => array(
 			),
+			'details' => array(
+				'order' => array(
+					'parent-table' => 'orders',
+					'parent-primary-key' => 'id',
+					'child-primary-key' => 'id',
+					'child-primary-key-index' => 0,
+					'tab-label' => 'Details <span class="hidden child-label-details child-field-caption">(Order)</span>',
+					'auto-close' => false,
+					'table-icon' => 'resources/table_icons/installer_box.png',
+					'display-refresh' => true,
+					'display-add-new' => true,
+					'forced-where' => '',
+					'display-fields' => array(1 => 'Order', 2 => 'Quantity', 3 => 'Item', 4 => 'Vaule'),
+					'display-field-names' => array(1 => 'order', 2 => 'quantity', 3 => 'item', 4 => 'vaule'),
+					'sortable-fields' => array(0 => '`details`.`id`', 1 => '`orders1`.`id`', 2 => 3, 3 => 4, 4 => 5),
+					'records-per-page' => 10,
+					'default-sort-by' => false,
+					'default-sort-direction' => 'asc',
+					'open-detail-view-on-click' => true,
+					'display-page-selector' => true,
+					'show-page-progress' => true,
+					'template' => 'children-details',
+					'template-printable' => 'children-details-printable',
+					'query' => "SELECT `details`.`id` as 'id', IF(    CHAR_LENGTH(`orders1`.`id`), CONCAT_WS('',   `orders1`.`id`), '') as 'order', `details`.`quantity` as 'quantity', `details`.`item` as 'item', `details`.`vaule` as 'vaule' FROM `details` LEFT JOIN `orders` as orders1 ON `orders1`.`id`=`details`.`order` "
+				),
+			),
 		);
 
 	/*************************************/

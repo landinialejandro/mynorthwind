@@ -12,12 +12,14 @@
 
 		// set up tables
 		setupTable('orders', "create table if not exists `orders` (   `id` INT unsigned not null auto_increment , primary key (`id`), `orderNumber` VARCHAR(40) null , `customer` VARCHAR(40) null ) CHARSET utf8", $silent);
-		setupTable('contacts', "create table if not exists `contacts` (   `id` INT unsigned not null auto_increment , primary key (`id`), `fullName` VARCHAR(40) null , `type` TINYBLOB null ) CHARSET utf8", $silent, array( " ALTER TABLE `contacts` CHANGE `type` `type` TINYBLOB null "));
+		setupTable('contacts', "create table if not exists `contacts` (   `id` INT unsigned not null auto_increment , primary key (`id`), `fullName` VARCHAR(40) null , `type` TINYBLOB null ) CHARSET utf8", $silent);
 		setupTable('addresses', "create table if not exists `addresses` (   `id` INT unsigned not null auto_increment , primary key (`id`), `address` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('companies', "create table if not exists `companies` (   `id` INT unsigned not null auto_increment , primary key (`id`), `name` VARCHAR(40) null , `type` INT unsigned null ) CHARSET utf8", $silent);
 		setupIndexes('companies', array('type'));
 		setupTable('logins', "create table if not exists `logins` (   `id` INT unsigned not null auto_increment , primary key (`id`), `ip` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('compnayTypes', "create table if not exists `compnayTypes` (   `id` INT unsigned not null auto_increment , primary key (`id`), `type` VARCHAR(40) null ) CHARSET utf8", $silent);
+		setupTable('details', "create table if not exists `details` (   `id` INT unsigned not null auto_increment , primary key (`id`), `order` INT unsigned null , `quantity` VARCHAR(40) null , `item` VARCHAR(40) null , `vaule` VARCHAR(40) null ) CHARSET utf8", $silent, array( "ALTER TABLE `table7` RENAME `details`","UPDATE `membership_userrecords` SET `tableName`='details' where `tableName`='table7'","UPDATE `membership_userpermissions` SET `tableName`='details' where `tableName`='table7'","UPDATE `membership_grouppermissions` SET `tableName`='details' where `tableName`='table7'","ALTER TABLE details ADD `field1` VARCHAR(40)","ALTER TABLE `details` CHANGE `field1` `id` VARCHAR(40) null ","ALTER TABLE `details` CHANGE `id` `id` INT unsigned not null auto_increment ","ALTER TABLE details ADD `field2` VARCHAR(40)","ALTER TABLE `details` CHANGE `field2` `order` VARCHAR(40) null ","ALTER TABLE details ADD `field3` VARCHAR(40)","ALTER TABLE `details` CHANGE `field3` `quantity` VARCHAR(40) null ","ALTER TABLE details ADD `field4` VARCHAR(40)","ALTER TABLE `details` CHANGE `field4` `item` VARCHAR(40) null ","ALTER TABLE details ADD `field5` VARCHAR(40)","ALTER TABLE `details` CHANGE `field5` `vaule` VARCHAR(40) null "));
+		setupIndexes('details', array('order'));
 
 
 		// save MD5

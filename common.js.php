@@ -344,6 +344,10 @@ function compnayTypes_validateData() {
 	$j('.has-error').removeClass('has-error');
 	return true;
 }
+function details_validateData() {
+	$j('.has-error').removeClass('has-error');
+	return true;
+}
 
 function post(url, params, update, disable, loading, success_callback) {
 	$j.ajax({

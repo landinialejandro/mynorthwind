@@ -21,45 +21,28 @@
 			</div>
 		</div>
 		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">OrderNumber</label>
+			<label class="col-xs-3 control-label">Order</label>
 			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(orderNumber)%%></div>
+				<div class="form-control-static"><span id="order<%%RND1%%>"><%%COMBOTEXT(order)%%></span></div>
 			</div>
 		</div>
 		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
-			<label class="col-xs-3 control-label">Customer</label>
+			<label class="col-xs-3 control-label">Quantity</label>
 			<div class="col-xs-9">
-				<div class="form-control-static"><%%VALUE(customer)%%></div>
+				<div class="form-control-static"><%%VALUE(quantity)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Item</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(item)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Vaule</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(vaule)%%></div>
 			</div>
 		</div>
 	</fieldset>
 </div>
-<!-- child records -->
-<div class="panel-body">
-	<div id="orders-children"></div>
-</div>
-
-<script>
-	$j(function() {
-		/* prevent loading child records in multiple DVP */
-		if($j('[id=orders-children]').length > 1) return;
-
-		post(
-			'parent-children.php', {
-				ParentTable: 'orders',
-				SelectedID: '<%%VALUE(id)%%>',
-				Operation: 'show-children-printable'
-			},
-			'orders-children',
-			'disable-element',
-			'loading-element',
-			apply_persisting_children
-		);
-
-		$j('form').on('click', '#children-tabs button[data-target]', function() {
-			$j(this).toggleClass('active');
-			persist_expanded_child($j(this).attr('id'));
-		});
-	})
-</script>
-

@@ -56,6 +56,19 @@
 		),
 		'compnayTypes' => array(
 		),
+		'details' => array(
+			'order' => array(
+				'parent_table' => 'orders',
+				'parent_pk_field' => 'id',
+				'parent_caption' => '`orders`.`id`',
+				'parent_from' => '`orders` ',
+				'filterers' => array(),
+				'custom_query' => '',
+				'inherit_permissions' => false,
+				'list_type' => 0,
+				'not_null' => false
+			),
+		),
 	);
 
 	// XSS prevention

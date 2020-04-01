@@ -133,6 +133,13 @@
 					'group' => $tg[2],
 					'homepageShowCount' => 0
 				),
+				'details' => array(
+					'Caption' => 'Details',
+					'Description' => '',
+					'tableIcon' => 'resources/table_icons/installer_box.png',
+					'group' => $tg[2],
+					'homepageShowCount' => 0
+				),
 		);
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -154,6 +161,7 @@
 				'companies' => 'Companies',
 				'logins' => 'Logins',
 				'compnayTypes' => 'CompnayTypes',
+				'details' => 'Details',
 			);
 
 			return $arrTables;
@@ -1926,6 +1934,9 @@
 			'companies' => array(
 				'compnayTypes' => array('type'),
 			),
+			'details' => array(
+				'orders' => array('order'),
+			),
 		);
 
 		return isset($parents[$table]) ? $parents[$table] : array();
@@ -1962,6 +1973,8 @@
 			'logins' => array(
 			),
 			'compnayTypes' => array(
+			),
+			'details' => array(
 			),
 		);
 	}

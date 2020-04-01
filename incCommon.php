@@ -50,7 +50,8 @@
 			'addresses' => array('Addresses', '', 'resources/table_icons/32_bit.png', 'Locations'),
 			'companies' => array('Companies', '', 'resources/table_icons/balance.png', 'None'),
 			'logins' => array('Logins', '', 'table.gif', 'hidden'),
-			'compnayTypes' => array('CompnayTypes', '', 'table.gif', 'hidden')
+			'compnayTypes' => array('CompnayTypes', '', 'table.gif', 'hidden'),
+			'details' => array('Details', '', 'resources/table_icons/installer_box.png', 'hidden')
 		);
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -143,6 +144,7 @@
 			'companies' => "`companies`.`id` as 'id', `companies`.`name` as 'name', IF(    CHAR_LENGTH(`compnayTypes1`.`type`), CONCAT_WS('',   `compnayTypes1`.`type`), '') as 'type'",
 			'logins' => "`logins`.`id` as 'id', `logins`.`ip` as 'ip'",
 			'compnayTypes' => "`compnayTypes`.`id` as 'id', `compnayTypes`.`type` as 'type'",
+			'details' => "`details`.`id` as 'id', IF(    CHAR_LENGTH(`orders1`.`id`), CONCAT_WS('',   `orders1`.`id`), '') as 'order', `details`.`quantity` as 'quantity', `details`.`item` as 'item', `details`.`vaule` as 'vaule'",
 		);
 
 		if(isset($sql_fields[$table_name])) {
@@ -162,6 +164,7 @@
 			'companies' => "`companies` LEFT JOIN `compnayTypes` as compnayTypes1 ON `compnayTypes1`.`id`=`companies`.`type` ",
 			'logins' => "`logins` ",
 			'compnayTypes' => "`compnayTypes` ",
+			'details' => "`details` LEFT JOIN `orders` as orders1 ON `orders1`.`id`=`details`.`order` ",
 		);
 
 		$pkey = array(
@@ -171,6 +174,7 @@
 			'companies' => 'id',
 			'logins' => 'id',
 			'compnayTypes' => 'id',
+			'details' => 'id',
 		);
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -245,6 +249,13 @@
 			'compnayTypes' => array(
 				'id' => '',
 				'type' => ''
+			),
+			'details' => array(
+				'id' => '',
+				'order' => '',
+				'quantity' => '',
+				'item' => '',
+				'vaule' => ''
 			)
 		);
 

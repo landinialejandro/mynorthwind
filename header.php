@@ -1,18 +1,3 @@
-
-		<?php /* Inserted by Landini AdminLTE Template on 2020-03-25 02:58:57 */ ?>
-		
-	<?php
-	//enable Landini Admin Template
-	//TODO: verificar si exite el archivo primero antes de incluirlo
-	include_once "LAT/config_lat.php";
-	if (getLteStatus()){
-		$fn = basename(__FILE__, ".php"); 
-		include_once("LAT/".$fn."_lat.php");
-		return;
-	}
-	?>
-	
-		<?php /* End of Landini AdminLTE Template code */ ?>
 <?php if(function_exists('set_headers')) { set_headers(); } ?><!DOCTYPE html>
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>
 <?php if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>
@@ -76,3 +61,4 @@
 
 			<?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/hooks/header-extras.php')) { include(dirname(__FILE__).'/hooks/header-extras.php'); } ?>
 			<!-- Add header template below here .. -->
+
