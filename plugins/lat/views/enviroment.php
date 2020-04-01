@@ -2,10 +2,10 @@
 
 $user_group = strtolower($user_data["group"]);
 ?>
-<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/LAT/app-resources/jsonedit/jsonedit.css">
-<script src="<?php echo PREPEND_PATH; ?>plugins/LAT/app-resources/jsonedit/jquery.jeditable.js"></script>
-<script src="<?php echo PREPEND_PATH; ?>plugins/LAT/app-resources/jsonedit/jquery.contextMenu.js"></script>
-<script src="<?php echo PREPEND_PATH; ?>plugins/LAT/app-resources/jsonedit/jsonedit.js"></script>
+<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/lat/app-resources/jsonedit/jsonedit.css">
+<script src="<?php echo PREPEND_PATH; ?>plugins/lat/app-resources/jsonedit/jquery.jeditable.js"></script>
+<script src="<?php echo PREPEND_PATH; ?>plugins/lat/app-resources/jsonedit/jquery.contextMenu.js"></script>
+<script src="<?php echo PREPEND_PATH; ?>plugins/lat/app-resources/jsonedit/jsonedit.js"></script>
 <script>
 	$j(function() {
 
@@ -21,7 +21,7 @@ $user_group = strtolower($user_data["group"]);
 			$j(this).select();
 		});
 		setTimeout(function(){
-			save_ws('json_editor','<?php echo PREPEND_PATH; ?>'+'plugins/LAT/app-resources/'+'jsonsave.php'); 
+			save_ws('json_editor','<?php echo PREPEND_PATH; ?>'+'plugins/lat/app-resources/'+'jsonsave.php'); 
 		}, 2000);
 	});
 </script>
@@ -32,7 +32,7 @@ $user_group = strtolower($user_data["group"]);
 				<a class="btn btn-app" onclick="load_from_box('jsonglobals');" title="reset to last changues">
 					<i class="fa fa-repeat" ></i> Reset
 				</a>
-				<a class="btn btn-app" onclick="save_ws('json_editor','<?php echo PREPEND_PATH; ?>'+'plugins/LAT/app-resources/'+'jsonsave.php'); " title="save changues to server">
+				<a class="btn btn-app" onclick="save_ws('json_editor','<?php echo PREPEND_PATH; ?>'+'plugins/lat/app-resources/'+'jsonsave.php'); " title="save changues to server">
 						<i class="fa fa-save"></i> Save
 				</a>
 			</div>
@@ -49,7 +49,7 @@ $user_group = strtolower($user_data["group"]);
 				<textarea id="jsonglobals" rows="20" cols="30" class="jsoninput" hidden>
 							<?php
 							//$iconsGroups = '"Icon Groups":{"logins":"fa fa-table"}';
-							$globalsEnv = json_decode(file_get_contents(PREPEND_PATH."plugins/LAT/app-resources/config-globals.json"));
+							$globalsEnv = json_decode(file_get_contents(PREPEND_PATH."plugins/lat/app-resources/config-globals.json"));
 							foreach($groups as $gr){
 								if ($gr == 'None') continue;
 								$a[$gr] = "fa fa-table";

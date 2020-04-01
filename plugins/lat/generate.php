@@ -87,7 +87,7 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 	$code='
 	<?php
 	//enable Landini Admin Template
-	if (is_file(dirname("LAT/config_lat.php"){
+	if (is_file(dirname("LAT/config_lat.php"))){
 		include_once "LAT/config_lat.php";
 		if (getLteStatus()){
 			$fn = basename(__FILE__, ".php"); 
@@ -125,7 +125,7 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 		$code='
 		<?php
 		//enable Landini Admin Template
-		if (is_file(dirname("../LAT/config_lat.php"){
+		if (is_file(dirname("../LAT/config_lat.php"))){
 			include_once "../LAT/config_lat.php";
 			if (getLteStatus()){
 				define("PREPEND_PATH", "../");
@@ -138,7 +138,7 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 		}
 		?>
 		';
-		$file_path= $path . "/$fn.php" ;
+		$file_path= $path . "/admin/$fn.php" ;
         $res = $lat_class->add_to_file($file_path, $extra_function , $code);
 	
         if($res){
@@ -153,7 +153,6 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
                     $lat_class->progress_log->add($install_instructions, 'spacer');
             }
         }
-		
 	};
 
 
