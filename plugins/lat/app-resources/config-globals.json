@@ -1,6 +1,7 @@
 {
     "Globals": {
         "app-title-prefix": "Ale | ",
+        "app-brand-text":"LAT 2",
         "app-dir-RTL-enable": false,
         "logo-mini": "fa fa-cog",
         "logo-mini-text": "Ale",
