@@ -17,3 +17,5 @@ LAT/prueba.html
 prueba.html
 *.zip
 admin/backups/.htaccess
+plugins/lat/app-resources/config.json
+plugins/lat/app-resources/config.json

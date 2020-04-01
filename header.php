@@ -1,3 +1,22 @@
+
+		<?php /* Inserted by Landini AdminLTE Template on 2020-04-01 05:26:01 */ ?>
+		
+	<?php
+	//enable Landini Admin Template
+	$currDir = dirname(__FILE__);
+	if (is_file($currDir."/LAT/config_lat.php")){
+		include_once "LAT/config_lat.php";
+		if (getLteStatus()){
+			$fn = basename(__FILE__, ".php"); 
+			include_once("LAT/".$fn."_lat.php");
+			return;
+		}
+	}else{
+		echo "the config file not exist";
+	}
+	?>
+	
+		<?php /* End of Landini AdminLTE Template code */ ?>
 <?php if(function_exists('set_headers')) { set_headers(); } ?><!DOCTYPE html>
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>
 <?php if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>
