@@ -71,7 +71,7 @@
                         if(!$new_function_code) return $this->error('add_to_file', 'Error while injecting code');
                         if($new_function_code == $old_function_code) return $this->error('add_to_file', 'Nothing changed');
 
-                        $file_code = substr_replace($file_code, $new_function_code,0 ,0);
+                        $file_code = substr_replace($file_code, $new_function_code,0 );
                         //$file_code = substr_replace($file_code, $new_function_code,$hf_position + strlen($find_function) ,0);
                         if(!@file_put_contents($file_path, $file_code)) return $this->error('add_to_file', 'Could not save changes');
 				
