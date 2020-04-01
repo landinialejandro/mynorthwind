@@ -3,7 +3,7 @@
 <?php
 	$axp_md5 = $_REQUEST['axp'];
 	$projectFile = '';
-	$xmlFile = $lte_class->get_xml_file($axp_md5 , $projectFile);
+	$xmlFile = $lat_class->get_xml_file($axp_md5 , $projectFile);
 ?>
 
 <div class="bs-docs-section row">
@@ -16,7 +16,7 @@
 </div>
 
 <?php
-	echo $lte_class->show_select_output_folder(array(
+	echo $lat_class->show_select_output_folder(array(
 		'next_page' => 'generate.php?axp=' . urlencode($_REQUEST['axp'])
 	));
 ?>

@@ -1,7 +1,7 @@
 <?php
 	include(dirname(__FILE__).'/../plugins-resources/loader.php');
 
-	class lte_class extends AppGiniPlugin{
+	class lat_class extends AppGiniPlugin{
 		/* add any plugin-specific properties here */
 		
 		public function __construct($config = array()){

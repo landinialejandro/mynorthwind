@@ -1,7 +1,7 @@
 <?php
-	include(dirname(__FILE__).'/lte_class.php');
+	include(dirname(__FILE__).'/lat_class.php');
 	
-	$lte_class = new lte_class(array(
+	$lat_class = new lat_class(array(
 		'title' => 'Landini Admin Template Enable',
 		'name' => 'lat',
 		'logo' => 'template.mid.png'
@@ -26,7 +26,7 @@
 		
 		<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>plugins/LAT/template.min.png">
 
-		<?php echo $lte_class->get_theme_css_links(); ?>
+		<?php echo $lat_class->get_theme_css_links(); ?>
 		
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>dynamic.css.php">
 		
@@ -36,7 +36,7 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>plugins/plugins-resources/jquery-ui/jquery-ui.min.css">
 
 		<!--[if lt IE 9]> <script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script> <![endif]-->
-		<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/<?php echo $lte_class->get_jquery(); ?>"></script>
+		<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/<?php echo $lat_class->get_jquery(); ?>"></script>
 
 		<!-- jquery ui -->
 		<script src="<?php echo PREPEND_PATH; ?>plugins/plugins-resources/jquery-ui/jquery-ui.min.js"></script>
@@ -63,8 +63,8 @@
 <?php
 
 	/* grant access to the groups 'Admins' only */
-	if (!$lte_class->is_admin() ){
-		echo "<br>".$lte_class->error_message('Access denied.<br>Please, <a href=\'' . PREPEND_PATH . 'index.php?signIn=1\' >Log in</a> as administrator to access this page.' , false);
+	if (!$lat_class->is_admin() ){
+		echo "<br>".$lat_class->error_message('Access denied.<br>Please, <a href=\'' . PREPEND_PATH . 'index.php?signIn=1\' >Log in</a> as administrator to access this page.' , false);
 		exit;
 	}
 

@@ -8,7 +8,7 @@
 //
 
 include(dirname(__FILE__) . "/header.php");
-$lte_class = new lte_class(array(
+$lat_class = new lat_class(array(
         'title' => 'Landini AdminLTE Template',
         'name' => 'AdminLTE Template',
         'logo' => 'template.png',
@@ -17,11 +17,11 @@ $lte_class = new lte_class(array(
 
 // validate project name
 if (!isset($_GET['axp']) || !preg_match('/^[a-f0-9]{32}$/i', $_GET['axp'])) {
-	echo "<br>".$lte_class->error_message('Project file not found.');
+	echo "<br>".$lat_class->error_message('Project file not found.');
 	exit;
 }
 $projectFile = '';
-$xmlFile = $lte_class->get_xml_file($_GET['axp'], $projectFile);
+$xmlFile = $lat_class->get_xml_file($_GET['axp'], $projectFile);
 
 //-------------------------------------------------------------------------------------
 //path check 
@@ -48,7 +48,7 @@ $xmlFile = $lte_class->get_xml_file($_GET['axp'], $projectFile);
 			throw new RuntimeException('The resources folder of the given path is not writable');
 		}
 	} catch (RuntimeException $e){
-			echo "<br>".$lte_class->error_message($e->getMessage());
+			echo "<br>".$lat_class->error_message($e->getMessage());
 			exit;
 	}
 //-------------------------------------------------------------------------------------
@@ -67,39 +67,39 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 <h4>Progress log</h4>
 
 <?php
-	$lte_class->progress_log->add("Output folder: $path", 'text-info');
+	$lat_class->progress_log->add("Output folder: $path", 'text-info');
 
 	//coping resources folders
 	
-	$lte_class->progress_log->ok();
-	$lte_class->progress_log->line();
+	$lat_class->progress_log->ok();
+	$lat_class->progress_log->line();
 
 	//coping files
-    $lte_class->progress_log->add("<b>Copying new files for '" . substr( $projectFile , 0 , strrpos( $projectFile , ".")) . "' project:</b>");
+    $lat_class->progress_log->add("<b>Copying new files for '" . substr( $projectFile , 0 , strrpos( $projectFile , ".")) . "' project:</b>");
         
 	$source_class = dirname(__FILE__) . '/app-resources/config.json';
 	$dest_class = $path.'/LAT/config.json';
-	$lte_class->copy_file($source_class, $dest_class, true);	
+	$lat_class->copy_file($source_class, $dest_class, true);	
 	
 	// $source_class = dirname(__FILE__) . '/app-resources/mpi.js';
 	// $dest_class = $path.'/hooks/mpi.js';
-	// $lte_class->copy_file($source_class, $dest_class, true);	
+	// $lat_class->copy_file($source_class, $dest_class, true);	
 	
 	// $source_class = dirname(__FILE__) . '/app-resources/mpi.php';
 	// $dest_class = $path.'/hooks/mpi.php';
-	// $lte_class->copy_file($source_class, $dest_class, true);	
+	// $lat_class->copy_file($source_class, $dest_class, true);	
 	
 	// $source_class = dirname(__FILE__) . '/app-resources/mpi_AJAX.php';
 	// $dest_class = $path.'/hooks/mpi_AJAX.php';
-	// $lte_class->copy_file($source_class, $dest_class, true);	
+	// $lat_class->copy_file($source_class, $dest_class, true);	
 	
 	// $source_class = dirname(__FILE__) . '/app-resources/mpi_template.html';
 	// $dest_class = $path.'/hooks/mpi_template.html';
-	// $lte_class->copy_file($source_class, $dest_class, true);
+	// $lat_class->copy_file($source_class, $dest_class, true);
         
 	// $source_class = dirname(__FILE__) . '/app-resources/no_image.png';
 	// $dest_class = $path.'/images/no_image.png';
-	// $lte_class->copy_file($source_class, $dest_class, true);
+	// $lat_class->copy_file($source_class, $dest_class, true);
 		
 	$files = ['header', 'footer', 'home'];
 
@@ -118,24 +118,24 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 	';
 	foreach($files as $fn){
 		$file_path= $path . "/$fn.php" ;
-        $res = $lte_class->add_to_file($file_path, $extra_function , $code);
+        $res = $lat_class->add_to_file($file_path, $extra_function , $code);
 	
         if($res){
-                $lte_class->progress_log->add("Installed code into '{$file_path}'.", 'text-success spacer');
+                $lat_class->progress_log->add("Installed code into '{$file_path}'.", 'text-success spacer');
         }else{
-            $error = $lte_class->last_error();
+            $error = $lat_class->last_error();
 
             if($error == 'Code already exists'){
-                    $lte_class->progress_log->add("Skipped installing to '{$file_path}', code is already installed.", 'text-warning spacer');
+                    $lat_class->progress_log->add("Skipped installing to '{$file_path}', code is already installed.", 'text-warning spacer');
             }else{
-                    $lte_class->progress_log->add("Failed to install code '{$file_path}': {$error}", 'text-danger spacer');
-                    $lte_class->progress_log->add($install_instructions, 'spacer');
+                    $lat_class->progress_log->add("Failed to install code '{$file_path}': {$error}", 'text-danger spacer');
+                    $lat_class->progress_log->add($install_instructions, 'spacer');
             }
         }
 		
 	};
 		
-	echo $lte_class->progress_log->show();
+	echo $lat_class->progress_log->show();
 ?>
 
 <center>

@@ -3,13 +3,13 @@
 
 	// validate project name
 	if (!isset($_REQUEST['axp']) || !preg_match('/^[a-f0-9]{32}$/i', $_REQUEST['axp'])){
-		echo '<br>' . $lte_class->error_message('Project file not found.');
+		echo '<br>' . $lat_class->error_message('Project file not found.');
 		exit;
 	}
 	
 	$axp_md5 = $_REQUEST['axp'];
 	$projectFile = '';
-	$xmlFile = $lte_class->get_xml_file($axp_md5, $projectFile);
+	$xmlFile = $lat_class->get_xml_file($axp_md5, $projectFile);
 //-----------------------------------------------------------------------------------------
 ?>
 
@@ -188,16 +188,16 @@
 		<h3>Tables groups list</h3>
 		<?php 
 		$resources_dir = dirname(__FILE__);
-		$groups=explode(",",$lte_class->project_xml->groups);
-		echo $lte_class->group_view("{$resources_dir}/views/group-list.php",$groups);
+		$groups=explode(",",$lat_class->project_xml->groups);
+		echo $lat_class->group_view("{$resources_dir}/views/group-list.php",$groups);
 		$tables = $xmlFile->table;
 		?>
 	</div>
 	<div class="col-md-8">
 		<?php 
 		$resources_dir = dirname(__FILE__);
-		$groups=explode(",",$lte_class->project_xml->groups);
-		echo $lte_class->group_view("{$resources_dir}/views/enviroment.php",$groups);
+		$groups=explode(",",$lat_class->project_xml->groups);
+		echo $lat_class->group_view("{$resources_dir}/views/enviroment.php",$groups);
 		?>
 	</div>
 </div>
