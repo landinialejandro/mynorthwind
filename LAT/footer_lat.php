@@ -33,7 +33,7 @@
         </div>
         <!-- /.wrapper -->
         <script src="<?php echo PREPEND_PATH; ?>resources/lightbox/js/lightbox.min.js"></script>
-        <script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/demo.js"></script>
+        <script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/control.js"></script>
         <script> 
             //resuelve el conflicto entre bootstrap y prototypejs
             //http://www.softec.lu/site/DevelopersCorner/BootstrapPrototypeConflict
