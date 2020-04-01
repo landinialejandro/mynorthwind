@@ -127,12 +127,12 @@ $write_to_hooks = ($_REQUEST['dont_write_to_hooks'] == 1 ? false : true);
 		<?php
 		//enable Landini Admin Template
 		$currDir = dirname(__FILE__);
-		if (is_file($currDir."/LAT/config_lat.php")){
+		if (is_file($currDir."/../LAT/config_lat.php")){
 			include_once "../LAT/config_lat.php";
 			if (getLteStatus()){
 				define("PREPEND_PATH", "../");
 				$ADMINAREA = true;
-				include_once("../LAT/admin/'.$call.'_lat.php");
+				include_once("../LAT/'.$call.'_lat.php");
 				return;
 			}
 		}else{
