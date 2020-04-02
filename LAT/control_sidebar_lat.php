@@ -9,7 +9,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#control-sidebar-color-tab" data-toggle="tab">
-          <i class="fa fa-plus"></i>
+        <i class="fas fa-palette"></i>
         </a>
       </li>
       <li class="nav-item">
