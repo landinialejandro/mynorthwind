@@ -12,7 +12,7 @@ if (!isset($values['it'])) $values['it']="";
         <span class="brand-text font-weight-light"><?php echo $LAT_globals['app-brand-text']; ?></span>
     </a>
 
-    <div class="sidebar">
+    <div class="sidebar" style="height: auto;">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
@@ -98,7 +98,7 @@ if (!isset($values['it'])) $values['it']="";
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $values['it'] == 'rf' ? "active" : ""; ?>" href="<?php echo PREPEND_PATH; ?>admin/pageRebuildFields.php?gr=ut&it=rf">
-                                <i class="glyphicon nav-icon  glyphicon-refresh"></i><p>?php echo  trimMenu($Translation['rebuild fields']); ?></p>
+                                <i class="glyphicon nav-icon  glyphicon-refresh"></i><p><?php echo  trimMenu($Translation['rebuild fields']); ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -158,7 +158,6 @@ if (!isset($values['it'])) $values['it']="";
 <?php
 function trimMenu($item, $len = 17)
 {
-
     $dot = (strlen($item) > $len) ? "..." : "";
     return substr($item, 0, $len) . $dot;
 }

@@ -1,12 +1,12 @@
 
-<?php 
-    if ($ADMINAREA){
+        <?php 
+            if ($ADMINAREA){
+                ?>
+                    </div> 
+                    <!-- /.add close div in admin area -->
+                <?php
+            }
         ?>
-            </div>
-        <?php
-    }
-?>
-
                 </div>
                 <!-- /.container fluid-->
             </section>
@@ -14,6 +14,7 @@
         <?php if(!$_REQUEST['Embedded']){ ?>
             </div>  
             <!-- /.content-wrapper -->
+            <?php include "control_sidebar_lat.php"; ?>
             <!-- Main Footer -->
             <footer class="main-footer">
                 <!-- To the right -->
@@ -27,7 +28,6 @@
             </footer>
             <!-- /Main Footer -->
             <?php 
-            include "control_sidebar_lte.php";
         } ?>
         <?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/footer-extras.php')){ include(dirname(__FILE__).'/../hooks/footer-extras.php'); } ?>
         </div>

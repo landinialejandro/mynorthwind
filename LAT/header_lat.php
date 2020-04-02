@@ -46,7 +46,6 @@
 		var $j = jQuery.noConflict();
 	</script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/fastclick/fastclick.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/prototype/prototype.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/adminlte.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jquery.contextMenu.js"></script>
@@ -102,12 +101,15 @@
 			if (!$_REQUEST['Embedded']) include($adminPath.'navBar_lat.php');
 			if (!$inLogin && !$_REQUEST['Embedded']) include($adminPath.'sideBarMenu_lat.php');
 			if (!$_REQUEST['Embedded']) { ?>
+				<!-- /.content-wrapper -->
 				<div class="content-wrapper">
 		<?php } ?>
 					<!-- Content Header (Page header) -->
 					<section class="content-header">
-						<?php if (class_exists('Notification')) echo Notification::placeholder();
-						if (function_exists('showNotifications')) echo showNotifications(); ?>
+						<?php 
+							if (class_exists('Notification')) echo Notification::placeholder();
+							if (function_exists('showNotifications')) echo showNotifications(); 
+						?>
 					</section>
 					<!-- /.content HEADER -->
 					<section class="content">
