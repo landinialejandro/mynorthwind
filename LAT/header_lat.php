@@ -19,7 +19,7 @@
 
 	<!-- LTE adding -->
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/adminlte.min.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/glyphicons.css" mediad="screen">
 	<!-- Google Font: Source Sans Pro -->
