@@ -83,7 +83,7 @@
 		</style>
 	<?php
 	}
-	$bodyClass = $inLogin ? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-navbar-fixed";
+	$bodyClass = $inLogin ? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-fixed";
 	if (function_exists('handle_maintenance')) echo handle_maintenance(true);
 	$memberInfo = getMemberInfo();
 	if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
