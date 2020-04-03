@@ -26,6 +26,8 @@
       'navbar-indigo',
       'navbar-purple',
       'navbar-pink',
+      'navbar-navy',
+      'navbar-lightblue',
       'navbar-teal',
       'navbar-cyan',
       'navbar-dark',
@@ -43,11 +45,12 @@
     $containerSettings.append(
       '<h5>Customize Template</h5><hr class="mb-2"/>'
     );
-  
+
+    var value = (get('border-bottom-0') == 'true');
     var $no_border_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.main-header').hasClass('border-bottom-0'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -55,14 +58,16 @@
       } else {
         $('.main-header').removeClass('border-bottom-0');
       }
+      store('border-bottom-0',$(this).is(':checked'));
     });
-    var $no_border_container = $('<div />', {'class': 'mb-1'}).append($no_border_checkbox).append('<span>No Navbar border</span>');
-    $containerSettings.append($no_border_container);
   
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($no_border_checkbox).append('<span>No Navbar border</span>'));
+
+    value = (get('text-sm') == 'true');
     var $text_sm_body_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('body').hasClass('text-sm'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -70,14 +75,16 @@
       } else {
         $('body').removeClass('text-sm');
       }
+      store('text-sm',$(this).is(':checked'));
     });
-    var $text_sm_body_container = $('<div />', {'class': 'mb-1'}).append($text_sm_body_checkbox).append('<span>Body small text</span>');
-    $containerSettings.append($text_sm_body_container);
-  
+
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($text_sm_body_checkbox).append('<span>Body small text</span>'));
+    
+    value = (get('.main-header.text-sm') == 'true');
     var $text_sm_header_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.main-header').hasClass('text-sm'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -85,14 +92,15 @@
       } else {
         $('.main-header').removeClass('text-sm');
       }
+      store('.main-header.text-sm',$(this).is(':checked'));
     });
-    var $text_sm_header_container = $('<div />', {'class': 'mb-1'}).append($text_sm_header_checkbox).append('<span>Navbar small text</span>');
-    $containerSettings.append($text_sm_header_container);
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($text_sm_header_checkbox).append('<span>Navbar small text</span>'));
   
+    value = (get('.nav-sidebar.text-sm') == 'true');
     var $text_sm_sidebar_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.nav-sidebar').hasClass('text-sm'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -100,14 +108,16 @@
       } else {
         $('.nav-sidebar').removeClass('text-sm');
       }
+      store('.nav-sidebar.text-sm',$(this).is(':checked'));
     });
-    var $text_sm_sidebar_container = $('<div />', {'class': 'mb-1'}).append($text_sm_sidebar_checkbox).append('<span>Sidebar nav small text</span>');
-    $containerSettings.append($text_sm_sidebar_container);
+
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($text_sm_sidebar_checkbox).append('<span>Sidebar nav small text</span>'));
   
+    value = (get('.main-footer.text-sm') == 'true');
     var $text_sm_footer_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.main-footer').hasClass('text-sm'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -115,14 +125,16 @@
       } else {
         $('.main-footer').removeClass('text-sm');
       }
+      store('.main-footer.text-sm',$(this).is(':checked'));
     });
-    var $text_sm_footer_container = $('<div />', {'class': 'mb-1'}).append($text_sm_footer_checkbox).append('<span>Footer small text</span>');
-    $containerSettings.append($text_sm_footer_container);
-  
+
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($text_sm_footer_checkbox).append('<span>Footer small text</span>'));
+    
+    value = (get('nav-flat') == 'true');
     var $flat_sidebar_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.nav-sidebar').hasClass('nav-flat'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -130,14 +142,16 @@
       } else {
         $('.nav-sidebar').removeClass('nav-flat');
       }
+      store('nav-flat',$(this).is(':checked'));
     });
-    var $flat_sidebar_container = $('<div />', {'class': 'mb-1'}).append($flat_sidebar_checkbox).append('<span>Sidebar nav flat style</span>');
-    $containerSettings.append($flat_sidebar_container);
-  
+    
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($flat_sidebar_checkbox).append('<span>Sidebar nav flat style</span>'));
+    
+    value = (get('nav-legacy') == 'true');
     var $legacy_sidebar_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.nav-sidebar').hasClass('nav-legacy'),
+      checked:value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -145,14 +159,16 @@
       } else {
         $('.nav-sidebar').removeClass('nav-legacy');
       }
+      store('nav-legacy',$(this).is(':checked'));
     });
-    var $legacy_sidebar_container = $('<div />', {'class': 'mb-1'}).append($legacy_sidebar_checkbox).append('<span>Sidebar nav legacy style</span>');
-    $containerSettings.append($legacy_sidebar_container);
-  
+    
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($legacy_sidebar_checkbox).append('<span>Sidebar nav legacy style</span>'));
+    
+    value = (get('nav-compact') == 'true');
     var $compact_sidebar_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.nav-sidebar').hasClass('nav-compact'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -160,14 +176,15 @@
       } else {
         $('.nav-sidebar').removeClass('nav-compact');
       }
+      store('nav-compact',$(this).is(':checked'));
     });
-    var $compact_sidebar_container = $('<div />', {'class': 'mb-1'}).append($compact_sidebar_checkbox).append('<span>Sidebar nav compact</span>');
-    $containerSettings.append($compact_sidebar_container);
-  
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($compact_sidebar_checkbox).append('<span>Sidebar nav compact</span>'));
+    
+    value = (get('nav-child-indent') == 'true');
     var $child_indent_sidebar_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.nav-sidebar').hasClass('nav-child-indent'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -175,14 +192,16 @@
       } else {
         $('.nav-sidebar').removeClass('nav-child-indent');
       }
+      store('nav-child-indent',$(this).is(':checked'));
     });
-    var $child_indent_sidebar_container = $('<div />', {'class': 'mb-1'}).append($child_indent_sidebar_checkbox).append('<span>Sidebar nav child indent</span>');
-    $containerSettings.append($child_indent_sidebar_container);
-  
+    
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($child_indent_sidebar_checkbox).append('<span>Sidebar nav child indent</span>'));
+    
+    value = (get('sidebar-no-expand') == 'true');
     var $no_expand_sidebar_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.main-sidebar').hasClass('sidebar-no-expand'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -190,14 +209,38 @@
       } else {
         $('.main-sidebar').removeClass('sidebar-no-expand');
       }
+      store('sidebar-no-expand',$(this).is(':checked'));
     });
-    var $no_expand_sidebar_container = $('<div />', {'class': 'mb-1'}).append($no_expand_sidebar_checkbox).append('<span>Main Sidebar disable hover/focus auto expand</span>');
-    $containerSettings.append($no_expand_sidebar_container);
-  
+    
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($no_expand_sidebar_checkbox).append('<span>Main Sidebar disable hover/focus auto expand</span>'));
+    
+
+    value = (get('sidebar-collapse') == 'true');
+    var $text_collapsed_checkbox = $('<input />', {
+      type   : 'checkbox',
+      value  : 1,
+      checked: value,
+      'class': 'mr-1'
+    }).on('click', function () {
+      if ($(this).is(':checked')) {
+        $('body').addClass('sidebar-collapse');
+      } else {
+        $('body').removeClass('sidebar-collapse');
+      }
+      store('sidebar-collapse',$(this).is(':checked'));
+    });
+
+    $containerSettings.append($('<div />', {'class': 'mb-1'}).append($text_collapsed_checkbox).append('<span>Still collapse menu bar</span>'));
+    
+
+
+
+
+    value = (get('.brand-link.text-sm') == 'true');
     var $text_sm_brand_checkbox = $('<input />', {
       type   : 'checkbox',
       value  : 1,
-      checked: $('.brand-link').hasClass('text-sm'),
+      checked: value,
       'class': 'mr-1'
     }).on('click', function () {
       if ($(this).is(':checked')) {
@@ -205,9 +248,10 @@
       } else {
         $('.brand-link').removeClass('text-sm');
       }
+      store('.brand-link.text-sm',$(this).is(':checked'));
     });
-    var $text_sm_brand_container = $('<div />', {'class': 'mb-4'}).append($text_sm_brand_checkbox).append('<span>Brand small text</span>');
-    $containerSettings.append($text_sm_brand_container);
+
+    $containerSettings.append($('<div />', {'class': 'mb-4'}).append($text_sm_brand_checkbox).append('<span>Brand small text</span>'));
 
 
     //checkboxes
@@ -223,6 +267,7 @@
     var $navbar_variants        = $('<div />', {
       'class': 'd-flex'
     });
+
     var navbar_all_colors       = navbar_dark_skins.concat(navbar_light_skins);
     var $navbar_variants_colors = createSkinBlock(navbar_all_colors, function (e) {
       var color = $(this).data('color');
@@ -239,6 +284,7 @@
       }
   
       $main_header.addClass(color);
+      store('.main-header', color);
     });
   
     $navbar_variants.append($navbar_variants_colors);
@@ -252,6 +298,7 @@
       'bg-danger',
       'bg-success',
       'bg-indigo',
+      'bg-lightblue',
       'bg-navy',
       'bg-purple',
       'bg-fuchsia',
@@ -270,6 +317,7 @@
       'accent-danger',
       'accent-success',
       'accent-indigo',
+      'accent-lightblue',
       'accent-navy',
       'accent-purple',
       'accent-fuchsia',
@@ -288,6 +336,7 @@
       'sidebar-dark-danger',
       'sidebar-dark-success',
       'sidebar-dark-indigo',
+      'sidebar-dark-lightblue',
       'sidebar-dark-navy',
       'sidebar-dark-purple',
       'sidebar-dark-fuchsia',
@@ -303,6 +352,7 @@
       'sidebar-light-danger',
       'sidebar-light-success',
       'sidebar-light-indigo',
+      'sidebar-light-lightblue',
       'sidebar-light-navy',
       'sidebar-light-purple',
       'sidebar-light-fuchsia',
@@ -328,6 +378,7 @@
       });
   
       $body.addClass(accent_class);
+      store('body', accent_class);
     }));
   
     $container.append('<h6>Dark Sidebar Variants</h6>');
@@ -344,6 +395,7 @@
       });
   
       $sidebar.addClass(sidebar_class);
+      store('.main-sidebar', sidebar_class);
     }));
   
     $container.append('<h6>Light Sidebar Variants</h6>');
@@ -360,6 +412,7 @@
       });
   
       $sidebar.addClass(sidebar_class);
+      store('.main-sidebar', sidebar_class);
     }));
   
     var logo_skins = navbar_all_colors;
@@ -368,6 +421,7 @@
       'class': 'd-flex'
     });
     $container.append($logo_variants);
+    
     var $clear_btn = $('<a />', {
       href: 'javascript:void(0)'
     }).text('clear').on('click', function () {
@@ -376,6 +430,7 @@
         $logo.removeClass(skin);
       });
     });
+
     $container.append(createSkinBlock(logo_skins, function () {
       var color = $(this).data('color');
       var $logo = $('.brand-link');
@@ -383,6 +438,7 @@
         $logo.removeClass(skin);
       });
       $logo.addClass(color);
+      store('.brand-link', color);
     }).append($clear_btn));
   
     function createSkinBlock(colors, callback) {
@@ -422,33 +478,23 @@
   
       return $block;
     }
-     /**
-     * Get a prestored setting
-     *
-     * @param String name Name of of the setting
-     * @returns String The value of the setting | null
-     */
-    function get(name) {
-      if (typeof (Storage) !== 'undefined') {
-          return localStorage.getItem(name)
-      } else {
-          window.alert('Please use a modern browser to properly view this template!')
-      }
-  }
 
-  /**
-   * Store a new settings in the browser
-   *
-   * @param String name Name of the setting
-   * @param String val Value of the setting
-   * @returns void
-   */
-  function store(name, val) {
-      if (typeof (Storage) !== 'undefined') {
-          localStorage.setItem(name, val)
-      } else {
-          window.alert('Please use a modern browser to properly view this template!')
-      }
-  }
   })(jQuery);
   
+  function get(name) {
+    if (typeof (Storage) !== 'undefined') {
+      console.log('get value' + name);
+        return localStorage.getItem(name);
+    } else {
+        window.alert('Please use a modern browser to properly view this template!');
+    }
+}
+
+function store(name, val) {
+    if (typeof (Storage) !== 'undefined') {
+      console.log('store value: ' + name+" = "+val);
+        localStorage.setItem(name, val);
+    } else {
+        window.alert('Please use a modern browser to properly view this template!');
+    }
+}
