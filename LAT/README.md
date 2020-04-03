@@ -1,11 +1,10 @@
 
 # Landini Andmin Template for AppGini with AdminLTE 3 and bootstrap 4
 
-## Release R0.0.0
+## Release R2.0.0
 
-Staring the new versión
 
-![Login Page](https://trello-attachments.s3.amazonaws.com/5cf458a4c077516299941bbf/600x295/4543ab3b3cfe3a5e98ce23f3f76f0ff2/imagen.png)
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/Template001.PNG)
 
 ## Important note
 
@@ -13,35 +12,28 @@ Remember that: for the plugin to work, you must have previously purchased an ori
 
 ## Install
 
-Use **git** into your root project:
-
-### IMPORTANT
-
-**If you do not have your local repository initialized, run first the next command**
-
- ```cmd
-$git init
-```
-
-```cmd
-
-$git remote add -f lteadmin https://github.com/myappgini/lteadmin.git
-$git merge lteadmin/master --allow-unrelated-histories
-
-```
+    1 Download it from [Here](https://github.com/myappgini/LandiniAdminTemplate).
+    2 Unzip it into your root project.
+    3 Enable it from admin area plugins.
+    4 Enjoy it!
 
 ## how to use
 
-After completing the compilation of your project, log in as administrator and go to the administrator area. The "Plugins" menu should appear with the "Landini AdminLTE" option.
+After completing the compilation of your project, log in as administrator and go to the administrator area. The "Plugins" menu should appear with the "Landini Admin Template" option.
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/plugin000.PNG)
 Like the rest of the plugins select the project and then move on.
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/plugin001.PNG)
 You will be shown a list of the groups that you have configured in your system.
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/plugin002.PNG)
 In this same screen you can edit all the environment variables and you can choose the icons you want to display in the left menu.
 
 Save and continue.
 
 Select the folder where your project is located and continue.
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/plugin003.PNG)
 The system will make the necessary changes for its operation.
 The change log will show you which files were copied and which files were updated.
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/plugin004.PNG)
 Once finished, you can return to the home page and the temple should already work.
 It is not necessary to return to the plugin to update the variables, since each time you return the variables it will be rewritten with the default values. Yes it is necessary to reinstall the plugin if a new compilation of your project was necessary.
 The variables can be updated, by the admin user, from the right control panel. Look for the App Enviroment button.
@@ -66,33 +58,9 @@ function  getLteStatus($LTE_enable = true){
 
 ```
 
-## Changues/FIX LOG
-
-23/11/2019
-
-- fix print problem
-
-Older
-
-- fix RTL LTR text
-
-- update Admin LTE package.
-
-- fix PREPEND_PATH in files sources
-
-- fix double wide left side menu in small devices
-
-- fix mpi control
-
-- remove side bar in login
-
-- redirection in forgotten password
-
-- redirection in new user registration
-
 ## Changes
 
-- Update to adminLTE 2.4.18
+- Update to AdminLTE 3.0.4
 
 - Edit enviroment variables from right side control
 
@@ -144,13 +112,21 @@ label[for='id'] + div {
 
 ## New Features
 
+- New Mebership Profile
+
+Add time line feature
+
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/Template003.PNG)
+
+- Extend template to Admin Area
+
+![Home Page](https://raw.githubusercontent.com/myappgini/LandiniAdminTemplate/master/LAT/screenshots/Template011.PNG)
+
+- Bootstrap 4 support
+
 - hidden group
 
 If the hidden group is created, the tables that are within this group will only be visible to the admin user group.
-
-- mpi
-
-The mebership_profile_image is added by default, so the membership_profile.php file is also modified
 
 ## Resources
   
