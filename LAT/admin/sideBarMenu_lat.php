@@ -59,7 +59,7 @@ if (!isset($values['it'])) $values['it']="";
                 <li class="nav-item has-treeview <?php echo $values['gr'] == 'members' ? "menu-open" : ""; ?>">
                 <a href="#" class="nav-link  <?php echo $values['gr'] == 'members' ? "active" : ""; ?>">
                         <i class="glyphicon glyphicon-user"></i>
-                        <?php echo trimMenu($Translation['members']); ?><p><i class="right fas fa-angle-left"></i></p>
+                        <p><?php echo trimMenu($Translation['members']); ?><i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">

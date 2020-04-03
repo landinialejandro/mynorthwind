@@ -4,7 +4,7 @@
     'use strict';
   
     var $sidebar   = $('#control-sidebar-color-tab');
-    var $settings   = $('#control-sidebar-settings-tab');
+    var $settings   = $('#control-sidebar-home-tab');
     
     var $container = $('<div />', {
       class: 'p-3 control-sidebar-content'
