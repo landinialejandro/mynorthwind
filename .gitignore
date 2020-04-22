@@ -8,14 +8,9 @@ plugins/summary_reports
 plugins/projects
 plugins/plugins-resources
 config.php
-
 test.html
-plugins/LAT/app-resources/config.json
-LAT/config.json
 .vscode/launch.json
-LAT/prueba.html
 prueba.html
 *.zip
 admin/backups/.htaccess
-plugins/lat/app-resources/config.json
-plugins/lat/app-resources/config.json
+LTE/config.json
