@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/glyphicons.css" mediad="screen">
 	<!-- Google Font: Source Sans Pro -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
 	<!-- /LTE adding -->
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/lightbox/css/lightbox.css" media="screen">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/select2/select2.css" media="screen">
