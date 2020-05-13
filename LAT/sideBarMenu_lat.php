@@ -17,7 +17,7 @@
         </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="<?php echo PREPEND_PATH; ?>index.php?signOut=1" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt text-info"></i>
@@ -39,6 +39,7 @@
 
                     /* construct $tg: table list grouped by table group */
                     $tg = array();
+                    //echo get_list($groups);
                     if (count($groups)) {
                         foreach ($groups as $grp => $tables) {
                             foreach ($tables as $tn) {
@@ -55,7 +56,7 @@
                         if (($lte_group !== 'hiddens' || $memberInfo['admin'])) { // new fucntionality if table group named hiddens dont show in other users
                             if (count($lte_tables)) {
                                 if (($lte_group !== 'None')) {
-                                    ?>
+                ?>
                                     <li class="nav-item has-treeview <?php echo ($lte_group === $current_group ? 'menu-open' : ''); ?>">
                                         <a href="#" class="nav-link">
                                             <i class="nav-icon <?php echo $LTE_group_ico[$lte_group] ? $LTE_group_ico[$lte_group] : $ico; ?>"></i>
@@ -65,7 +66,7 @@
                                             </p>
                                         </a>
                                         <ul class="nav nav-treeview">
-                                    <?php
+                                            <?php
                                         }
                                         foreach ($lte_tables as $lte_table) {
                                             $tc = $arrTables[$lte_table];
@@ -82,7 +83,8 @@
                                                     <a href="<?php echo PREPEND_PATH . $lte_table; ?>_view.php" class="nav-link  <?php echo ($lte_table === $x->TableName ? 'active' : ''); ?>">
                                                         <?php echo ($tc['tableIcon'] ? '<img src="' . PREPEND_PATH . $tc['tableIcon'] . '">' : ''); ?>
                                                         <p>
-                                                            <?php $dot = (strlen($tc['Caption']) > $len) ? "..." : "";
+                                                            <?php
+                                                            $dot = (strlen($tc['Caption']) > $len) ? "..." : "";
                                                             echo substr($tc['Caption'], 0, $len) . $dot;
                                                             echo $count_badge;
                                                             ?>
@@ -160,3 +162,47 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+<?php
+//TODO: finish this function to make side bar menu
+function get_list($list, $f = true)
+{
+    if (!is_array($list)) return '';
+    $items = array();
+    foreach ($list as $ls => $names) {
+        if (is_array($names)) {
+            $subsIt = get_list(array_flip($names), false);
+            $has_treeview = "has-treeview";
+            $right = ' <i class="right fas fa-angle-left"></i>';
+            $icon = '<i class="nav-icon fa fa-table"></i>';
+            $caption = $ls;
+            $href = "#";
+        } else {
+            $tables = get_tables_info();
+            $table=$tables[$ls];
+            $caption = $table['Caption'];
+            $icon="<img src= '". PREPEND_PATH . $table['tableIcon'] ."' >";
+            $href = PREPEND_PATH . "{$ls}_view.php";
+            if ($table['homepageShowCount']) {
+                $sql_from = get_sql_from($ls);
+                $count_records = ($sql_from ? sqlValue("select count(1) from " . $sql_from) : 0);
+                $count_badge = '<spam class="right badge badge-info">' . number_format($count_records) . '</spam>';
+            }
+        }
+        $items[] =  "<li class='nav-item {$has_treeview}'>".
+                        "<a href='{$href}' class='nav-link'>". $icon.
+                            "<p>{$caption}{$count_badge}{$right}</p>".
+                        "</a>{$subsIt}".
+                    "</li>";
+    }
+    if (count($items)) {
+        if ($f) {
+            $ret = '<li class="">' . implode('', $items) . '</li>';
+        } else {
+            $ret = '<ul class="nav nav-treeview">' . implode('', $items) . '</ul>';
+        };
+        return $ret;
+    } else {
+        return '';
+    }
+}
