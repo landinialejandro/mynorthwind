@@ -69,6 +69,8 @@
 				'not_null' => false
 			),
 		),
+		'todoList' => array(
+		),
 	);
 
 	// XSS prevention

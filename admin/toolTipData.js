@@ -137,6 +137,24 @@ details_delete1Tip=["",spacer+"This option allows each member of the group to de
 details_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Details' table."];
 details_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Details' table."];
 
+// todoList table
+todoList_addTip=["",spacer+"This option allows all members of the group to add records to the 'TodoList' table. A member who adds a record to the table becomes the 'owner' of that record."];
+
+todoList_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'TodoList' table."];
+todoList_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'TodoList' table."];
+todoList_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'TodoList' table."];
+todoList_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'TodoList' table."];
+
+todoList_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'TodoList' table."];
+todoList_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'TodoList' table."];
+todoList_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'TodoList' table."];
+todoList_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'TodoList' table, regardless of their owner."];
+
+todoList_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'TodoList' table."];
+todoList_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'TodoList' table."];
+todoList_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'TodoList' table."];
+todoList_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'TodoList' table."];
+
 /*
 	Style syntax:
 	-------------

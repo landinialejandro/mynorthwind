@@ -51,7 +51,8 @@
 			'companies' => array('Companies', '', 'resources/table_icons/balance.png', 'None'),
 			'logins' => array('Logins', '', 'table.gif', 'hidden'),
 			'compnayTypes' => array('CompnayTypes', '', 'table.gif', 'hidden'),
-			'details' => array('Details', '', 'resources/table_icons/installer_box.png', 'hidden')
+			'details' => array('Details', '', 'resources/table_icons/installer_box.png', 'hidden'),
+			'todoList' => array('TodoList', '', 'table.gif', 'None')
 		);
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -145,6 +146,7 @@
 			'logins' => "`logins`.`id` as 'id', `logins`.`ip` as 'ip'",
 			'compnayTypes' => "`compnayTypes`.`id` as 'id', `compnayTypes`.`type` as 'type'",
 			'details' => "`details`.`id` as 'id', IF(    CHAR_LENGTH(`orders1`.`id`), CONCAT_WS('',   `orders1`.`id`), '') as 'order', `details`.`quantity` as 'quantity', `details`.`item` as 'item', `details`.`vaule` as 'vaule'",
+			'todoList' => "`todoList`.`id` as 'id', `todoList`.`task` as 'task', `todoList`.`taskReady` as 'taskReady', if(`todoList`.`reminder`,date_format(`todoList`.`reminder`,'%m/%d/%Y'),'') as 'reminder', TIME_FORMAT(`todoList`.`reminder_time`, '%r') as 'reminder_time', `todoList`.`prority` as 'prority', `todoList`.`notes` as 'notes', `todoList`.`order` as 'order'",
 		);
 
 		if(isset($sql_fields[$table_name])) {
@@ -165,6 +167,7 @@
 			'logins' => "`logins` ",
 			'compnayTypes' => "`compnayTypes` ",
 			'details' => "`details` LEFT JOIN `orders` as orders1 ON `orders1`.`id`=`details`.`order` ",
+			'todoList' => "`todoList` ",
 		);
 
 		$pkey = array(
@@ -175,6 +178,7 @@
 			'logins' => 'id',
 			'compnayTypes' => 'id',
 			'details' => 'id',
+			'todoList' => 'id',
 		);
 
 		if(!isset($sql_from[$table_name])) return false;
@@ -256,6 +260,16 @@
 				'quantity' => '',
 				'item' => '',
 				'vaule' => ''
+			),
+			'todoList' => array(
+				'id' => '',
+				'task' => '',
+				'taskReady' => '0',
+				'reminder' => '',
+				'reminder_time' => '',
+				'prority' => 'Low',
+				'notes' => '',
+				'order' => ''
 			)
 		);
 

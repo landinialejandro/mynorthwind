@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the todoList_init() hook (in hooks/todoList.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="todoList-task-<%%VALUE(id)%%>" class="todoList-task"><%%VALUE(task)%%></td>
+		<td id="todoList-taskReady-<%%VALUE(id)%%>" class="todoList-taskReady"><%%VALUE(taskReady)%%></td>
+		<td id="todoList-reminder-<%%VALUE(id)%%>" class="todoList-reminder"><%%VALUE(reminder)%%></td>
+		<td id="todoList-reminder_time-<%%VALUE(id)%%>" class="todoList-reminder_time"><%%VALUE(reminder_time)%%></td>
+		<td id="todoList-prority-<%%VALUE(id)%%>" class="todoList-prority"><%%VALUE(prority)%%></td>
+		<td id="todoList-notes-<%%VALUE(id)%%>" class="todoList-notes"><%%VALUE(notes)%%></td>
+		<td id="todoList-order-<%%VALUE(id)%%>" class="todoList-order text-right"><%%VALUE(order)%%></td>

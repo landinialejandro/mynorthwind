@@ -20,6 +20,7 @@
 		setupTable('compnayTypes', "create table if not exists `compnayTypes` (   `id` INT unsigned not null auto_increment , primary key (`id`), `type` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('details', "create table if not exists `details` (   `id` INT unsigned not null auto_increment , primary key (`id`), `order` INT unsigned null , `quantity` VARCHAR(40) null , `item` VARCHAR(40) null , `vaule` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupIndexes('details', array('order'));
+		setupTable('todoList', "create table if not exists `todoList` (   `id` INT unsigned not null auto_increment , primary key (`id`), `task` VARCHAR(40) not null , `taskReady` INT null default '0' , `reminder` DATE null , `reminder_time` TIME null , `prority` VARCHAR(40) null default 'Low' , `notes` TINYTEXT null , `order` INT null ) CHARSET utf8", $silent, array( " ALTER TABLE `todoList` CHANGE `task` `task` VARCHAR(40) not null ","ALTER TABLE todoList ADD `field7` VARCHAR(40)","ALTER TABLE `todoList` CHANGE `field7` `order` VARCHAR(40) null "," ALTER TABLE `todoList` CHANGE `order` `order` INT null ","ALTER TABLE todoList ADD `field8` VARCHAR(40)","ALTER TABLE `todoList` CHANGE `field8` `taskReady` VARCHAR(40) null "," ALTER TABLE `todoList` CHANGE `taskReady` `taskReady` VARCHAR(40) null default '0' "," ALTER TABLE `todoList` CHANGE `taskReady` `taskReady` INT null default '0' "," ALTER TABLE `todoList` CHANGE `prority` `prority` VARCHAR(40) null default 'Low' "));
 
 
 		// save MD5

@@ -483,7 +483,7 @@
   
   function get(name) {
     if (typeof (Storage) !== 'undefined') {
-      console.log('get value' + name);
+      //console.log('get value' + name);
         return localStorage.getItem(name);
     } else {
         window.alert('Please use a modern browser to properly view this template!');
@@ -492,7 +492,7 @@
 
 function store(name, val) {
     if (typeof (Storage) !== 'undefined') {
-      console.log('store value: ' + name+" = "+val);
+      //console.log('store value: ' + name+" = "+val);
         localStorage.setItem(name, val);
     } else {
         window.alert('Please use a modern browser to properly view this template!');

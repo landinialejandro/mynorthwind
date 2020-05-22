@@ -348,6 +348,12 @@ function details_validateData() {
 	$j('.has-error').removeClass('has-error');
 	return true;
 }
+function todoList_validateData() {
+	$j('.has-error').removeClass('has-error');
+	/* Field task can't be empty */
+	if($j('#task').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Task", close: function() { /* */ $j('[name=task]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
+	return true;
+}
 
 function post(url, params, update, disable, loading, success_callback) {
 	$j.ajax({

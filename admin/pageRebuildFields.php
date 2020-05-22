@@ -44,6 +44,16 @@
 			'item' => array('appgini' => 'VARCHAR(40) null '),
 			'vaule' => array('appgini' => 'VARCHAR(40) null '),
 		),
+		'todoList' => array(
+			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
+			'task' => array('appgini' => 'VARCHAR(40) not null '),
+			'taskReady' => array('appgini' => 'INT null default \'0\' '),
+			'reminder' => array('appgini' => 'DATE null '),
+			'reminder_time' => array('appgini' => 'TIME null '),
+			'prority' => array('appgini' => 'VARCHAR(40) null default \'Low\' '),
+			'notes' => array('appgini' => 'TINYTEXT null '),
+			'order' => array('appgini' => 'INT null '),
+		),
 	);
 
 	$table_captions = getTableList();

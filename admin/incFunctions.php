@@ -140,6 +140,13 @@
 					'group' => $tg[2],
 					'homepageShowCount' => 0
 				),
+				'todoList' => array(
+					'Caption' => 'TodoList',
+					'Description' => '',
+					'tableIcon' => 'table.gif',
+					'group' => $tg[0],
+					'homepageShowCount' => 0
+				),
 		);
 
 		if($skip_authentication || getLoggedAdmin()) return $all_tables;
@@ -162,6 +169,7 @@
 				'logins' => 'Logins',
 				'compnayTypes' => 'CompnayTypes',
 				'details' => 'Details',
+				'todoList' => 'TodoList',
 			);
 
 			return $arrTables;
@@ -1975,6 +1983,8 @@
 			'compnayTypes' => array(
 			),
 			'details' => array(
+			),
+			'todoList' => array(
 			),
 		);
 	}

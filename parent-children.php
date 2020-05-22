@@ -44,6 +44,8 @@
 					'query' => "SELECT `details`.`id` as 'id', IF(    CHAR_LENGTH(`orders1`.`id`), CONCAT_WS('',   `orders1`.`id`), '') as 'order', `details`.`quantity` as 'quantity', `details`.`item` as 'item', `details`.`vaule` as 'vaule' FROM `details` LEFT JOIN `orders` as orders1 ON `orders1`.`id`=`details`.`order` "
 				),
 			),
+			'todoList' => array(
+			),
 		);
 
 	/*************************************/
