@@ -134,38 +134,40 @@
          <div class="modal-content">
              <div class="modal-header">
                  <h5 class="modal-title">To-do</h5>
-                 <div class="due-human">due: <span class="text-due"></span> </div>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
              </div>
              <div class="modal-body">
-                 <div class="form-group">
+                 <form action="">
+                     <div class="form-group">
 
-                     <label>Task</label>
-                     <div class="input-group">
-                         <input type="text" class="form-control">
-                         <div class="input-group-append">
-                             <span class="input-group-text">
-                                 <input type="checkbox">
-                             </span>
+                         <div class="due-human pull-right"><span class="badge bg-success"> due: <span class="text-due"></span> </span> </div>
+                         <label>Task</label>
+                         <div class="input-group">
+                             <input type="text" class="form-control">
+                             <div class="input-group-append">
+                                 <span class="input-group-text">
+                                     <input type="checkbox">
+                                 </span>
+                             </div>
                          </div>
                      </div>
-                 </div>
-                 <div class="row">
-                     <div class="col-6">
-                         <div class=" form-group">
-                             <label>Due date</label>
-                             <input type="text" class="form-control" id="due_date" name="due_date" value="" size="10">
+                     <div class="row">
+                         <div class="col-6">
+                             <div class=" form-group">
+                                 <label>Due date</label>
+                                 <input type="text" class="form-control" id="due_date" name="due_date" value="" size="10">
+                             </div>
+                         </div>
+                         <div class="col-6">
+                             <div class=" form-group">
+                                 <label>Due time</label>
+                                 <input type="text" class="form-control" id="due_time" name="due_time" value="" size="10">
+                             </div>
                          </div>
                      </div>
-                     <div class="col-6">
-                         <div class=" form-group">
-                             <label>Due time</label>
-                             <input type="text" class="form-control" id="due_time" name="due_time" value="" size="10">
-                         </div>
-                     </div>
-                 </div>
+                 </form>
              </div>
              <div class="modal-footer">
                  <button type="button" class="btn btn-success">Save</button>
