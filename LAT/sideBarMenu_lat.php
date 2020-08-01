@@ -59,7 +59,7 @@
                 ?>
                                     <li class="nav-item has-treeview <?php echo ($lte_group === $current_group ? 'menu-open' : ''); ?>">
                                         <a href="#" class="nav-link">
-                                            <i class="nav-icon <?php echo $LTE_group_ico[$lte_group] ? $LTE_group_ico[$lte_group] : $ico; ?>"></i>
+                                            <i class="nav-icon <?php echo $LAT_group_ico[$lte_group] ? $LAT_group_ico[$lte_group] : $ico; ?>"></i>
                                             <p>
                                                 <?php echo $lte_group; ?>
                                                 <i class="right fas fa-angle-left"></i>

@@ -138,8 +138,8 @@
                      <span aria-hidden="true">&times;</span>
                  </button>
              </div>
-             <div class="modal-body">
-                 <form action="">
+             <form id="myForm" action="post" name="myForm">
+                 <div class="modal-body">
                      <div class="form-group">
 
                          <div class="due-human pull-right"><span class="badge bg-success"> due: <span class="text-due"></span> </span> </div>
@@ -167,11 +167,11 @@
                              </div>
                          </div>
                      </div>
-                 </form>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-success">Save</button>
-             </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button id="insert" type="submit" class="btn btn-success" name="insert_x">Save</button>
+                 </div>
+             </form>
          </div>
      </div>
  </div>
@@ -200,5 +200,9 @@
              //  time = moment(e.time);
              //  console.log(time);
          });
+     });
+     $j("#myForm").submit(function(event) {
+         alert("Handler for .submit() called.");
+         event.preventDefault();
      });
  </script>

@@ -1,8 +1,8 @@
 <?php
-if (!isset($Translation)) {
-  @header('Location: index.php');
-  exit;
-}
+// if (!isset($Translation)) {
+//   @header('Location: index.php');
+//   exit;
+// }
 include_once("header.php");
 ?>
 <!-- Main content -->

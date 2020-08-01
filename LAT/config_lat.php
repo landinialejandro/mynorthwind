@@ -6,13 +6,13 @@ $cjson = file_get_contents('config.json',true);
 $cjson = json_decode($cjson,true);
 
 $LAT_globals = $cjson[0]['Globals'];
-$LTE_group_ico = $cjson[1]['Icon Groups'];
+$LAT_group_ico = $cjson[1]['Icon Groups'];
 $ico = "fa fa-table"; //default ico
 
 //change to FALSE if you want back to appgini default
-function getLteStatus($LTE_enable = true){
+function get_LTA_Status($LAT_enable = true){
     if(!function_exists('getMemberInfo')){
-        $LTE_enable = false;
+        $LAT_enable = false;
     } 
-    return $LTE_enable ;
+    return $LAT_enable ;
 }
