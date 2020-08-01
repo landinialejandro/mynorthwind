@@ -1,22 +1,8 @@
 
-		<?php /* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:10 */ ?>
-		
-	<?php
-	//enable Landini Admin Template
-	$currDir = dirname(__FILE__);
-	if (is_file($currDir."/LAT/config_lat.php")){
-		include_once "LAT/config_lat.php";
-		if (getLteStatus()){
-			$fn = basename(__FILE__, ".php"); 
-			include_once("LAT/".$fn."_lat.php");
-			return;
-		}
-	}else{
-		echo "the config file not exist";
-	}
+<?php
+	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:10 */
+	if (activate_LAT(basename(__FILE__, ".php"))) return;
 	?>
-	
-		<?php /* End of Landini AdminLTE Template code */ ?>
 			<!-- Add footer template above here -->
 			<div class="clearfix"></div>
 			<?php if(!$_REQUEST['Embedded']) { ?>

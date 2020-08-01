@@ -1,8 +1,9 @@
 <?php
-// if (!isset($Translation)) {
-//   @header('Location: index.php');
-//   exit;
-// }
+if (!isset($Translation)) {
+  $currDir = dirname(__FILE__);
+	include("{$currDir}/../defaultLang.php");
+	include("{$currDir}/../language.php");
+}
 include_once("header.php");
 ?>
 <!-- Main content -->

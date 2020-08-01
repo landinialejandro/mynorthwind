@@ -6,6 +6,13 @@ include_once("{$latDir}/profile/mpi.php");
 $mpi = new Mpi($memberInfo['username'], $imageFolder);
 $usr_img = PREPEND_PATH . "images/" . $mpi->thumb;
 ?>
+<?php
+if (!isset($Translation)) {
+  $currDir = dirname(__FILE__);
+	include("{$currDir}/../defaultLang.php");
+	include("{$currDir}/../language.php");
+}
+?>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Navbar left Menu -->

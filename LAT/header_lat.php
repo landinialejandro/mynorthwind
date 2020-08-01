@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php if (!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>
 <?php if (!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>
+<?php include(dirname(__FILE__)."/config_lat.php"); ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->

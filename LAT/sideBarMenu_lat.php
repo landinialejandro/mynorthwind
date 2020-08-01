@@ -1,3 +1,10 @@
+<?php
+if (!isset($Translation)) {
+  $currDir = dirname(__FILE__);
+	include("{$currDir}/../defaultLang.php");
+	include("{$currDir}/../language.php");
+}
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?php echo PREPEND_PATH; ?>index.php" class="brand-link">

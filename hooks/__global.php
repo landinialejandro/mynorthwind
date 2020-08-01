@@ -35,7 +35,7 @@ function sendmail_handler(&$pm)
 function activate_LAT($fn)
 {
 	if (!empty($fn)) {
-		if (LAT_enable()) {
+		if (get_LTA_Status()) {
 			$rootDir = dirname(__FILE__) . "/..";
 			include_once("$rootDir/LAT/" . $fn . "_lat.php");
 			return true;
@@ -44,16 +44,13 @@ function activate_LAT($fn)
 	return false;
 }
 
-function LAT_enable()
+//change to FALSE if you want back to appgini default
+function get_LTA_Status($LAT_enable = true)
 {
-	$rootDir = dirname(__FILE__) . "/..";
-	if (is_file("$rootDir/LAT/config_lat.php")) {
-		include_once "$rootDir/LAT/config_lat.php";
-		if (get_LTA_Status()) {
-			return true;
-		}
+	if (!function_exists('getMemberInfo')) {
+		$LAT_enable = false;
 	}
-	return false;
+	return $LAT_enable;
 }
 
 //hacer un hash al file y verificar si cambió.
