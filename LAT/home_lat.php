@@ -74,7 +74,7 @@ include_once("header.php");
     </div>
   </div>
 <!-- ChartJS -->
-<script src="LAT/plugins/chart.js/Chart.js"></script>
+<script src="LAT/adminlte3/plugins/chart.js/Chart.js"></script>
 <script>
   $j(function() {
     // here you need to make an ajax to get the array values form a php.

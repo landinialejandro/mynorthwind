@@ -19,10 +19,10 @@
 	<link id="browser_favicon" rel="shortcut icon" href="<?php echo PREPEND_PATH; ?>LAT/logo/logo.png">
 
 	<!-- LTE adding -->
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/plugins/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/adminlte.min.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/adminlte3/plugins/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/adminlte3/dist/css/adminlte.min.css">
 	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.css">
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/dist/css/glyphicons.css" mediad="screen">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/css/glyphicons.css" mediad="screen">
 	
 	<!-- Google Font: Source Sans Pro -->
 	<!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
@@ -37,14 +37,14 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 	<?php } ?>
 
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/myCustom.css" mediad="screen">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/css/myCustom.css" mediad="screen">
 
 	<!--[if lt IE 9]>
 		<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	<![endif]-->
 
-	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jquery/jquery.min.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/plugins/jquery/jquery.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/plugins/jquery-ui/jquery-ui.min.js"></script>
 	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 	<script>
 		$.widget.bridge('uibutton', $.ui.button)
@@ -52,10 +52,10 @@
 	<script>
 		var $j = jQuery.noConflict();
 	</script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/prototype/prototype.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/moment/moment.min.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/adminlte.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/plugins/moment/moment.min.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/dist/js/adminlte.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jquery.contextMenu.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/TweenMax/TweenMax.min.js"></script>
@@ -67,7 +67,7 @@
 	<script src="<?php echo PREPEND_PATH; ?>resources/datepicker/js/datepicker.packed.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 	
-	<script src="<?php echo PREPEND_PATH; ?>LAT/dist/js/bootstrap.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/js/bootstrap.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>common.js.php"></script>
 
 	<?php
