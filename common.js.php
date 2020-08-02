@@ -676,7 +676,8 @@ function mass_change_owner(t, ids) {
 								pkValue: ids[itrn],
 								t: t,
 								memberID: memberID,
-								saveChanges: 'Save changes'
+								saveChanges: 'Save changes',
+								csrf_token: $j('#csrf_token').val()
 							},
 							success: function(resp) {
 								if(resp == 'OK') {

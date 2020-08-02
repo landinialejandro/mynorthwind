@@ -1,9 +1,3 @@
-
-	<?php
-	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:10 */
-	if (activate_LAT(basename(__FILE__, ".php"),$x)) return;
-	?>
-	
 <?php 
 	if(!isset($Translation)) { @header('Location: index.php'); exit; } 
 

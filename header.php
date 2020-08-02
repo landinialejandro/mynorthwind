@@ -1,9 +1,3 @@
-
-
-	<?php
-	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:11 */
-	if (activate_LAT(basename(__FILE__, ".php"),$x)) return;
-	?>
 <?php if(function_exists('set_headers')) { set_headers(); } ?><!DOCTYPE html>
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>
 <?php if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>

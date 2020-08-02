@@ -1,7 +1,3 @@
-<?php
-	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:10 */
-	if (activate_LAT(basename("header", ".php"),"",true)) return;
-	?>
 <?php if(function_exists('set_headers')) { set_headers(); } ?><!DOCTYPE html>
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', '../'); ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->

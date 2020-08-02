@@ -11,7 +11,7 @@
 		}
 
 		// set up tables
-		setupTable('orders', "create table if not exists `orders` (   `id` INT unsigned not null auto_increment , primary key (`id`), `orderNumber` VARCHAR(40) null , `customer` VARCHAR(40) null ) CHARSET utf8", $silent);
+		setupTable('orders', "create table if not exists `orders` (   `id` INT unsigned not null auto_increment , primary key (`id`), `orderNumber` TINYBLOB null , `customer` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('contacts', "create table if not exists `contacts` (   `id` INT unsigned not null auto_increment , primary key (`id`), `fullName` VARCHAR(40) null , `type` TINYBLOB null ) CHARSET utf8", $silent);
 		setupTable('addresses', "create table if not exists `addresses` (   `id` INT unsigned not null auto_increment , primary key (`id`), `address` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('companies', "create table if not exists `companies` (   `id` INT unsigned not null auto_increment , primary key (`id`), `name` VARCHAR(40) null , `type` INT unsigned null ) CHARSET utf8", $silent);
@@ -20,7 +20,7 @@
 		setupTable('compnayTypes', "create table if not exists `compnayTypes` (   `id` INT unsigned not null auto_increment , primary key (`id`), `type` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupTable('details', "create table if not exists `details` (   `id` INT unsigned not null auto_increment , primary key (`id`), `order` INT unsigned null , `quantity` VARCHAR(40) null , `item` VARCHAR(40) null , `vaule` VARCHAR(40) null ) CHARSET utf8", $silent);
 		setupIndexes('details', array('order'));
-		setupTable('todoList', "create table if not exists `todoList` (   `id` INT unsigned not null auto_increment , primary key (`id`), `task` VARCHAR(40) not null , `taskReady` INT null default '0' , `reminder` DATE null , `reminder_time` TIME null , `prority` VARCHAR(40) null default 'Low' , `notes` TINYTEXT null , `order` INT null ) CHARSET utf8", $silent, array( " ALTER TABLE `todoList` CHANGE `task` `task` VARCHAR(40) not null ","ALTER TABLE todoList ADD `field7` VARCHAR(40)","ALTER TABLE `todoList` CHANGE `field7` `order` VARCHAR(40) null "," ALTER TABLE `todoList` CHANGE `order` `order` INT null ","ALTER TABLE todoList ADD `field8` VARCHAR(40)","ALTER TABLE `todoList` CHANGE `field8` `taskReady` VARCHAR(40) null "," ALTER TABLE `todoList` CHANGE `taskReady` `taskReady` VARCHAR(40) null default '0' "," ALTER TABLE `todoList` CHANGE `taskReady` `taskReady` INT null default '0' "," ALTER TABLE `todoList` CHANGE `prority` `prority` VARCHAR(40) null default 'Low' "));
+		setupTable('todoList', "create table if not exists `todoList` (   `id` INT unsigned not null auto_increment , primary key (`id`), `task` VARCHAR(40) not null , `taskReady` INT null default '0' , `reminder` DATE null , `reminder_time` TIME null , `prority` VARCHAR(40) null default 'Low' , `notes` TINYTEXT null , `order` INT null ) CHARSET utf8", $silent);
 
 
 		// save MD5

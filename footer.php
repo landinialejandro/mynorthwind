@@ -1,8 +1,3 @@
-
-<?php
-	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:10 */
-	if (activate_LAT(basename(__FILE__, ".php"))) return;
-	?>
 			<!-- Add footer template above here -->
 			<div class="clearfix"></div>
 			<?php if(!$_REQUEST['Embedded']) { ?>
@@ -14,7 +9,7 @@
 				<div style="height: 60px;" class="hidden-print"></div>
 				<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 					<p class="navbar-text"><small>
-						Powered by <a class="navbar-link" href="https://bigprof.com/appgini/" target="_blank">BigProf AppGini 5.82</a>
+						Powered by <a class="navbar-link" href="https://bigprof.com/appgini/" target="_blank">BigProf AppGini 5.84</a>
 					</small></p>
 				</nav>
 			<?php } ?>

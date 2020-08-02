@@ -12,7 +12,7 @@
 	$schema = array(
 		'orders' => array(
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
-			'orderNumber' => array('appgini' => 'VARCHAR(40) null '),
+			'orderNumber' => array('appgini' => 'TINYBLOB null '),
 			'customer' => array('appgini' => 'VARCHAR(40) null '),
 		),
 		'contacts' => array(
