@@ -84,18 +84,18 @@ $res = $lat_class->add_to_file($file_path, $extra_function, $code);
 inspect_result($res, $file_path,$lat_class);
 
 $files = [
-	'admin/incHeader' => ['header',true],
-	'admin/incFooter' => ['footer',true],
-	'header' => ['header',false],
-	'footer' => ['footer',false],
-	'home' => ['home',false]
+	'admin/incHeader' => ['header',"true"],
+	'admin/incFooter' => ['footer',"true"],
+	'header' => ['header',"false"],
+	'footer' => ['footer',"false"],
+	'home' => ['home',"false"]
 ];
 foreach ($files as $fn => $call) {
 	$inc =
 		$code = '
-		<<?php
+		<?php
 			//enable Landini Admin Template
-			if (activate_LAT(basename(' . $call[0] . ', ".php"),$x,' . $call[1] . ')) return;
+			if (activate_LAT("' . $call[0] . '",$x,' . $call[1] . ')) return;
 		?>
 		';
 	$file_path = $path . "/$fn.php";
