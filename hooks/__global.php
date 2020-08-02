@@ -31,26 +31,5 @@ function member_activity($memberInfo, $activity, &$args)
 function sendmail_handler(&$pm)
 {
 }
-
-function activate_LAT($fn)
-{
-	if (!empty($fn)) {
-		if (get_LTA_Status()) {
-			$rootDir = dirname(__FILE__) . "/..";
-			include_once("$rootDir/LAT/" . $fn . "_lat.php");
-			return true;
-		}
-	}
-	return false;
-}
-
-//change to FALSE if you want back to appgini default
-function get_LTA_Status($LAT_enable = true)
-{
-	if (!function_exists('getMemberInfo')) {
-		$LAT_enable = false;
-	}
-	return $LAT_enable;
-}
-
-//hacer un hash al file y verificar si cambió.
+$rootDir = dirname(__FILE__) . "/..";
+include("$rootDir/LAT/setup_lat.php");
