@@ -23,21 +23,23 @@ function get_LTA_Status($LAT_enable = true)
 }
 
 //hacer un hash al file y verificar si cambió.
-function check_LTA_installed(){
+function check_LTA_installed()
+{
 	$md5_file = dirname(__FILE__) . '/../lat.md5';
 	$prevMD5 = @implode('', @file($md5_file));
 	$thisMD5 = md5(@implode('', @file("./header.php")));
 	if ($thisMD5 == $prevMD5) {
 		$setupAlreadyRun = true;
 	} else {
-		//make install again
 
+		include("setup/setup.php");
 
-		//save new install
-		if($fp=@fopen($md5_file, 'w')) {
+		if ($fp = @fopen($md5_file, 'w')) {
 			fwrite($fp, $thisMD5);
 			fclose($fp);
 		}
+		@header("Location: ./index.php?signOut=1");
+		exit;
 	}
 	return $setupAlreadyRun;
 }

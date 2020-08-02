@@ -81,18 +81,17 @@ include(dirname(__FILE__) . "/../LAT/setup_lat.php");
 ';
 $file_path = "$path/hooks/__global.php";
 $res = $lat_class->add_to_file($file_path, $extra_function, $code);
-inspect_result($res, $file_path,$lat_class);
+inspect_result($res, $file_path, $lat_class);
 
 $files = [
-	'admin/incHeader' => ['header',"true"],
-	'admin/incFooter' => ['footer',"true"],
-	'header' => ['header',"false"],
-	'footer' => ['footer',"false"],
-	'home' => ['home',"false"]
+	'admin/incHeader' => ['header', "true"],
+	'admin/incFooter' => ['footer', "true"],
+	'header' => ['header', "false"],
+	'footer' => ['footer', "false"],
+	'home' => ['home', "false"]
 ];
 foreach ($files as $fn => $call) {
-	$inc =
-		$code = '
+	$code = '
 		<?php
 			//enable Landini Admin Template
 			if (activate_LAT("' . $call[0] . '",$x,' . $call[1] . ')) return;
@@ -101,7 +100,7 @@ foreach ($files as $fn => $call) {
 	$file_path = $path . "/$fn.php";
 	$res = $lat_class->add_to_file($file_path, $extra_function, $code);
 
-	inspect_result($res, $file_path,$lat_class);
+	inspect_result($res, $file_path, $lat_class);
 };
 
 echo $lat_class->progress_log->show();
