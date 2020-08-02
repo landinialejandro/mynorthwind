@@ -2,12 +2,10 @@
 function activate_LAT($fn, $x, $ADMINAREA = false)
 {
 	if (!empty($fn)) {
-		if (get_LTA_Status()) {
-			$rootDir = dirname(__FILE__) . "/..";
-			if ($ADMINAREA) define('PREPEND_PATH', '../');
-			include_once("$rootDir/LAT/" . $fn . "_lat.php");
-			return true;
-		}
+		$rootDir = dirname(__FILE__) . "/..";
+		if ($ADMINAREA) define('PREPEND_PATH', '../');
+		include_once("$rootDir/LAT/" . $fn . "_lat.php");
+		return true;
 	}
 	return false;
 }
@@ -25,21 +23,22 @@ function get_LTA_Status($LAT_enable = true)
 //hacer un hash al file y verificar si cambió.
 function check_LTA_installed()
 {
-	$md5_file = dirname(__FILE__) . '/../lat.md5';
-	$prevMD5 = @implode('', @file($md5_file));
-	$thisMD5 = md5(@implode('', @file("./header.php")));
+	$md5_file = dirname(__FILE__) . '/lat.md5';
+	$ver_file = dirname(__FILE__) . '/../header.php';
+	$prevMD5 = file_get_contents($md5_file);
+	$thisMD5 = hash_file('md5',$ver_file);
 	if ($thisMD5 == $prevMD5) {
 		$setupAlreadyRun = true;
 	} else {
-
 		include("setup/setup.php");
 
 		if ($fp = @fopen($md5_file, 'w')) {
 			fwrite($fp, $thisMD5);
 			fclose($fp);
 		}
-		@header("Location: ./index.php?signOut=1");
-		exit;
+
+		// @header("Location: ./index.php?signOut=1");
+		// exit;
 	}
 	return $setupAlreadyRun;
 }

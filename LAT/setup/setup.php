@@ -32,16 +32,16 @@ try {
 }
 
 ?>
-
+<!-- 
 <h1 >We are cleaning the house soon you will be redirected</h1>
-<h4>Progress log</h4>
+<h4>Progress log</h4> -->
 
 <?php
 $i=1;
 $code = '<?php include(dirname(__FILE__) . "/../LAT/setup_lat.php");?>';
 $file_path = "$path/hooks/__global.php";
 $res = $lat_class->add_to_file($file_path, false, $code);
-echo $res?"ok<br>":"warning-$i<br>";
+//echo $res?"ok<br>":"warning-$i<br>";
 
 $files = [
 	'admin/incHeader' => ['header',"true"],
@@ -55,5 +55,5 @@ foreach ($files as $fn => $call) {
 	$code = '<?php if (activate_LAT("' . $call[0] . '",$x,' . $call[1] . ')) return; ?>';
 	$file_path = $path . "/$fn.php";
 	$res = $lat_class->add_to_file($file_path, $extra_function, $code);
-	echo $res?"<br>":"warning-$i<br>";
+	//echo $res?"<br>":"warning-$i<br>";
 };

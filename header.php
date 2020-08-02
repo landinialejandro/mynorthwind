@@ -1,7 +1,8 @@
 
-<?php /* Inserted by Landini Admin Template on 2020-08-02 04:22:11 */ ?>
+<?php /* Inserted by Landini Admin Template on 2020-08-02 05:25:55 */ ?>
 		<?php if (activate_LAT("header",$x,false)) return; ?>
 <?php /* End of Landini Admin Template code */ ?>
+<?php if(function_exists('set_headers')) { set_headers(); } ?><!DOCTYPE html>
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>
 <?php if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
