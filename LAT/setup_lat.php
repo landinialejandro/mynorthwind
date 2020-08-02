@@ -43,3 +43,5 @@ function check_LTA_installed()
 	}
 	return $setupAlreadyRun;
 }
+
+get_LTA_Status();
