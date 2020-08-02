@@ -1,8 +1,8 @@
 
 
 	<?php
-	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:10 */
-	if (activate_LAT(basename(__FILE__, ".php"))) return;
+	/* Inserted by Landini AdminLTE Template on 2020-05-13 07:25:11 */
+	if (activate_LAT(basename(__FILE__, ".php"),$x)) return;
 	?>
 <?php if(function_exists('set_headers')) { set_headers(); } ?><!DOCTYPE html>
 <?php if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); ?>

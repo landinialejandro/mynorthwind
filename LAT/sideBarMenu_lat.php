@@ -1,6 +1,6 @@
 <?php
 if (!isset($Translation)) {
-  $currDir = dirname(__FILE__);
+    $currDir = dirname(__FILE__);
 	include("{$currDir}/../defaultLang.php");
 	include("{$currDir}/../language.php");
 }
@@ -59,35 +59,35 @@ if (!isset($Translation)) {
                     }
                     $i = 0;
                     $len = 17;
-                    foreach ($groups as $lte_group => $lte_tables) {
-                        if (($lte_group !== 'hiddens' || $memberInfo['admin'])) { // new fucntionality if table group named hiddens dont show in other users
-                            if (count($lte_tables)) {
-                                if (($lte_group !== 'None')) {
+                    foreach ($groups as $lat_group => $lat_tables) {
+                        if (($lat_group !== 'hiddens' || $memberInfo['admin'])) { // new fucntionality if table group named hiddens dont show in other users
+                            if (count($lat_tables)) {
+                                if (($lat_group !== 'None')) {
                 ?>
-                                    <li class="nav-item has-treeview <?php echo ($lte_group === $current_group ? 'menu-open' : ''); ?>">
+                                    <li class="nav-item has-treeview <?php echo ($lat_group === $current_group ? 'menu-open' : ''); ?>">
                                         <a href="#" class="nav-link">
-                                            <i class="nav-icon <?php echo $LAT_group_ico[$lte_group] ? $LAT_group_ico[$lte_group] : $ico; ?>"></i>
+                                            <i class="nav-icon <?php echo $LAT_group_ico[$lat_group] ? $LAT_group_ico[$lat_group] : $ico; ?>"></i>
                                             <p>
-                                                <?php echo $lte_group; ?>
+                                                <?php echo $lat_group; ?>
                                                 <i class="right fas fa-angle-left"></i>
                                             </p>
                                         </a>
                                         <ul class="nav nav-treeview">
                                             <?php
                                         }
-                                        foreach ($lte_tables as $lte_table) {
-                                            $tc = $arrTables[$lte_table];
+                                        foreach ($lat_tables as $lat_table) {
+                                            $tc = $arrTables[$lat_table];
                                             $count_badge = '';
                                             if ($tc['homepageShowCount']) {
-                                                $sql_from = get_sql_from($lte_table);
+                                                $sql_from = get_sql_from($lat_table);
                                                 $count_records = ($sql_from ? sqlValue("select count(1) from " . $sql_from) : 0);
                                                 $count_badge = '<spam class="right badge badge-info">' . number_format($count_records) . '</spam>';
                                             }
                                             /* hide current table in homepage? */
-                                            $tChkHL = array_search($lte_table, array('ordersDetails', 'creditDocument', '_resumeOrders', 'electronicInvoice', 'modalitaPagamento', 'codiceDestinatario', 'regimeFiscale', 'tipoCassa'));
+                                            $tChkHL = array_search($lat_table, array('ordersDetails', 'creditDocument', '_resumeOrders', 'electronicInvoice', 'modalitaPagamento', 'codiceDestinatario', 'regimeFiscale', 'tipoCassa'));
                                             if ($tChkHL === false || $tChkHL === null) { /* if table is not set as hidden in homepage */ ?>
                                                 <li class="nav-item">
-                                                    <a href="<?php echo PREPEND_PATH . $lte_table; ?>_view.php" class="nav-link  <?php echo ($lte_table === $x->TableName ? 'active' : ''); ?>">
+                                                    <a href="<?php echo PREPEND_PATH . $lat_table; ?>_view.php" class="nav-link  <?php echo ($lat_table === $x->TableName ? 'active' : ''); ?>">
                                                         <?php echo ($tc['tableIcon'] ? '<img src="' . PREPEND_PATH . $tc['tableIcon'] . '">' : ''); ?>
                                                         <p>
                                                             <?php
@@ -103,7 +103,7 @@ if (!isset($Translation)) {
                                         }
                                         foreach ($homeLinks as $link) {
                                             if (!isset($link['url']) || !isset($link['title'])) continue;
-                                            if ($lte_group != $link['table_group'] && $lte_group != '*') continue;
+                                            if ($lat_group != $link['table_group'] && $lat_group != '*') continue;
                                             if ($memberInfo['admin'] || @in_array($memberInfo['group'], $link['groups']) || @in_array('*', $link['groups'])) {
                                                 $title = $link['subGroup'] ? $link['subGroup'] . " - " . $link['title'] : $link['title'];
                                                 $dot = (strlen($title) > $len + 3) ? "..." : "";
@@ -119,7 +119,7 @@ if (!isset($Translation)) {
                                             <?php
                                             }
                                         }
-                                        if (($lte_group !== 'None')) {
+                                        if (($lat_group !== 'None')) {
                                             ?>
 
                                         </ul>
@@ -132,7 +132,7 @@ if (!isset($Translation)) {
                                 <li class="nav-item active">
                                     <a href="#" class="nav-link">
                                         <i class="fa fa-link"></i>
-                                        <span><?php echo $lte_group; ?></span>
+                                        <span><?php echo $lat_group; ?></span>
                                     </a>
                                 </li>
 
