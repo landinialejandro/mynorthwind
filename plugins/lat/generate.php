@@ -76,22 +76,7 @@ $lat_class->copy_file($source_class, $dest_class, true);
 $extra_function = false;
 $code = '
 <?php
-	function activate_LAT($fn)
-	{
-		if (!empty($fn) ){
-			$rootDir = dirname(__FILE__)."/..";
-			if (is_file("$rootDir/LAT/config_lat.php")) {
-				include_once "$rootDir/LAT/config_lat.php";
-				if (getLteStatus()) {
-					//$fn = basename(__FILE__, ".php");
-					include_once("$rootDir/LAT/" . $fn . "_lat.php");
-					return true;
-				}
-			} else {
-				die("// The config file not exist");
-			}
-		}
-	}
+include(dirname(__FILE__) . "/../LAT/setup_lat.php");
 ?>
 ';
 $file_path = "$path/hooks/__global.php";
@@ -99,18 +84,18 @@ $res = $lat_class->add_to_file($file_path, $extra_function, $code);
 inspect_result($res, $file_path,$lat_class);
 
 $files = [
-	'admin/incHeader' => 'header',
-	'admin/incFooter' => 'footer',
-	'header' => 'header',
-	'footer' => 'footer',
-	'home' => 'home'
+	'admin/incHeader' => ['header',true],
+	'admin/incFooter' => ['footer',true],
+	'header' => ['header',false],
+	'footer' => ['footer',false],
+	'home' => ['home',false]
 ];
 foreach ($files as $fn => $call) {
 	$inc =
 		$code = '
 		<<?php
 			//enable Landini Admin Template
-			if (activate_LAT(basename(' . $call . ', ".php"))) return;
+			if (activate_LAT(basename(' . $call[0] . ', ".php"),$x,' . $call[1] . ')) return;
 		?>
 		';
 	$file_path = $path . "/$fn.php";

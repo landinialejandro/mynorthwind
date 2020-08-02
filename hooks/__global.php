@@ -31,5 +31,4 @@ function member_activity($memberInfo, $activity, &$args)
 function sendmail_handler(&$pm)
 {
 }
-$rootDir = dirname(__FILE__) . "/..";
-include("$rootDir/LAT/setup_lat.php");
+include(dirname(__FILE__) . "/../LAT/setup_lat.php");
