@@ -1,11 +1,7 @@
 
-		<?php /* Inserted by Landini Admin Template on 2020-08-02 11:24:26 */ ?>
-		
-<?php
-include(dirname(__FILE__) . "/../LAT/setup_lat.php");
-?>
-
-		<?php /* End of Landini Admin Template code */ ?>
+<?php /* Inserted by Landini Admin Template on 2020-08-02 04:22:11 */ ?>
+		<?php include(dirname(__FILE__) . "/../LAT/setup_lat.php");?>
+<?php /* End of Landini Admin Template code */ ?>
 <?php
 // For help on using hooks, please refer to https://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks
 
