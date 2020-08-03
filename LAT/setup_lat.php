@@ -36,9 +36,6 @@ function check_LTA_installed()
 			fwrite($fp, $thisMD5);
 			fclose($fp);
 		}
-
-		// @header("Location: ./index.php?signOut=1");
-		// exit;
 	}
 	return $setupAlreadyRun;
 }
