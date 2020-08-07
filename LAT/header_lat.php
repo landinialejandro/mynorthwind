@@ -84,7 +84,9 @@ if (isset($_GET['loginFailed']) || isset($_GET['signIn']) || $call == "membershi
 	</style>
 <?php
 }
-$bodyClass = $inLogin ? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-fixed";
+
+$bodyClass = $inLogin || $_REQUEST['Embedded'] ? "skin-blue fixed layout-top-nav" : "hold-transition sidebar-mini layout-fixed";
+
 if (function_exists('handle_maintenance')) echo handle_maintenance(true);
 $memberInfo = getMemberInfo();
 if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../hooks/header-extras.php')) {
@@ -96,23 +98,25 @@ if (!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/../LAT/header_ext
 ?>
 
 <body class="<?php echo $bodyClass; ?>">
-	<div class="wrapper">
+	<!-- .wrapper -->
+	<div class="wrapper"> 
 		<?php
 		$adminPath = $ADMINAREA ? "admin/" : "";
 		if (!$_REQUEST['Embedded']) include($adminPath . 'navBar_lat.php');
-		if (!$inLogin && !$_REQUEST['Embedded']) include($adminPath . 'sideBarMenu_lat.php');
-		if (!$_REQUEST['Embedded']) { ?>
-			<!-- /.content-wrapper -->
-			<div class="content-wrapper">
-			<?php } ?>
-			<!-- Content Header (Page header) -->
+		if (!$_REQUEST['Embedded'] && !$inLogin) include($adminPath . 'sideBarMenu_lat.php');
+		?>
+		<!-- .content-wrapper -->
+		<div class="content-wrapper">
+			<!-- .content-header-->
 			<section class="content-header">
 				<?php
 				if (class_exists('Notification')) echo Notification::placeholder();
 				if (function_exists('showNotifications')) echo showNotifications();
 				?>
 			</section>
-			<!-- /.content HEADER -->
+			<!-- /.content-header -->
+			<!-- section.content -->
 			<section class="content">
+				<!-- .container-fluid -->
 				<div class="container-fluid">
-					<div class="appGini">
+				<?php if ($ADMINAREA) echo "<!-- .row div in admin area --> <div class='card card-body'>"; ?>

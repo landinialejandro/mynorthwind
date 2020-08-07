@@ -5,15 +5,15 @@ if (!isset($Translation)) {
 	include("{$currDir}/../language.php");
 }
 ?>
+<!-- aside.main-sidebar -->
 <aside class="main-sidebar elevation-4 sidebar-dark-primary">
     <!-- Brand Logo -->
     <a href="<?php echo PREPEND_PATH; ?>index.php" class="brand-link">
         <img src="<?php echo PREPEND_PATH; ?>LAT/logo/logo.png" alt="lat" class="brand-image img-rounded elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo $LAT_globals['app-brand-text']; ?></span>
     </a>
-
+    <!-- .sidebar user panel (optional) -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="<?php echo PREPEND_PATH; ?>images/<?php echo $mpi->thumb; ?>" class="img-rounded elevation-2 user-image" alt="User Image">
@@ -22,7 +22,7 @@ if (!isset($Translation)) {
                 <a href="<?php echo PREPEND_PATH; ?>LAT/membership_profile.php" class="d-block"><?php echo getLoggedMemberID(); ?></a>
             </div>
         </div>
-        <!-- Sidebar Menu -->
+        <!-- nav Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
@@ -129,10 +129,11 @@ if (!isset($Translation)) {
             </ul>
             <!-- /.sidebar-menu -->
         </nav>
+        <!-- /nav Menu -->
     </div>
     <!-- /.sidebar -->
 </aside>
-
+<!-- /aside.main-sidebar -->
 <?php
 function counter($table, $tc)
 {
