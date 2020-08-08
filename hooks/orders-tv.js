@@ -1,3 +1,3 @@
-$j(function(){
-    tv_editlets(AppGini.currentTableName());
+$j(function() {
+    tv_editlets(AppGini.currentTableName(), ['customer']);
 });

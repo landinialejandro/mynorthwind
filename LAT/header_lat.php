@@ -34,7 +34,7 @@
 		<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>resources/initializr/css/rtl.css">
 	<?php } ?>
 
-	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/css/myCustom.css">
+	<link rel="stylesheet" href="<?php echo PREPEND_PATH; ?>LAT/css/LAT_Custom.css">
 
 	<!--[if lt IE 9]>
 		<script src="<?php echo PREPEND_PATH; ?>resources/initializr/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>

@@ -1,14 +1,15 @@
-$j(function(){
-   updateBS();
-   //setTimeout(updateBS(),5200);
-    $j('.add_new_parent, .view_parent').on('click', function(){
-        setTimeout(function(){
+$j(function() {
+    updateBS();
+    //setTimeout(updateBS(),5200);
+    $j('.add_new_parent, .view_parent').on('click', function() {
+        setTimeout(function() {
             updateBS();
-        },500);
+        }, 500);
     });
 });
 
-function updateBS(){
+function updateBS() {
+    $j('hr.hidden-xs').remove();
     $j('.visible-xs.visible-sm').addClass('d-block d-sm-block d-md-none');
     $j('.visible-md.visible-lg').addClass('d-md-block d-sm-none d-none');
     $j('.btn-default').addClass('btn-secondary');
@@ -25,15 +26,17 @@ function updateBS(){
     $j('.panel-title').addClass('card-title');
     $j('.hidden-print').addClass('d-print-none');
     $j('.btn').removeClass('btn-lg');
+    $j('textarea').addClass('form-control');
+
     //admin tools
-    setTimeout(function(){
-         $j('#admin-tools-menu-button').removeClass('pull-right');
-         $adminToolsMenu = $j('#admin-tools-menu');
-         $adminToolsMenu.removeAttr('id');
-         $adminToolsMenu.each(function(){
-             $j(this).children().addClass('dropdown-item');
-         });
-     },500);
+    setTimeout(function() {
+        $j('#admin-tools-menu-button').removeClass('pull-right');
+        $adminToolsMenu = $j('#admin-tools-menu');
+        $adminToolsMenu.removeAttr('id');
+        $adminToolsMenu.each(function() {
+            $j(this).children().addClass('dropdown-item');
+        });
+    }, 500);
     //modal windows
     $j('.modal-dialog').addClass('modal-xl');
     $j('.modal-title').prependTo('.modal-header');
