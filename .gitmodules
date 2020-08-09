@@ -1,3 +1,6 @@
 [submodule "LAT/tvedit"]
 	path = LAT/tvedit
 	url = git@github.com:myappgini/sbm_tvedit.git
+[submodule "LAT/plugins"]
+	path = LAT/plugins
+	url = git@github.com:myappgini/sbm_plugins.git
