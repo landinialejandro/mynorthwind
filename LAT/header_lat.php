@@ -51,8 +51,8 @@
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/prototype/prototype.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/plugins/moment/moment.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/adminlte3/dist/js/adminlte.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jquery.contextMenu.js"></script>
-	<script src="<?php echo PREPEND_PATH; ?>LAT/jsonedit/jsonedit.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jsonedit/jquery.contextMenu.js"></script>
+	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/jsonedit/jsonedit.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/TweenMax/TweenMax.min.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>LAT/plugins/l-makecounter/l-makecounter.js"></script>
 	<script src="<?php echo PREPEND_PATH; ?>resources/jquery/js/jquery.mark.min.js"></script>
