@@ -8,6 +8,7 @@ include_once("header.php");
 $mi = getMemberInfo();
 if ($mi['group'] === 'anonymous'){ include('home_guest.php');}
 if ($mi['group'] === 'Admins'){ include('home_admins.php');}
+if ($mi['group'] === 'Users'){ include('home_users.php');}
 
 include_once("footer.php"); 
 ?>
