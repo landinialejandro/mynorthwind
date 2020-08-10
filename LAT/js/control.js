@@ -48,39 +48,46 @@
     //checkboxes
     var settings = [{
             selector: ".main-header",
+            group: "Navbar options",
             class: ["border-bottom-0", "text-sm"],
             title: ["No Navbar border", "Navbar small text"]
         },
         {
             selector: "body",
+            group: "Menu bar options",
             class: ["text-sm", "sidebar-collapse"],
-            title: ["Body small text", "Still collapse menu bar"]
+            title: ["Small text", "Still collapse"]
         },
         {
             selector: ".nav-sidebar",
+            group: "Sidebar nav options",
             class: ["text-sm", "nav-flat", "nav-legacy", "nav-compact", "nav-child-indent"],
-            title: ["Sidebar nav small text", "Sidebar nav flat style", "Sidebar nav legacy style", "Sidebar nav compact", "Sidebar nav child indent"]
+            title: ["Small text", "Flat style", "Legacy style", "Compact", "Child indent"]
         },
         {
             selector: ".main-footer",
+            group: "Footer option",
             class: ["text-sm"],
-            title: ["Footer small text"]
+            title: ["Small text"]
         },
         {
             selector: ".main-sidebar",
+            group: "Main sidebar option",
             class: ["sidebar-no-expand"],
-            title: ["Main Sidebar disable hover/focus auto expand"]
+            title: ["disable hover/focus auto expand"]
         },
         {
             selector: ".brand-link",
+            group: "Brand option",
             class: ["text-sm"],
-            title: ["Brand small text"]
+            title: ["Small text"]
         }
     ];
     var value = "";
     var $no_border_checkbox = "";
     settings.forEach(e => {
         var i = 0;
+        $containerSettings.append('<h6>' + e.group + '</h6>');
         e.class.forEach(c => {
             value = (get(e.selector + "_" + c) == "true");
             $no_border_checkbox = $('<input />', {
