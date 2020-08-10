@@ -9,12 +9,10 @@ $j(function() {
 });
 
 function updateBS() {
-    $j('hr.hidden-xs').remove();
     $j('.visible-xs.visible-sm').addClass('d-block d-sm-block d-md-none');
     $j('.visible-md.visible-lg').addClass('d-md-block d-sm-none d-none');
     $j('.btn-default').addClass('btn-secondary');
     $j('.input-group-btn').addClass('input-group-append');
-    $j('.btn-group-lg').removeClass('btn-group-lg');
     $j('.row > .col-xs-12').addClass('col-12');
     $j('.pull-right').addClass('float-md-right');
     $j('.pull-left').addClass('float-md-left');
@@ -25,8 +23,11 @@ function updateBS() {
     $j('.panel-body').addClass('card-body');
     $j('.panel-title').addClass('card-title');
     $j('.hidden-print').addClass('d-print-none');
-    $j('.btn').removeClass('btn-lg');
     $j('textarea').addClass('form-control');
+    $j('hr.hidden-xs').remove();
+    $j('.btn').removeClass('btn-lg');
+    $j('.btn-group-lg').removeClass('btn-group-lg');
+    $j('#quick-search').remove();
 
     //admin tools
     setTimeout(function() {
