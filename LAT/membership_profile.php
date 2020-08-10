@@ -13,7 +13,7 @@ $imageFolder = $rootDir . "/images/";
 /* no access for guests */
 $mi = getMemberInfo();
 if (!$mi['username'] || $mi['group'] == $adminConfig['anonymousGroup']) {
-  @header('Location: index.php');
+  @header('Location: ../index.php');
   exit;
 }
 $mpi = new Mpi($mi['username'], $imageFolder);
