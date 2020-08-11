@@ -10,6 +10,3 @@
 [submodule "LAT/adminlte3"]
 	path = LAT/adminlte3
 	url = git@github.com:ColorlibHQ/AdminLTE.git
-[submodule "LAT/gentelella"]
-	path = LAT/gentelella
-	url = git@github.com:ColorlibHQ/gentelella.git
