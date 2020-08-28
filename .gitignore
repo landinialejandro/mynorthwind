@@ -13,5 +13,5 @@ test.html
 prueba.html
 *.zip
 admin/backups/.htaccess
-LTE/config.json
+LAT/config.json
 lat.md5
