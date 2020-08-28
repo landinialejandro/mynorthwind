@@ -168,7 +168,6 @@
 <script>
   $j(function() {
     // here you need to make an ajax to get the array values form a php.
-    labelize_table();
     $j.get("LAT/data-ajax.php", {
         productid: 1
       },
